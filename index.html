@@ -16,6 +16,7 @@
       --accent: #1f7a8c;
       --line: #e5e7eb;
       --soft: #eef6f8;
+      --shadow: rgba(15, 47, 79, 0.08);
     }
 
     * {
@@ -43,13 +44,20 @@
     header {
       background: linear-gradient(135deg, #0f2f4f, #123c69, #1f7a8c);
       color: white;
-      padding: 76px 24px 60px;
+      padding: 76px 24px 64px;
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1120px;
       margin: auto;
       padding: 0 22px;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 240px;
+      gap: 44px;
+      align-items: center;
     }
 
     .hero h1 {
@@ -67,10 +75,26 @@
     }
 
     .hero p {
-      max-width: 880px;
+      max-width: 870px;
       font-size: 17px;
       color: #f4f8fb;
       margin-bottom: 28px;
+    }
+
+    .profile-photo-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-photo {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+      background: white;
     }
 
     .buttons {
@@ -140,7 +164,7 @@
       border: 1px solid var(--line);
       border-radius: 16px;
       padding: 28px;
-      box-shadow: 0 8px 24px rgba(15, 47, 79, 0.06);
+      box-shadow: 0 8px 24px var(--shadow);
       margin-bottom: 20px;
     }
 
@@ -185,9 +209,59 @@
       margin-bottom: 9px;
     }
 
+    .education-timeline {
+      position: relative;
+      margin-top: 10px;
+    }
+
+    .education-item {
+      display: grid;
+      grid-template-columns: 125px 1fr;
+      gap: 22px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .education-item:first-child {
+      padding-top: 4px;
+    }
+
+    .education-item:last-child {
+      border-bottom: none;
+      padding-bottom: 4px;
+    }
+
+    .education-year {
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 15px;
+      padding-top: 4px;
+    }
+
+    .education-content h3 {
+      margin: 0 0 6px;
+      color: var(--primary);
+      font-size: 20px;
+    }
+
+    .education-content p {
+      margin: 4px 0;
+    }
+
+    .degree-badge {
+      display: inline-block;
+      background: var(--soft);
+      color: var(--primary);
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
     .publication {
-      padding-bottom: 16px;
-      margin-bottom: 16px;
+      padding-bottom: 18px;
+      margin-bottom: 18px;
       border-bottom: 1px solid var(--line);
     }
 
@@ -199,6 +273,11 @@
 
     .publication strong {
       color: var(--primary);
+      font-size: 17px;
+    }
+
+    .publication p {
+      margin: 8px 0 0;
     }
 
     .link-buttons {
@@ -238,7 +317,20 @@
       color: #d8e8ed;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 850px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-photo-wrap {
+        justify-content: flex-start;
+      }
+
+      .profile-photo {
+        width: 170px;
+        height: 170px;
+      }
+
       .hero h1 {
         font-size: 34px;
       }
@@ -256,6 +348,11 @@
         gap: 12px;
         font-size: 14px;
       }
+
+      .education-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
     }
   </style>
 </head>
@@ -264,25 +361,35 @@
 
   <header>
     <div class="container hero">
-      <h1>Siddhi Vinayak Pandey</h1>
+      <div class="hero-layout">
 
-      <h2>
-        PhD Researcher | Neuromorphic Computing | Nanofluidics | Iontronic Systems | AI and Energy
-      </h2>
+        <div>
+          <h1>Siddhi Vinayak Pandey</h1>
 
-      <p>
-        I am a PhD Researcher and Dean’s Doctoral Fellow in the Department of Physics and Astronomy
-        at the University of Manchester. My research focuses on ionic memory, nanofluidic memristors,
-        electrochemical device physics and next-generation energy-efficient computing systems inspired by
-        biological neural networks.
-      </p>
+          <h2>
+            PhD Researcher | Neuromorphic Computing | Nanofluidics | Iontronic Systems | AI and Energy
+          </h2>
 
-      <div class="buttons">
-        <a class="btn btn-filled" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank">Google Scholar</a>
-        <a class="btn" href="https://www.linkedin.com/in/siddhi-vinayak-pandey-17a295162" target="_blank">LinkedIn</a>
-        <a class="btn" href="https://orcid.org/0000-0002-1574-2846" target="_blank">ORCID</a>
-        <a class="btn" href="https://github.com/siddhivinayak-l" target="_blank">GitHub</a>
-        <a class="btn" href="#contact">Contact</a>
+          <p>
+            I am a PhD Researcher and Dean’s Doctoral Fellow in the Department of Physics and Astronomy
+            at the University of Manchester. My research focuses on ionic memory, nanofluidic memristors,
+            electrochemical device physics and next-generation energy-efficient computing systems inspired by
+            biological neural networks.
+          </p>
+
+          <div class="buttons">
+            <a class="btn btn-filled" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank">Google Scholar</a>
+            <a class="btn" href="https://www.linkedin.com/in/siddhi-vinayak-pandey-17a295162" target="_blank">LinkedIn</a>
+            <a class="btn" href="https://orcid.org/0000-0002-1574-2846" target="_blank">ORCID</a>
+            <a class="btn" href="https://github.com/siddhivinayak-l" target="_blank">GitHub</a>
+            <a class="btn" href="#contact">Contact</a>
+          </div>
+        </div>
+
+        <div class="profile-photo-wrap">
+          <img class="profile-photo" src="profile.jpg" alt="Siddhi Vinayak Pandey profile photo">
+        </div>
+
       </div>
     </div>
   </header>
@@ -290,6 +397,7 @@
   <nav>
     <div class="container">
       <a href="#about">About</a>
+      <a href="#education">Education</a>
       <a href="#research">Research</a>
       <a href="#publications">Publications</a>
       <a href="#projects">Projects</a>
@@ -329,6 +437,63 @@
             <span class="tag">Machine Learning</span>
             <span class="tag">Energy Devices</span>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <h2 class="section-title">Academic Background</h2>
+
+        <div class="card education-timeline">
+
+          <div class="education-item">
+            <div class="education-year">2023 – Present</div>
+            <div class="education-content">
+              <span class="degree-badge">PhD</span>
+              <h3>PhD Research Scholar and Dean’s Doctoral Fellow</h3>
+              <p><strong>Department of Physics and Astronomy, University of Manchester</strong></p>
+              <p class="muted">Manchester, United Kingdom</p>
+              <p>
+                Doctoral research focused on ionic memory, nanofluidic memristors,
+                memristive ion transport and next-generation energy-efficient computing.
+              </p>
+              <p><strong>Thesis:</strong> Ionic Memory for Next-Generation Computing</p>
+            </div>
+          </div>
+
+          <div class="education-item">
+            <div class="education-year">2021 – 2023</div>
+            <div class="education-content">
+              <span class="degree-badge">M.Tech</span>
+              <h3>M.Tech in Energy Systems</h3>
+              <p><strong>Pandit Deendayal Energy University</strong></p>
+              <p class="muted">Gandhinagar, India</p>
+              <p>
+                Focused on energy systems, machine learning for materials, device physics,
+                and computational analysis of halide perovskite devices.
+              </p>
+              <p><strong>Thesis:</strong> Investigating the Electrical Properties of Halide Perovskites Using Machine Learning</p>
+              <p><strong>CPI:</strong> 9.6/10</p>
+            </div>
+          </div>
+
+          <div class="education-item">
+            <div class="education-year">2017 – 2021</div>
+            <div class="education-content">
+              <span class="degree-badge">B.Tech</span>
+              <h3>B.Tech in Electrical Engineering</h3>
+              <p><strong>Adani Institute of Infrastructure Engineering</strong></p>
+              <p class="muted">Ahmedabad, India</p>
+              <p>
+                Built a foundation in electrical engineering, energy systems, automation,
+                battery modelling and machine-learning-assisted engineering analysis.
+              </p>
+              <p><strong>Thesis:</strong> Degradation Analysis of Li-ion Batteries Using Machine Learning and Deep Learning Techniques</p>
+              <p><strong>CGPA:</strong> 8.99/10</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -382,30 +547,59 @@
             <strong>Ionic memory or electrode artefacts? A systematic assessment of nanofluidic memristors</strong>
             <br />
             <span class="muted">Faraday Discussions, Royal Society of Chemistry, 2026</span>
+            <p>
+              A systematic investigation of ionic memory, electrochemical artefacts and nanoscale ion-transport
+              behaviour in nanofluidic memristor systems.
+            </p>
           </div>
 
           <div class="publication">
             <strong>Programmable memristors with two-dimensional nanofluidic channels</strong>
             <br />
             <span class="muted">Nature Communications, 2025</span>
+            <p>
+              Demonstrates programmable memristive behaviour in two-dimensional nanofluidic channels for
+              brain-inspired and iontronic computing concepts.
+            </p>
+          </div>
+
+          <div class="publication">
+            <strong>Emerging Nanofluidic Memory for Next-Generation Computing</strong>
+            <br />
+            <span class="muted">Nature Reviews Materials, in press</span>
+            <p>
+              A perspective on material platforms, mechanisms and future directions for nanofluidic ionic memory
+              in next-generation computing systems.
+            </p>
           </div>
 
           <div class="publication">
             <strong>Electric field mediated unclogging of Ångström-scale channels</strong>
             <br />
             <span class="muted">Small Methods, Wiley, 2024</span>
+            <p>
+              Explores electric-field-assisted transport and unclogging phenomena in extremely confined
+              Ångström-scale channels.
+            </p>
           </div>
 
           <div class="publication">
             <strong>A machine learning framework for predicting device performance in 2D metal halide perovskite photodetector</strong>
             <br />
             <span class="muted">Solar Energy, Elsevier, 2024</span>
+            <p>
+              Develops a machine-learning framework for analysing and predicting optoelectronic device performance
+              in two-dimensional halide perovskite photodetectors.
+            </p>
           </div>
 
           <div class="publication">
             <strong>Predicting the state parameters of lithium-ion batteries: The race between filter-based and data-driven approaches</strong>
             <br />
             <span class="muted">Sustainable Energy & Fuels, Royal Society of Chemistry, 2023</span>
+            <p>
+              Compares filter-based and data-driven methods for predicting key lithium-ion battery state parameters.
+            </p>
           </div>
 
           <p class="muted">
