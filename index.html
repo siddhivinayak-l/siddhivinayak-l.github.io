@@ -43,7 +43,7 @@
     header {
       background: linear-gradient(135deg, #0f2f4f, #123c69, #1f7a8c);
       color: white;
-      padding: 70px 24px 55px;
+      padding: 76px 24px 60px;
     }
 
     .container {
@@ -52,18 +52,11 @@
       padding: 0 22px;
     }
 
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-      align-items: center;
-    }
-
     .hero h1 {
-      font-size: 44px;
+      font-size: 46px;
       margin: 0 0 12px;
       line-height: 1.15;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.6px;
     }
 
     .hero h2 {
@@ -74,7 +67,7 @@
     }
 
     .hero p {
-      max-width: 850px;
+      max-width: 880px;
       font-size: 17px;
       color: #f4f8fb;
       margin-bottom: 28px;
@@ -84,6 +77,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      margin-top: 18px;
     }
 
     .btn {
@@ -91,7 +85,7 @@
       padding: 11px 17px;
       border-radius: 8px;
       font-weight: 600;
-      border: 1px solid rgba(255,255,255,0.55);
+      border: 1px solid rgba(255,255,255,0.6);
       color: white;
       transition: 0.2s ease;
     }
@@ -100,6 +94,16 @@
       background: white;
       color: var(--primary);
       text-decoration: none;
+    }
+
+    .btn-filled {
+      background: white;
+      color: var(--primary);
+    }
+
+    .btn-filled:hover {
+      background: transparent;
+      color: white;
     }
 
     nav {
@@ -197,6 +201,30 @@
       color: var(--primary);
     }
 
+    .link-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .link-btn {
+      display: inline-block;
+      padding: 10px 15px;
+      border-radius: 8px;
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+      border: 1px solid var(--primary);
+      transition: 0.2s ease;
+    }
+
+    .link-btn:hover {
+      background: white;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
     footer {
       background: #0f2f4f;
       color: white;
@@ -236,22 +264,25 @@
 
   <header>
     <div class="container hero">
-      <div>
-        <h1>Siddhi Vinayak Pandey</h1>
-        <h2>PhD Researcher | Neuromorphic Computing | Nanofluidics | Iontronic Systems | AI and Energy</h2>
-        <p>
-          I am a PhD Researcher and Dean’s Doctoral Fellow in the Department of Physics and Astronomy
-          at the University of Manchester. My research focuses on ionic memory, nanofluidic memristors,
-          electrochemical device physics and next-generation energy-efficient computing systems inspired by
-          biological neural networks.
-        </p>
+      <h1>Siddhi Vinayak Pandey</h1>
 
-        <div class="buttons">
-          <a class="btn" href="#research">Research</a>
-          <a class="btn" href="#publications">Publications</a>
-          <a class="btn" href="#projects">Projects</a>
-          <a class="btn" href="#contact">Contact</a>
-        </div>
+      <h2>
+        PhD Researcher | Neuromorphic Computing | Nanofluidics | Iontronic Systems | AI and Energy
+      </h2>
+
+      <p>
+        I am a PhD Researcher and Dean’s Doctoral Fellow in the Department of Physics and Astronomy
+        at the University of Manchester. My research focuses on ionic memory, nanofluidic memristors,
+        electrochemical device physics and next-generation energy-efficient computing systems inspired by
+        biological neural networks.
+      </p>
+
+      <div class="buttons">
+        <a class="btn btn-filled" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank">Google Scholar</a>
+        <a class="btn" href="https://www.linkedin.com/in/siddhi-vinayak-pandey-17a295162" target="_blank">LinkedIn</a>
+        <a class="btn" href="https://orcid.org/0000-0002-1574-2846" target="_blank">ORCID</a>
+        <a class="btn" href="https://github.com/siddhivinayak-l" target="_blank">GitHub</a>
+        <a class="btn" href="#contact">Contact</a>
       </div>
     </div>
   </header>
@@ -273,6 +304,7 @@
     <section id="about">
       <div class="container">
         <h2 class="section-title">About</h2>
+
         <div class="card">
           <p>
             I work at the interface of neuromorphic computing, nanofluidics, electrochemical devices,
@@ -280,6 +312,7 @@
             can exhibit memory, adaptive transport and memristive behaviour, with the long-term aim of developing
             energy-efficient computing concepts inspired by biological information processing.
           </p>
+
           <p>
             Before joining the University of Manchester, I completed an M.Tech in Energy Systems at Pandit
             Deendayal Energy University and a B.Tech in Electrical Engineering at Adani Institute of Infrastructure
@@ -346,15 +379,15 @@
 
         <div class="card">
           <div class="publication">
-            <strong>Programmable memristors with two-dimensional nanofluidic channels</strong>
-            <br />
-            <span class="muted">Nature Communications, 2025</span>
-          </div>
-
-          <div class="publication">
             <strong>Ionic memory or electrode artefacts? A systematic assessment of nanofluidic memristors</strong>
             <br />
             <span class="muted">Faraday Discussions, Royal Society of Chemistry, 2026</span>
+          </div>
+
+          <div class="publication">
+            <strong>Programmable memristors with two-dimensional nanofluidic channels</strong>
+            <br />
+            <span class="muted">Nature Communications, 2025</span>
           </div>
 
           <div class="publication">
@@ -382,8 +415,13 @@
           </div>
 
           <p class="muted">
-            Full publication list available on Google Scholar and CV.
+            Full publication list available on Google Scholar.
           </p>
+
+          <div class="link-buttons">
+            <a class="link-btn" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank">View Google Scholar</a>
+            <a class="link-btn" href="https://orcid.org/0000-0002-1574-2846" target="_blank">View ORCID</a>
+          </div>
         </div>
       </div>
     </section>
@@ -504,13 +542,20 @@
           </p>
 
           <p>
-            <strong>Affiliation:</strong> Department of Physics and Astronomy, University of Manchester, United Kingdom
+            <strong>Affiliation:</strong>
+            Department of Physics and Astronomy, University of Manchester, United Kingdom
           </p>
 
           <p>
-            <strong>Links:</strong>
-            Add your Google Scholar, LinkedIn, ORCID and GitHub links here.
+            <strong>Professional Links:</strong>
           </p>
+
+          <div class="link-buttons">
+            <a class="link-btn" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank">Google Scholar</a>
+            <a class="link-btn" href="https://www.linkedin.com/in/siddhi-vinayak-pandey-17a295162" target="_blank">LinkedIn</a>
+            <a class="link-btn" href="https://orcid.org/0000-0002-1574-2846" target="_blank">ORCID</a>
+            <a class="link-btn" href="https://github.com/siddhivinayak-l" target="_blank">GitHub</a>
+          </div>
         </div>
       </div>
     </section>
