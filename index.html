@@ -1,28 +1,526 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Siddhi Vinayak Pandey</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Siddhi Vinayak Pandey | PhD Researcher</title>
+
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #5f6b7a;
+      --primary: #123c69;
+      --accent: #1f7a8c;
+      --line: #e5e7eb;
+      --soft: #eef6f8;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f2f4f, #123c69, #1f7a8c);
+      color: white;
+      padding: 70px 24px 55px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 22px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      margin: 0 0 12px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+    }
+
+    .hero h2 {
+      font-size: 21px;
+      font-weight: 500;
+      margin: 0 0 20px;
+      color: #e7f4f7;
+    }
+
+    .hero p {
+      max-width: 850px;
+      font-size: 17px;
+      color: #f4f8fb;
+      margin-bottom: 28px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 17px;
+      border-radius: 8px;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.55);
+      color: white;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      background: white;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    nav {
+      background: white;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      padding-top: 14px;
+      padding-bottom: 14px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 54px 0;
+    }
+
+    h2.section-title {
+      font-size: 30px;
+      margin: 0 0 24px;
+      color: var(--primary);
+      letter-spacing: -0.3px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 8px 24px rgba(15, 47, 79, 0.06);
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--soft);
+      color: var(--primary);
+      padding: 7px 11px;
+      margin: 5px 5px 5px 0;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--primary);
+      font-size: 20px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 9px;
+    }
+
+    .publication {
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .publication:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .publication strong {
+      color: var(--primary);
+    }
+
+    footer {
+      background: #0f2f4f;
+      color: white;
+      text-align: center;
+      padding: 28px 18px;
+      margin-top: 30px;
+    }
+
+    footer p {
+      margin: 4px 0;
+      color: #d8e8ed;
+    }
+
+    @media (max-width: 800px) {
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero h2 {
+        font-size: 18px;
+      }
+
+      .grid,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      nav .container {
+        gap: 12px;
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Siddhi Vinayak Pandey</h1>
 
-  <h2>PhD Researcher | Neuromorphic Computing | Nanofluidics | AI and Energy</h2>
+  <header>
+    <div class="container hero">
+      <div>
+        <h1>Siddhi Vinayak Pandey</h1>
+        <h2>PhD Researcher | Neuromorphic Computing | Nanofluidics | Iontronic Systems | AI and Energy</h2>
+        <p>
+          I am a PhD Researcher and Dean’s Doctoral Fellow in the Department of Physics and Astronomy
+          at the University of Manchester. My research focuses on ionic memory, nanofluidic memristors,
+          electrochemical device physics and next-generation energy-efficient computing systems inspired by
+          biological neural networks.
+        </p>
 
-  <p>
-    I am a PhD Researcher at the University of Manchester working on ionic memory,
-    nanofluidic memristors, iontronic systems, electrochemical devices, and
-    next-generation energy-efficient computing.
-  </p>
+        <div class="buttons">
+          <a class="btn" href="#research">Research</a>
+          <a class="btn" href="#publications">Publications</a>
+          <a class="btn" href="#projects">Projects</a>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
-  <h2>Research Interests</h2>
-  <ul>
-    <li>Nanofluidic memory and iontronic systems</li>
-    <li>Neuromorphic computing and memristive devices</li>
-    <li>Electrochemical impedance and device physics</li>
-    <li>Machine learning for materials and energy devices</li>
-  </ul>
+  <nav>
+    <div class="container">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+      <a href="#awards">Awards</a>
+      <a href="#entrepreneurship">Entrepreneurship</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-  <h2>Contact</h2>
-  <p>Email: siddhivinayak.pandey@postgrad.manchester.ac.uk</p>
+  <main>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About</h2>
+        <div class="card">
+          <p>
+            I work at the interface of neuromorphic computing, nanofluidics, electrochemical devices,
+            advanced materials and machine learning. My doctoral research explores how confined ionic systems
+            can exhibit memory, adaptive transport and memristive behaviour, with the long-term aim of developing
+            energy-efficient computing concepts inspired by biological information processing.
+          </p>
+          <p>
+            Before joining the University of Manchester, I completed an M.Tech in Energy Systems at Pandit
+            Deendayal Energy University and a B.Tech in Electrical Engineering at Adani Institute of Infrastructure
+            Engineering. My previous research includes machine-learning-assisted analysis of halide perovskites,
+            battery state estimation, electrochemical impedance spectroscopy and energy-device modelling.
+          </p>
+
+          <div>
+            <span class="tag">Nanofluidics</span>
+            <span class="tag">Neuromorphic Computing</span>
+            <span class="tag">Iontronic Systems</span>
+            <span class="tag">Memristive Devices</span>
+            <span class="tag">Electrochemistry</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Energy Devices</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <h2 class="section-title">Research Interests</h2>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Nanofluidic Memory and Iontronic Systems</h3>
+            <p>
+              Investigating ionic transport, memory effects and adaptive conduction in confined nanofluidic
+              systems for brain-inspired and energy-efficient computing.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Neuromorphic and Memristive Devices</h3>
+            <p>
+              Studying potentiation, depression, retention, endurance, EPSC, IPSC, STDP and SRDP protocols
+              in ionic and electrochemical memory devices.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Electrochemical Impedance and Device Physics</h3>
+            <p>
+              Analysing resistive, capacitive and interfacial processes in electrochemical systems, halide
+              perovskites and nanoscale transport devices.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>AI for Materials and Energy Systems</h3>
+            <p>
+              Developing machine-learning workflows for device-performance prediction, impedance interpretation,
+              battery SOC/SOH/RUL estimation and structure-property correlation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container">
+        <h2 class="section-title">Selected Publications</h2>
+
+        <div class="card">
+          <div class="publication">
+            <strong>Programmable memristors with two-dimensional nanofluidic channels</strong>
+            <br />
+            <span class="muted">Nature Communications, 2025</span>
+          </div>
+
+          <div class="publication">
+            <strong>Ionic memory or electrode artefacts? A systematic assessment of nanofluidic memristors</strong>
+            <br />
+            <span class="muted">Faraday Discussions, Royal Society of Chemistry, 2026</span>
+          </div>
+
+          <div class="publication">
+            <strong>Emerging Nanofluidic Memory for Next-Generation Computing</strong>
+            <br />
+            <span class="muted">Nature Reviews Materials, in press</span>
+          </div>
+
+          <div class="publication">
+            <strong>Electric field mediated unclogging of Ångström-scale channels</strong>
+            <br />
+            <span class="muted">Small Methods, Wiley, 2024</span>
+          </div>
+
+          <div class="publication">
+            <strong>A machine learning framework for predicting device performance in 2D metal halide perovskite photodetector</strong>
+            <br />
+            <span class="muted">Solar Energy, Elsevier, 2024</span>
+          </div>
+
+          <div class="publication">
+            <strong>Predicting the state parameters of lithium-ion batteries: The race between filter-based and data-driven approaches</strong>
+            <br />
+            <span class="muted">Sustainable Energy & Fuels, Royal Society of Chemistry, 2023</span>
+          </div>
+
+          <p class="muted">
+            Full publication list available on Google Scholar and CV.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Selected Projects</h2>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Ionic Memory for Next-Generation Computing</h3>
+            <p>
+              Doctoral research project focused on nanofluidic memristors, confined ion transport,
+              ionic memory and neuromorphic functionality.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Nanoscale Ionic Transport Analysis</h3>
+            <p>
+              Contributed to open-source measurement and analysis workflows for nanoscale ionic transport
+              and nanofluidic device characterization.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Machine Learning for Energy Devices</h3>
+            <p>
+              Developed ML-based approaches for perovskite device analysis, battery state prediction,
+              impedance interpretation and energy-material modelling.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Robotics and Intelligent Automation</h3>
+            <p>
+              Co-developed an automatic spray-painting robot for road-marking applications and contributed
+              to innovation initiatives around robotics-based infrastructure solutions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards">
+      <div class="container">
+        <h2 class="section-title">Awards and Recognition</h2>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Dean’s Doctoral Scholarship</h3>
+            <p>University of Manchester, United Kingdom.</p>
+          </div>
+
+          <div class="card">
+            <h3>PGR Research Conference Prize</h3>
+            <p>Third Prize, Department of Physics and Astronomy, University of Manchester.</p>
+          </div>
+
+          <div class="card">
+            <h3>Best Start-up Award 2021</h3>
+            <p>Innovate to Impact category, Gujarat Innovation Council.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="teaching">
+      <div class="container">
+        <h2 class="section-title">Teaching and Public Engagement</h2>
+
+        <div class="card">
+          <ul>
+            <li>Taught Machine Learning for Energy Devices to final-year M.Tech students.</li>
+            <li>Supervised an undergraduate summer research student at the University of Manchester.</li>
+            <li>Delivered public and technical talks on renewable energy, research opportunities and MATLAB applications.</li>
+            <li>Presented research at Faraday Discussion and departmental research conferences.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="entrepreneurship">
+      <div class="container">
+        <h2 class="section-title">Entrepreneurship and Innovation</h2>
+
+        <div class="grid">
+          <div class="card">
+            <h3>PaintRobs</h3>
+            <p>
+              Founder of a robotics-based automated road-marking platform for intelligent spray-painting
+              applications including lane markings, zebra crossings, directional symbols and divider kerbs.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Lutions Group</h3>
+            <p>
+              Founder of a deep-technology and intelligent automation initiative focused on AI-assisted
+              software systems, scalable digital infrastructure, no-code machine-learning workflows and
+              integrated professional networking platforms.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+
+        <div class="card">
+          <p>
+            <strong>Email:</strong>
+            <a href="mailto:siddhivinayak.pandey@postgrad.manchester.ac.uk">
+              siddhivinayak.pandey@postgrad.manchester.ac.uk
+            </a>
+          </p>
+
+          <p>
+            <strong>Affiliation:</strong> Department of Physics and Astronomy, University of Manchester, United Kingdom
+          </p>
+
+          <p>
+            <strong>Links:</strong>
+            Add your Google Scholar, LinkedIn, ORCID and GitHub links here.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Siddhi Vinayak Pandey</p>
+    <p>Nanofluidic Memory | Neuromorphic Computing | Iontronic Systems | AI for Energy</p>
+  </footer>
+
 </body>
 </html>
