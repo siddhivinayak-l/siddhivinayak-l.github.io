@@ -3,638 +3,1155 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Siddhi Vinayak Pandey | PhD Researcher</title>
-
+  <title>Siddhi Vinayak Pandey — PhD Researcher</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f7f9fc;
-      --card: #ffffff;
-      --text: #1f2937;
-      --muted: #5f6b7a;
-      --primary: #123c69;
-      --accent: #1f7a8c;
-      --line: #e5e7eb;
-      --soft: #eef6f8;
-      --shadow: rgba(15, 47, 79, 0.08);
+      --ink:       #0d1117;
+      --ink2:      #161c25;
+      --ink3:      #1e2632;
+      --cream:     #f5f0e8;
+      --cream2:    #ede8de;
+      --warm:      #c8a96e;
+      --warm2:     #b8945a;
+      --warm3:     #9a7a48;
+      --steel:     #4a7fa5;
+      --steel2:    #366490;
+      --teal:      #2a8f82;
+      --teal2:     #1f7068;
+      --text-1:    #e8ecf0;
+      --text-2:    #9ba8b8;
+      --text-3:    #64748b;
+      --border:    rgba(255,255,255,0.07);
+      --border2:   rgba(255,255,255,0.12);
+      --surface:   rgba(255,255,255,0.03);
+      --surface2:  rgba(255,255,255,0.055);
     }
 
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    html {
-      overflow-x: hidden;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
 
     body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      font-family: 'Outfit', sans-serif;
+      background: var(--ink);
+      color: var(--text-1);
+      line-height: 1.7;
       overflow-x: hidden;
+      font-weight: 300;
     }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NOISE TEXTURE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.018;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
     }
 
-    a:hover {
-      text-decoration: underline;
+    /* ── SUBTLE GRADIENT BACKDROP ── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 80% 60% at 10% 0%, rgba(42,143,130,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 90% 100%, rgba(74,127,165,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 50% 50%, rgba(200,169,110,0.03) 0%, transparent 70%);
     }
 
-    header {
-      background: linear-gradient(135deg, #0f2f4f, #123c69, #1f7a8c);
-      color: white;
-      padding: 68px 24px 56px;
-    }
+    .page { position: relative; z-index: 1; }
 
+    /* ── CONTAINER ── */
     .container {
-      max-width: 1120px;
-      margin: auto;
-      padding: 0 22px;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 40px;
     }
 
-    .hero-layout {
+    /* ── HEADER ── */
+    header {
+      padding: 100px 0 80px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .header-rule {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, var(--warm) 30%, var(--teal) 70%, transparent 100%);
+    }
+
+    .hero-grid {
       display: grid;
-      grid-template-columns: 1fr 240px;
-      gap: 44px;
-      align-items: center;
+      grid-template-columns: 1fr 220px;
+      gap: 80px;
+      align-items: end;
     }
 
-    .hero h1 {
-      font-size: 46px;
-      margin: 0 0 12px;
-      line-height: 1.15;
-      letter-spacing: -0.6px;
-    }
-
-    .hero h2 {
-      font-size: 21px;
-      font-weight: 500;
-      margin: 0 0 18px;
-      color: #e7f4f7;
-    }
-
-    .hero p {
-      max-width: 870px;
-      font-size: 17px;
-      color: #f4f8fb;
-      margin: 0 0 24px;
-    }
-
-    .profile-photo-wrap {
+    .hero-kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: 28px;
       display: flex;
-      justify-content: center;
       align-items: center;
+      gap: 14px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.1s ease forwards;
     }
 
-    .profile-photo {
-      width: 220px;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 5px solid rgba(255, 255, 255, 0.95);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
-      background: white;
+    .hero-kicker::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--warm);
+      flex-shrink: 0;
     }
 
-    .buttons {
+    .hero-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(48px, 6vw, 80px);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      color: var(--cream);
+      margin-bottom: 10px;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.2s ease forwards;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--warm);
+    }
+
+    .hero-role {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(17px, 2vw, 21px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-2);
+      margin-bottom: 32px;
+      letter-spacing: 0.2px;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.3s ease forwards;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text-2);
+      line-height: 1.85;
+      max-width: 600px;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.4s ease forwards;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 42px;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.45s ease forwards;
+    }
+
+    .hero-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 1.2px;
+      padding: 5px 12px;
+      border: 1px solid var(--border2);
+      border-radius: 3px;
+      color: var(--text-3);
+      transition: all 0.2s ease;
+    }
+
+    .hero-tag:hover {
+      border-color: var(--warm);
+      color: var(--warm);
+    }
+
+    .hero-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 16px;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.55s ease forwards;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 11px 17px;
-      border-radius: 8px;
-      font-weight: 600;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      color: white;
-      transition: 0.2s ease;
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 11px 22px;
+      background: var(--warm);
+      color: var(--ink);
+      border-radius: 3px;
+      border: 1px solid var(--warm);
+      transition: all 0.22s ease;
     }
 
-    .btn:hover {
-      background: white;
-      color: var(--primary);
-      text-decoration: none;
+    .btn-gold:hover {
+      background: var(--warm2);
+      border-color: var(--warm2);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(200,169,110,0.22);
     }
 
-    .btn-filled {
-      background: white;
-      color: var(--primary);
-    }
-
-    .btn-filled:hover {
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+      padding: 10px 20px;
       background: transparent;
-      color: white;
+      color: var(--text-2);
+      border-radius: 3px;
+      border: 1px solid var(--border2);
+      transition: all 0.22s ease;
     }
 
+    .btn-ghost:hover {
+      border-color: var(--text-2);
+      color: var(--text-1);
+      transform: translateY(-1px);
+    }
+
+    /* PHOTO */
+    .photo-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      opacity: 0;
+      animation: fadeUp 1s 0.35s ease forwards;
+    }
+
+    .photo-frame {
+      position: relative;
+      width: 200px;
+    }
+
+    .photo-frame::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border: 1px solid rgba(200,169,110,0.2);
+      border-radius: 2px;
+      pointer-events: none;
+    }
+
+    .photo-frame::after {
+      content: '';
+      position: absolute;
+      top: 8px; left: 8px; right: -8px; bottom: -8px;
+      border: 1px solid rgba(42,143,130,0.15);
+      border-radius: 2px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .photo-frame img {
+      display: block;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 2px;
+      filter: grayscale(8%) contrast(1.02);
+    }
+
+    .photo-caption {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-3);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
     nav {
-      background: white;
-      border-bottom: 1px solid var(--line);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
+      background: rgba(13,17,23,0.92);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
     }
 
-    nav .container {
+    .nav-inner {
       display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      padding-top: 13px;
-      padding-bottom: 13px;
-      font-size: 15px;
-      font-weight: 600;
+      align-items: center;
+      gap: 2px;
+      padding: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
     }
+
+    .nav-inner::-webkit-scrollbar { display: none; }
 
     nav a {
-      color: var(--primary);
+      flex-shrink: 0;
+      font-size: 12.5px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-3);
+      padding: 16px 18px;
+      transition: all 0.2s ease;
+      border-bottom: 2px solid transparent;
+      position: relative;
     }
 
+    nav a:hover, nav a.active {
+      color: var(--warm);
+      border-bottom-color: var(--warm);
+    }
+
+    /* ── SECTIONS ── */
     section {
-      padding: 22px 0;
+      padding: 88px 0;
+      border-bottom: 1px solid var(--border);
     }
 
-    section:first-of-type {
-      padding-top: 32px;
+    section:last-of-type { border-bottom: none; }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 48px;
+      align-items: baseline;
+      margin-bottom: 52px;
     }
 
-    section:last-of-type {
-      padding-bottom: 34px;
+    .section-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--warm);
+      text-transform: uppercase;
+      padding-top: 8px;
     }
 
-    h2.section-title {
-      font-size: 30px;
-      margin: 0 0 14px;
-      color: var(--primary);
-      letter-spacing: -0.3px;
+    .section-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 300;
+      letter-spacing: -0.8px;
+      color: var(--cream);
+      line-height: 1.1;
     }
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 8px 24px var(--shadow);
+    .section-title em {
+      font-style: italic;
+      color: var(--warm);
+    }
+
+    /* ── ABOUT ── */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 48px;
+    }
+
+    .about-body p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text-2);
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    .about-body p:last-of-type { margin-bottom: 28px; }
+
+    .skills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-chip {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      padding: 6px 13px;
+      border: 1px solid var(--border2);
+      border-radius: 2px;
+      color: var(--text-3);
+      transition: all 0.2s ease;
+      cursor: default;
+    }
+
+    .skill-chip:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+      background: rgba(42,143,130,0.05);
+    }
+
+    /* STATS */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 56px;
+    }
+
+    .stat-cell {
+      padding: 28px 24px;
+      border-right: 1px solid var(--border);
+      transition: background 0.2s ease;
+    }
+
+    .stat-cell:last-child { border-right: none; }
+    .stat-cell:hover { background: var(--surface); }
+
+    .stat-n {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 40px;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-n sup {
+      font-size: 18px;
+      color: var(--warm);
+      vertical-align: super;
+    }
+
+    .stat-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-3);
+    }
+
+    /* ── EDUCATION ── */
+    .edu-layout {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 48px;
+    }
+
+    .edu-list { display: flex; flex-direction: column; gap: 2px; }
+
+    .edu-item {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 28px 32px;
+      background: var(--surface);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .edu-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    .edu-item.phd::before { background: var(--warm); }
+    .edu-item.mtech::before { background: var(--steel); }
+    .edu-item.btech::before { background: var(--teal); }
+
+    .edu-item:hover {
+      background: var(--surface2);
+      border-color: var(--border2);
+    }
+
+    .edu-item:hover::before { opacity: 1; }
+
+    .edu-row1 {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 6px;
+    }
+
+    .edu-degree {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .edu-item.phd .edu-degree { color: var(--warm); }
+    .edu-item.mtech .edu-degree { color: var(--steel); }
+    .edu-item.btech .edu-degree { color: var(--teal); }
+
+    .edu-prog {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+
+    .edu-inst {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-2);
+      margin-bottom: 2px;
+    }
+
+    .edu-loc {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-3);
+      letter-spacing: 0.5px;
+    }
+
+    .edu-period {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-3);
+      white-space: nowrap;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+
+    .edu-desc {
+      font-size: 14.5px;
+      font-weight: 300;
+      color: var(--text-2);
+      line-height: 1.75;
+      margin: 14px 0 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .edu-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .edu-meta-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+      color: var(--text-3);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      padding: 4px 11px;
+      border-radius: 2px;
+    }
+
+    .edu-meta-pill strong {
+      color: var(--warm);
+      font-weight: 500;
+    }
+
+    /* ── RESEARCH ── */
+    .research-layout {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 48px;
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .research-card {
+      padding: 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .research-card:hover {
+      background: var(--surface2);
+      border-color: var(--border2);
+    }
+
+    .research-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--text-3);
+      margin-bottom: 18px;
+    }
+
+    .research-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .research-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-2);
+      line-height: 1.75;
+    }
+
+    .research-accent {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .research-card:nth-child(1) .research-accent { background: var(--warm); }
+    .research-card:nth-child(2) .research-accent { background: var(--steel); }
+    .research-card:nth-child(3) .research-accent { background: var(--teal); }
+    .research-card:nth-child(4) .research-accent { background: linear-gradient(90deg, var(--warm), var(--teal)); }
+
+    .research-card:hover .research-accent { opacity: 1; }
+
+    /* ── PUBLICATIONS ── */
+    .pubs-layout {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 48px;
+    }
+
+    .pub-list { display: flex; flex-direction: column; }
+
+    .pub-item {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 24px;
+      transition: all 0.25s ease;
+    }
+
+    .pub-item:first-child { padding-top: 0; }
+    .pub-item:last-child { border-bottom: none; }
+
+    .pub-item:hover { padding-left: 8px; }
+
+    .pub-idx {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--border2);
+      line-height: 1.3;
+      text-align: right;
+      padding-top: 2px;
+    }
+
+    .pub-year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--text-3);
+      margin-bottom: 8px;
+    }
+
+    .pub-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.45;
+      margin-bottom: 8px;
+    }
+
+    .pub-venue {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       margin-bottom: 10px;
     }
 
-    .card p:first-child {
-      margin-top: 0;
+    .pub-venue-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 2px;
+      border: 1px solid;
     }
 
-    .card p:last-child {
-      margin-bottom: 0;
-    }
+    .pub-venue-tag.nature { color: var(--coral,#e06b5e); border-color: rgba(224,107,94,0.3); background: rgba(224,107,94,0.07); }
+    .pub-venue-tag.rsc { color: var(--teal); border-color: rgba(42,143,130,0.3); background: rgba(42,143,130,0.07); }
+    .pub-venue-tag.elsevier { color: var(--steel); border-color: rgba(74,127,165,0.3); background: rgba(74,127,165,0.07); }
+    .pub-venue-tag.wiley { color: var(--warm); border-color: rgba(200,169,110,0.3); background: rgba(200,169,110,0.07); }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .tag {
-      display: inline-block;
-      background: var(--soft);
-      color: var(--primary);
-      padding: 7px 11px;
-      margin: 5px 5px 5px 0;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      color: var(--primary);
-      font-size: 20px;
-    }
-
-    .muted {
-      color: var(--muted);
-    }
-
-    ul {
-      padding-left: 20px;
-      margin: 0;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    li:last-child {
-      margin-bottom: 0;
-    }
-
-    .education-timeline {
-      position: relative;
-      margin-top: 0;
-    }
-
-    .education-item {
-      display: grid;
-      grid-template-columns: 125px 1fr;
-      gap: 22px;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .education-item:first-child {
-      padding-top: 0;
-    }
-
-    .education-item:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .education-year {
-      font-weight: 700;
-      color: var(--accent);
-      font-size: 15px;
-      padding-top: 4px;
-    }
-
-    .education-content h3 {
-      margin: 0 0 6px;
-      color: var(--primary);
-      font-size: 20px;
-    }
-
-    .education-content p {
-      margin: 4px 0;
-    }
-
-    .degree-badge {
-      display: inline-block;
-      background: var(--soft);
-      color: var(--primary);
-      padding: 5px 10px;
-      border-radius: 999px;
+    .pub-venue-name {
       font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 8px;
+      font-weight: 300;
+      color: var(--text-3);
+      font-style: italic;
+      font-family: 'Cormorant Garamond', Georgia, serif;
     }
 
-    .publication {
-      padding-bottom: 14px;
-      margin-bottom: 14px;
-      border-bottom: 1px solid var(--line);
+    .pub-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-2);
+      line-height: 1.72;
     }
 
-    .publication:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .publication strong {
-      color: var(--primary);
-      font-size: 17px;
-    }
-
-    .publication p {
-      margin: 7px 0 0;
-    }
-
-    .link-buttons {
+    .pubs-footer {
       display: flex;
-      flex-wrap: wrap;
       gap: 12px;
-      margin-top: 14px;
+      flex-wrap: wrap;
+      margin-top: 32px;
     }
 
-    .link-btn {
-      display: inline-block;
-      padding: 10px 15px;
-      border-radius: 8px;
-      background: var(--primary);
-      color: white;
+    /* ── PROJECTS ── */
+    .projects-layout {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 48px;
+    }
+
+    .proj-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .proj-card {
+      padding: 30px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .proj-card:hover {
+      background: var(--surface2);
+      border-color: var(--border2);
+      transform: translateY(-2px);
+    }
+
+    .proj-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: 12px;
+    }
+
+    .proj-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .proj-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-2);
+      line-height: 1.72;
+    }
+
+    /* ── AWARDS ── */
+    .awards-layout {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 48px;
+    }
+
+    .award-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .award-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 24px;
+      padding: 22px 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      transition: all 0.25s ease;
+    }
+
+    .award-item:hover {
+      background: var(--surface2);
+      border-color: var(--warm);
+    }
+
+    .award-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+
+    .award-org {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: var(--text-2);
+    }
+
+    .award-year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--warm);
+    }
+
+    /* ── TEACHING ── */
+    .teach-layout {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 48px;
+    }
+
+    .teach-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .teach-list li {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 16px;
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-2);
+      line-height: 1.7;
+      align-items: start;
+    }
+
+    .teach-list li:first-child { padding-top: 0; }
+    .teach-list li:last-child { border-bottom: none; }
+
+    .teach-bullet {
+      width: 1px;
+      height: 20px;
+      background: var(--warm);
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    /* ── VENTURES ── */
+    .ventures-layout {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 48px;
+    }
+
+    .ventures-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .venture-card {
+      padding: 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .venture-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      transition: opacity 0.3s;
+      opacity: 0;
+    }
+
+    .venture-card:nth-child(1)::after { background: var(--warm); }
+    .venture-card:nth-child(2)::after { background: var(--steel); }
+
+    .venture-card:hover { background: var(--surface2); border-color: var(--border2); }
+    .venture-card:hover::after { opacity: 1; }
+
+    .venture-role-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 14px;
+    }
+
+    .venture-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 26px;
       font-weight: 600;
-      border: 1px solid var(--primary);
-      transition: 0.2s ease;
+      color: var(--cream);
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
     }
 
-    .link-btn:hover {
-      background: white;
-      color: var(--primary);
+    .venture-desc {
+      font-size: 14.5px;
+      font-weight: 300;
+      color: var(--text-2);
+      line-height: 1.75;
+    }
+
+    /* ── CONTACT ── */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 48px;
+    }
+
+    .contact-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .contact-details { display: flex; flex-direction: column; gap: 22px; }
+
+    .contact-field-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: 6px;
+    }
+
+    .contact-field-value {
+      font-size: 14.5px;
+      font-weight: 300;
+      color: var(--text-2);
+      line-height: 1.65;
+    }
+
+    .contact-field-value a {
+      color: var(--text-2);
+      transition: color 0.2s ease;
+    }
+
+    .contact-field-value a:hover { color: var(--warm); }
+
+    .links-col { display: flex; flex-direction: column; gap: 10px; }
+
+    .link-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      background: var(--surface);
+      transition: all 0.22s ease;
       text-decoration: none;
     }
 
-    .contact-line {
-      overflow-wrap: anywhere;
-      word-break: break-word;
-      margin: 10px 0;
+    .link-row:hover {
+      border-color: var(--border2);
+      background: var(--surface2);
+      transform: translateX(4px);
     }
 
-    .contact-icon {
-      display: inline-block;
-      width: 24px;
-      font-weight: 700;
-      color: var(--primary);
+    .link-row-label {
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--text-1);
     }
 
+    .link-row-sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-3);
+      letter-spacing: 0.5px;
+    }
+
+    .link-row-arrow {
+      font-size: 14px;
+      color: var(--warm);
+      transition: transform 0.2s ease;
+    }
+
+    .link-row:hover .link-row-arrow { transform: translateX(3px); }
+
+    /* ── FOOTER ── */
     footer {
-      background: #0f2f4f;
-      color: white;
-      text-align: center;
-      padding: 26px 18px;
-      margin-top: 0;
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
     }
 
-    footer p {
-      margin: 4px 0;
-      color: #d8e8ed;
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
     }
 
-    @media (max-width: 850px) {
-      body {
-        overflow-x: hidden;
-      }
+    .footer-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--cream);
+      letter-spacing: -0.3px;
+    }
 
-      header {
-        padding: 44px 16px 42px;
-      }
+    .footer-copy {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: var(--text-3);
+    }
 
-      .container {
-        width: 100%;
-        padding: 0 16px;
-      }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
 
-      .hero-layout {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        text-align: center;
-      }
+    .footer-links a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: var(--text-3);
+      transition: color 0.2s;
+    }
 
-      .profile-photo-wrap {
-        justify-content: center;
-        order: -1;
-      }
+    .footer-links a:hover { color: var(--warm); }
 
-      .profile-photo {
-        width: 165px;
-        height: 165px;
-        border-width: 4px;
-      }
+    /* ── REVEAL ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
 
-      .hero h1 {
-        font-size: 32px;
-        line-height: 1.15;
-        margin-bottom: 12px;
-      }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: 0.08s; }
+    .reveal-d2 { transition-delay: 0.16s; }
+    .reveal-d3 { transition-delay: 0.24s; }
 
-      .hero h2 {
-        font-size: 17px;
-        line-height: 1.45;
-        margin-bottom: 14px;
-      }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: none; }
+    }
 
-      .hero p {
-        font-size: 15.5px;
-        line-height: 1.6;
-        margin-bottom: 20px;
-      }
-
-      .buttons {
-        justify-content: center;
-        gap: 10px;
-      }
-
-      .btn {
-        padding: 10px 14px;
-        font-size: 14px;
-      }
-
-      nav {
-        position: sticky;
-        top: 0;
-        overflow-x: auto;
-        white-space: nowrap;
-      }
-
-      nav .container {
-        flex-wrap: nowrap;
-        gap: 16px;
-        overflow-x: auto;
-        padding: 12px 16px;
-        font-size: 14px;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      nav a {
-        flex: 0 0 auto;
-      }
-
-      section {
-        padding: 20px 0;
-      }
-
-      section:first-of-type {
-        padding-top: 26px;
-      }
-
-      section:last-of-type {
-        padding-bottom: 28px;
-      }
-
-      h2.section-title {
-        font-size: 25px;
-        margin-bottom: 12px;
-      }
-
-      .card {
-        padding: 20px;
-        border-radius: 14px;
-        margin-bottom: 10px;
-      }
-
-      .grid,
-      .grid-3 {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .card h3 {
-        font-size: 18px;
-        line-height: 1.35;
-      }
-
-      .education-item {
-        grid-template-columns: 1fr;
-        gap: 8px;
-        padding: 16px 0;
-      }
-
-      .education-year {
-        font-size: 14px;
-        padding-top: 0;
-      }
-
-      .education-content h3 {
-        font-size: 18px;
-        line-height: 1.35;
-      }
-
-      .publication strong {
-        font-size: 16px;
-        line-height: 1.45;
-        display: block;
-      }
-
-      .publication p {
-        font-size: 15px;
-        line-height: 1.55;
-      }
-
-      .link-buttons {
-        gap: 10px;
-      }
-
-      .link-btn {
-        padding: 9px 13px;
-        font-size: 14px;
-      }
-
-      footer {
-        padding: 24px 16px;
-      }
-
-      footer p {
-        font-size: 14px;
-      }
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .container { padding: 0 24px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .photo-col { order: -1; align-items: flex-start; flex-direction: row; gap: 20px; align-items: center; }
+      .section-header,
+      .about-layout, .edu-layout, .research-layout,
+      .pubs-layout, .projects-layout, .awards-layout,
+      .teach-layout, .ventures-layout, .contact-layout { grid-template-columns: 1fr; gap: 20px; }
+      .section-header { margin-bottom: 32px; }
+      .section-num { font-size: 10px; }
+      .research-grid, .proj-grid, .ventures-grid, .contact-body { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      section { padding: 60px 0; }
+      .photo-frame, .photo-frame img { width: 140px; height: 140px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
     }
 
     @media (max-width: 480px) {
-      header {
-        padding: 36px 14px 38px;
-      }
-
-      .container {
-        padding: 0 14px;
-      }
-
-      .hero h1 {
-        font-size: 29px;
-      }
-
-      .hero h2 {
-        font-size: 16px;
-      }
-
-      .hero p {
-        font-size: 15px;
-      }
-
-      .profile-photo {
-        width: 150px;
-        height: 150px;
-      }
-
-      .buttons {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn {
-        width: 100%;
-        text-align: center;
-      }
-
-      section {
-        padding: 18px 0;
-      }
-
-      section:first-of-type {
-        padding-top: 24px;
-      }
-
-      section:last-of-type {
-        padding-bottom: 26px;
-      }
-
-      h2.section-title {
-        font-size: 23px;
-        margin-bottom: 10px;
-      }
-
-      .card {
-        padding: 18px;
-      }
-
-      .link-buttons {
-        flex-direction: column;
-      }
-
-      .link-btn {
-        width: 100%;
-        text-align: center;
-      }
-
-      nav .container {
-        font-size: 13.5px;
-      }
-
-      .tag {
-        font-size: 13px;
-        padding: 6px 9px;
-      }
+      header { padding: 64px 0 52px; }
+      .hero-name { font-size: 40px; }
+      .hero-buttons { flex-direction: column; }
+      .btn-gold, .btn-ghost { width: 100%; justify-content: center; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .pub-item { grid-template-columns: 1fr; gap: 4px; }
+      .pub-idx { display: none; }
+      .award-item { grid-template-columns: 1fr; }
     }
   </style>
 </head>
-
 <body>
+<div class="page">
 
-  <header>
-    <div class="container hero">
-      <div class="hero-layout">
-
-        <div>
-          <h1>Siddhi Vinayak Pandey</h1>
-
-          <h2>
-            PhD Researcher | Neuromorphic Computing | Nanofluidics | Iontronic Systems | AI and Energy
-          </h2>
-
-          <p>
-            I am a PhD Researcher and Dean’s Doctoral Fellow in the Department of Physics and Astronomy
-            at the University of Manchester. My research focuses on ionic memory, nanofluidic memristors,
-            electrochemical device physics and next-generation energy-efficient computing systems inspired by
-            biological neural networks.
-          </p>
-
-          <div class="buttons">
-            <a class="btn btn-filled" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank">Google Scholar</a>
-            <a class="btn" href="https://www.linkedin.com/in/siddhi-vinayak-pandey-17a295162" target="_blank">LinkedIn</a>
-            <a class="btn" href="https://orcid.org/0000-0002-1574-2846" target="_blank">ORCID</a>
-            <a class="btn" href="https://github.com/siddhivinayak-l" target="_blank">GitHub</a>
-            <a class="btn" href="#contact">Contact</a>
-          </div>
+<!-- HEADER -->
+<header>
+  <div class="header-rule"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-kicker">University of Manchester &nbsp;&middot;&nbsp; Dean's Doctoral Fellow</div>
+        <h1 class="hero-name">Siddhi&nbsp;Vinayak<br><em>Pandey</em></h1>
+        <p class="hero-role">PhD Researcher in Physics &amp; Astronomy</p>
+        <div class="hero-tags">
+          <span class="hero-tag">Nanofluidics</span>
+          <span class="hero-tag">Neuromorphic Computing</span>
+          <span class="hero-tag">Iontronic Systems</span>
+          <span class="hero-tag">Memristive Devices</span>
+          <span class="hero-tag">Electrochemistry</span>
+          <span class="hero-tag">Machine Learning</span>
+          <span class="hero-tag">Energy Devices</span>
         </div>
-
-        <div class="profile-photo-wrap">
-          <img class="profile-photo" src="profile.jpg" alt="Siddhi Vinayak Pandey profile photo">
+        <p class="hero-desc">Researching ionic memory, nanofluidic memristors, and next-generation energy-efficient computing inspired by biological neural networks. Dean's Doctoral Fellow, Department of Physics and Astronomy.</p>
+        <div class="hero-buttons">
+          <a class="btn-gold" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank">Google Scholar</a>
+          <a class="btn-ghost" href="https://www.linkedin.com/in/siddhi-vinayak-pandey-17a295162" target="_blank">LinkedIn</a>
+          <a class="btn-ghost" href="https://orcid.org/0000-0002-1574-2846" target="_blank">ORCID</a>
+          <a class="btn-ghost" href="https://github.com/siddhivinayak-l" target="_blank">GitHub</a>
+          <a class="btn-ghost" href="#contact">Contact</a>
         </div>
-
+      </div>
+      <div class="photo-col">
+        <div class="photo-frame">
+          <img src="profile.jpg" alt="Siddhi Vinayak Pandey">
+        </div>
+        <div class="photo-caption">Manchester<br>United Kingdom<br>2023 &ndash; Present</div>
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
-  <nav>
-    <div class="container">
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
       <a href="#about">About</a>
       <a href="#education">Education</a>
       <a href="#research">Research</a>
@@ -644,354 +1161,466 @@
       <a href="#entrepreneurship">Entrepreneurship</a>
       <a href="#contact">Contact</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <main>
+<main>
 
-    <section id="about">
-      <div class="container">
-        <h2 class="section-title">About</h2>
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
 
-        <div class="card">
-          <p>
-            I work at the interface of neuromorphic computing, nanofluidics, electrochemical devices,
-            advanced materials and machine learning. My doctoral research explores how confined ionic systems
-            can exhibit memory, adaptive transport and memristive behaviour, with the long-term aim of developing
-            energy-efficient computing concepts inspired by biological information processing.
-          </p>
+    <div class="stats-row reveal">
+      <div class="stat-cell">
+        <div class="stat-n">5<sup>+</sup></div>
+        <div class="stat-label">Publications</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-n">3</div>
+        <div class="stat-label">Years Research</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-n">2</div>
+        <div class="stat-label">Ventures Founded</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-n">3</div>
+        <div class="stat-label">Awards</div>
+      </div>
+    </div>
 
-          <p>
-            Before joining the University of Manchester, I completed an M.Tech in Energy Systems at Pandit
-            Deendayal Energy University and a B.Tech in Electrical Engineering at Adani Institute of Infrastructure
-            Engineering. My previous research includes machine-learning-assisted analysis of halide perovskites,
-            battery state estimation, electrochemical impedance spectroscopy and energy-device modelling.
-          </p>
+    <div class="about-layout">
+      <div class="section-num reveal">01 &mdash; About</div>
+      <div class="about-body reveal">
+        <p>I work at the interface of neuromorphic computing, nanofluidics, electrochemical devices, advanced materials, and machine learning. My doctoral research explores how confined ionic systems can exhibit memory, adaptive transport, and memristive behaviour, with the long-term aim of developing energy-efficient computing concepts inspired by biological information processing.</p>
+        <p>Before joining the University of Manchester, I completed an M.Tech in Energy Systems at Pandit Deendayal Energy University and a B.Tech in Electrical Engineering at Adani Institute of Infrastructure Engineering. My previous research includes machine-learning-assisted analysis of halide perovskites, battery state estimation, electrochemical impedance spectroscopy, and energy-device modelling.</p>
+        <div class="skills-row">
+          <span class="skill-chip">Nanofluidics</span>
+          <span class="skill-chip">Neuromorphic Computing</span>
+          <span class="skill-chip">Iontronic Systems</span>
+          <span class="skill-chip">Memristive Devices</span>
+          <span class="skill-chip">Electrochemistry</span>
+          <span class="skill-chip">Machine Learning</span>
+          <span class="skill-chip">Energy Devices</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num reveal">02 &mdash; Education</div>
+      <h2 class="section-title reveal">Academic<br><em>Background</em></h2>
+    </div>
+    <div class="edu-layout">
+      <div></div>
+      <div class="edu-list">
+
+        <div class="edu-item phd reveal">
+          <div class="edu-row1">
+            <div>
+              <div class="edu-degree">PhD</div>
+              <div class="edu-prog">PhD Research Scholar &amp; Dean's Doctoral Fellow</div>
+              <div class="edu-inst">Department of Physics and Astronomy, University of Manchester</div>
+              <div class="edu-loc">Manchester, United Kingdom</div>
+            </div>
+            <div class="edu-period">2023 &ndash; Present</div>
+          </div>
+          <div class="edu-desc">Doctoral research focused on ionic memory, nanofluidic memristors, memristive ion transport, and next-generation energy-efficient computing.</div>
+          <div class="edu-meta-row">
+            <div class="edu-meta-pill"><strong>Thesis</strong> &nbsp;Ionic Memory for Next-Generation Computing</div>
+          </div>
+        </div>
+
+        <div class="edu-item mtech reveal reveal-d1">
+          <div class="edu-row1">
+            <div>
+              <div class="edu-degree">M.Tech</div>
+              <div class="edu-prog">M.Tech in Energy Systems</div>
+              <div class="edu-inst">Pandit Deendayal Energy University</div>
+              <div class="edu-loc">Gandhinagar, India</div>
+            </div>
+            <div class="edu-period">2021 &ndash; 2023</div>
+          </div>
+          <div class="edu-desc">Focused on energy systems, machine learning for materials, device physics, and computational analysis of halide perovskite devices.</div>
+          <div class="edu-meta-row">
+            <div class="edu-meta-pill"><strong>Thesis</strong> &nbsp;Investigating Electrical Properties of Halide Perovskites Using Machine Learning</div>
+            <div class="edu-meta-pill"><strong>CPI</strong> &nbsp;9.6 / 10</div>
+          </div>
+        </div>
+
+        <div class="edu-item btech reveal reveal-d2">
+          <div class="edu-row1">
+            <div>
+              <div class="edu-degree">B.Tech</div>
+              <div class="edu-prog">B.Tech in Electrical Engineering</div>
+              <div class="edu-inst">Adani Institute of Infrastructure Engineering</div>
+              <div class="edu-loc">Ahmedabad, India</div>
+            </div>
+            <div class="edu-period">2017 &ndash; 2021</div>
+          </div>
+          <div class="edu-desc">Built foundations in electrical engineering, energy systems, automation, battery modelling, and machine-learning-assisted engineering analysis.</div>
+          <div class="edu-meta-row">
+            <div class="edu-meta-pill"><strong>Thesis</strong> &nbsp;Degradation Analysis of Li-ion Batteries Using ML &amp; DL</div>
+            <div class="edu-meta-pill"><strong>CGPA</strong> &nbsp;8.99 / 10</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num reveal">03 &mdash; Research</div>
+      <h2 class="section-title reveal">Research<br><em>Interests</em></h2>
+    </div>
+    <div class="research-layout">
+      <div></div>
+      <div class="research-grid">
+        <div class="research-card reveal">
+          <div class="research-num">01</div>
+          <div class="research-title">Nanofluidic Memory &amp; Iontronic Systems</div>
+          <div class="research-desc">Investigating ionic transport, memory effects, and adaptive conduction in confined nanofluidic systems for brain-inspired and energy-efficient computing.</div>
+          <div class="research-accent"></div>
+        </div>
+        <div class="research-card reveal reveal-d1">
+          <div class="research-num">02</div>
+          <div class="research-title">Neuromorphic &amp; Memristive Devices</div>
+          <div class="research-desc">Studying potentiation, depression, retention, endurance, EPSC, IPSC, STDP, and SRDP protocols in ionic and electrochemical memory devices.</div>
+          <div class="research-accent"></div>
+        </div>
+        <div class="research-card reveal reveal-d2">
+          <div class="research-num">03</div>
+          <div class="research-title">Electrochemical Impedance &amp; Device Physics</div>
+          <div class="research-desc">Analysing resistive, capacitive, and interfacial processes in electrochemical systems, halide perovskites, and nanoscale transport devices.</div>
+          <div class="research-accent"></div>
+        </div>
+        <div class="research-card reveal reveal-d3">
+          <div class="research-num">04</div>
+          <div class="research-title">AI for Materials &amp; Energy Systems</div>
+          <div class="research-desc">Developing machine-learning workflows for device-performance prediction, impedance interpretation, battery SOC/SOH/RUL estimation, and structure-property correlation.</div>
+          <div class="research-accent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num reveal">04 &mdash; Publications</div>
+      <h2 class="section-title reveal">Selected<br><em>Publications</em></h2>
+    </div>
+    <div class="pubs-layout">
+      <div></div>
+      <div>
+        <div class="pub-list">
+
+          <div class="pub-item reveal">
+            <div class="pub-idx">01</div>
+            <div>
+              <div class="pub-year">2026</div>
+              <div class="pub-title">Ionic memory or electrode artefacts? A systematic assessment of nanofluidic memristors</div>
+              <div class="pub-venue">
+                <span class="pub-venue-tag rsc">RSC</span>
+                <span class="pub-venue-name">Faraday Discussions, Royal Society of Chemistry</span>
+              </div>
+              <div class="pub-desc">A systematic investigation of ionic memory, electrochemical artefacts, and nanoscale ion-transport behaviour in nanofluidic memristor systems.</div>
+            </div>
+          </div>
+
+          <div class="pub-item reveal reveal-d1">
+            <div class="pub-idx">02</div>
+            <div>
+              <div class="pub-year">2025</div>
+              <div class="pub-title">Programmable memristors with two-dimensional nanofluidic channels</div>
+              <div class="pub-venue">
+                <span class="pub-venue-tag nature">Nature</span>
+                <span class="pub-venue-name">Nature Communications</span>
+              </div>
+              <div class="pub-desc">Demonstrates programmable memristive behaviour in two-dimensional nanofluidic channels for brain-inspired and iontronic computing concepts.</div>
+            </div>
+          </div>
+
+          <div class="pub-item reveal reveal-d2">
+            <div class="pub-idx">03</div>
+            <div>
+              <div class="pub-year">2024</div>
+              <div class="pub-title">Electric field mediated unclogging of &Aring;ngstr&ouml;m-scale channels</div>
+              <div class="pub-venue">
+                <span class="pub-venue-tag wiley">Wiley</span>
+                <span class="pub-venue-name">Small Methods</span>
+              </div>
+              <div class="pub-desc">Explores electric-field-assisted transport and unclogging phenomena in extremely confined &Aring;ngstr&ouml;m-scale channels.</div>
+            </div>
+          </div>
+
+          <div class="pub-item reveal">
+            <div class="pub-idx">04</div>
+            <div>
+              <div class="pub-year">2024</div>
+              <div class="pub-title">A machine learning framework for predicting device performance in 2D metal halide perovskite photodetectors</div>
+              <div class="pub-venue">
+                <span class="pub-venue-tag elsevier">Elsevier</span>
+                <span class="pub-venue-name">Solar Energy</span>
+              </div>
+              <div class="pub-desc">Develops a machine-learning framework for analysing and predicting optoelectronic device performance in two-dimensional halide perovskite photodetectors.</div>
+            </div>
+          </div>
+
+          <div class="pub-item reveal reveal-d1">
+            <div class="pub-idx">05</div>
+            <div>
+              <div class="pub-year">2023</div>
+              <div class="pub-title">Predicting the state parameters of lithium-ion batteries: The race between filter-based and data-driven approaches</div>
+              <div class="pub-venue">
+                <span class="pub-venue-tag rsc">RSC</span>
+                <span class="pub-venue-name">Sustainable Energy &amp; Fuels, Royal Society of Chemistry</span>
+              </div>
+              <div class="pub-desc">Compares filter-based and data-driven methods for predicting key lithium-ion battery state parameters including SOC, SOH, and RUL.</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="pubs-footer reveal">
+          <a class="btn-gold" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank">View all on Google Scholar</a>
+          <a class="btn-ghost" href="https://orcid.org/0000-0002-1574-2846" target="_blank">ORCID Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num reveal">05 &mdash; Projects</div>
+      <h2 class="section-title reveal">Selected<br><em>Projects</em></h2>
+    </div>
+    <div class="projects-layout">
+      <div></div>
+      <div class="proj-grid">
+        <div class="proj-card reveal">
+          <div class="proj-label">Doctoral Research</div>
+          <div class="proj-title">Ionic Memory for Next-Generation Computing</div>
+          <div class="proj-desc">Doctoral research project focused on nanofluidic memristors, confined ion transport, ionic memory, and neuromorphic functionality.</div>
+        </div>
+        <div class="proj-card reveal reveal-d1">
+          <div class="proj-label">Open Source</div>
+          <div class="proj-title">Nanoscale Ionic Transport Analysis</div>
+          <div class="proj-desc">Contributed to open-source measurement and analysis workflows for nanoscale ionic transport and nanofluidic device characterisation.</div>
+        </div>
+        <div class="proj-card reveal reveal-d2">
+          <div class="proj-label">Computational</div>
+          <div class="proj-title">Machine Learning for Energy Devices</div>
+          <div class="proj-desc">Developed ML-based approaches for perovskite device analysis, battery state prediction, impedance interpretation, and energy-material modelling.</div>
+        </div>
+        <div class="proj-card reveal reveal-d3">
+          <div class="proj-label">Engineering</div>
+          <div class="proj-title">Robotics &amp; Intelligent Automation</div>
+          <div class="proj-desc">Co-developed an automatic spray-painting robot for road-marking applications and contributed to innovation initiatives around robotics-based infrastructure solutions.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num reveal">06 &mdash; Awards</div>
+      <h2 class="section-title reveal">Awards &amp;<br><em>Recognition</em></h2>
+    </div>
+    <div class="awards-layout">
+      <div></div>
+      <div class="award-list">
+        <div class="award-item reveal">
           <div>
-            <span class="tag">Nanofluidics</span>
-            <span class="tag">Neuromorphic Computing</span>
-            <span class="tag">Iontronic Systems</span>
-            <span class="tag">Memristive Devices</span>
-            <span class="tag">Electrochemistry</span>
-            <span class="tag">Machine Learning</span>
-            <span class="tag">Energy Devices</span>
+            <div class="award-title">Dean's Doctoral Scholarship</div>
+            <div class="award-org">University of Manchester, United Kingdom</div>
           </div>
+          <div class="award-year">2023</div>
+        </div>
+        <div class="award-item reveal reveal-d1">
+          <div>
+            <div class="award-title">PGR Research Conference Prize &mdash; Third Place</div>
+            <div class="award-org">Department of Physics and Astronomy, University of Manchester</div>
+          </div>
+          <div class="award-year">2024</div>
+        </div>
+        <div class="award-item reveal reveal-d2">
+          <div>
+            <div class="award-title">Best Start-up Award</div>
+            <div class="award-org">Innovate to Impact Category, Gujarat Innovation Council</div>
+          </div>
+          <div class="award-year">2021</div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section id="education">
-      <div class="container">
-        <h2 class="section-title">Academic Background</h2>
+<!-- TEACHING -->
+<section id="teaching">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num reveal">07 &mdash; Teaching</div>
+      <h2 class="section-title reveal">Teaching &amp;<br><em>Engagement</em></h2>
+    </div>
+    <div class="teach-layout">
+      <div></div>
+      <ul class="teach-list">
+        <li class="reveal"><div class="teach-bullet"></div><div>Taught Machine Learning for Energy Devices to final-year M.Tech students.</div></li>
+        <li class="reveal reveal-d1"><div class="teach-bullet"></div><div>Supervised an undergraduate summer research student at the University of Manchester.</div></li>
+        <li class="reveal reveal-d2"><div class="teach-bullet"></div><div>Delivered public and technical talks on renewable energy, research opportunities, and MATLAB applications.</div></li>
+        <li class="reveal reveal-d3"><div class="teach-bullet"></div><div>Presented research at Faraday Discussion and departmental research conferences.</div></li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-        <div class="card education-timeline">
+<!-- ENTREPRENEURSHIP -->
+<section id="entrepreneurship">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num reveal">08 &mdash; Ventures</div>
+      <h2 class="section-title reveal">Entrepreneurship<br>&amp; <em>Innovation</em></h2>
+    </div>
+    <div class="ventures-layout">
+      <div></div>
+      <div class="ventures-grid">
+        <div class="venture-card reveal">
+          <div class="venture-role-tag">Founder</div>
+          <div class="venture-name">PaintRobs</div>
+          <div class="venture-desc">Robotics-based automated road-marking platform for intelligent spray-painting applications including lane markings, zebra crossings, directional symbols, and divider kerbs.</div>
+        </div>
+        <div class="venture-card reveal reveal-d1">
+          <div class="venture-role-tag">Founder</div>
+          <div class="venture-name">Lutions Group</div>
+          <div class="venture-desc">Deep-technology and intelligent automation initiative focused on AI-assisted software systems, scalable digital infrastructure, no-code machine-learning workflows, and integrated professional networking platforms.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <div class="education-item">
-            <div class="education-year">2023 – Present</div>
-            <div class="education-content">
-              <span class="degree-badge">PhD</span>
-              <h3>PhD Research Scholar and Dean’s Doctoral Fellow</h3>
-              <p><strong>Department of Physics and Astronomy, University of Manchester</strong></p>
-              <p class="muted">Manchester, United Kingdom</p>
-              <p>
-                Doctoral research focused on ionic memory, nanofluidic memristors,
-                memristive ion transport and next-generation energy-efficient computing.
-              </p>
-              <p><strong>Thesis:</strong> Ionic Memory for Next-Generation Computing</p>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num reveal">09 &mdash; Contact</div>
+      <h2 class="section-title reveal">Get in<br><em>Touch</em></h2>
+    </div>
+    <div class="contact-layout">
+      <div></div>
+      <div class="contact-body">
+
+        <div class="contact-details reveal">
+          <div>
+            <div class="contact-field-label">Email</div>
+            <div class="contact-field-value">
+              <a href="mailto:siddhivinayak.pandey@postgrad.manchester.ac.uk">siddhivinayak.pandey@<br>postgrad.manchester.ac.uk</a>
             </div>
           </div>
+          <div>
+            <div class="contact-field-label">Affiliation</div>
+            <div class="contact-field-value">Department of Physics and Astronomy<br>University of Manchester<br>United Kingdom</div>
+          </div>
+          <div>
+            <div class="contact-field-label">Office</div>
+            <div class="contact-field-value">C3 &ndash; Annex, Schuster Building, 3rd Floor<br>Manchester M13 9PL<br>England, United Kingdom</div>
+          </div>
+        </div>
 
-          <div class="education-item">
-            <div class="education-year">2021 – 2023</div>
-            <div class="education-content">
-              <span class="degree-badge">M.Tech</span>
-              <h3>M.Tech in Energy Systems</h3>
-              <p><strong>Pandit Deendayal Energy University</strong></p>
-              <p class="muted">Gandhinagar, India</p>
-              <p>
-                Focused on energy systems, machine learning for materials, device physics,
-                and computational analysis of halide perovskite devices.
-              </p>
-              <p><strong>Thesis:</strong> Investigating the Electrical Properties of Halide Perovskites Using Machine Learning</p>
-              <p><strong>CPI:</strong> 9.6/10</p>
+        <div class="links-col reveal reveal-d1">
+          <a class="link-row" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank">
+            <div>
+              <div class="link-row-label">Google Scholar</div>
+              <div class="link-row-sub">Publications &amp; Citations</div>
             </div>
-          </div>
-
-          <div class="education-item">
-            <div class="education-year">2017 – 2021</div>
-            <div class="education-content">
-              <span class="degree-badge">B.Tech</span>
-              <h3>B.Tech in Electrical Engineering</h3>
-              <p><strong>Adani Institute of Infrastructure Engineering</strong></p>
-              <p class="muted">Ahmedabad, India</p>
-              <p>
-                Built a foundation in electrical engineering, energy systems, automation,
-                battery modelling and machine-learning-assisted engineering analysis.
-              </p>
-              <p><strong>Thesis:</strong> Degradation Analysis of Li-ion Batteries Using Machine Learning and Deep Learning Techniques</p>
-              <p><strong>CGPA:</strong> 8.99/10</p>
+            <span class="link-row-arrow">&rarr;</span>
+          </a>
+          <a class="link-row" href="https://www.linkedin.com/in/siddhi-vinayak-pandey-17a295162" target="_blank">
+            <div>
+              <div class="link-row-label">LinkedIn</div>
+              <div class="link-row-sub">Professional Profile</div>
             </div>
-          </div>
-
+            <span class="link-row-arrow">&rarr;</span>
+          </a>
+          <a class="link-row" href="https://orcid.org/0000-0002-1574-2846" target="_blank">
+            <div>
+              <div class="link-row-label">ORCID</div>
+              <div class="link-row-sub">Researcher Identifier</div>
+            </div>
+            <span class="link-row-arrow">&rarr;</span>
+          </a>
+          <a class="link-row" href="https://github.com/siddhivinayak-l" target="_blank">
+            <div>
+              <div class="link-row-label">GitHub</div>
+              <div class="link-row-sub">Code &amp; Projects</div>
+            </div>
+            <span class="link-row-arrow">&rarr;</span>
+          </a>
         </div>
+
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section id="research">
-      <div class="container">
-        <h2 class="section-title">Research Interests</h2>
+</main>
 
-        <div class="grid">
-          <div class="card">
-            <h3>Nanofluidic Memory and Iontronic Systems</h3>
-            <p>
-              Investigating ionic transport, memory effects and adaptive conduction in confined nanofluidic
-              systems for brain-inspired and energy-efficient computing.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Neuromorphic and Memristive Devices</h3>
-            <p>
-              Studying potentiation, depression, retention, endurance, EPSC, IPSC, STDP and SRDP protocols
-              in ionic and electrochemical memory devices.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Electrochemical Impedance and Device Physics</h3>
-            <p>
-              Analysing resistive, capacitive and interfacial processes in electrochemical systems, halide
-              perovskites and nanoscale transport devices.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>AI for Materials and Energy Systems</h3>
-            <p>
-              Developing machine-learning workflows for device-performance prediction, impedance interpretation,
-              battery SOC/SOH/RUL estimation and structure-property correlation.
-            </p>
-          </div>
-        </div>
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-name">Siddhi Vinayak Pandey</div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
       </div>
-    </section>
+      <div class="footer-copy">&copy; 2026 &nbsp;&middot;&nbsp; University of Manchester</div>
+    </div>
+  </div>
+</footer>
 
-    <section id="publications">
-      <div class="container">
-        <h2 class="section-title">Selected Publications</h2>
+</div>
 
-        <div class="card">
-          <div class="publication">
-            <strong>Ionic memory or electrode artefacts? A systematic assessment of nanofluidic memristors</strong>
-            <br />
-            <span class="muted">Faraday Discussions, Royal Society of Chemistry, 2026</span>
-            <p>
-              A systematic investigation of ionic memory, electrochemical artefacts and nanoscale ion-transport
-              behaviour in nanofluidic memristor systems.
-            </p>
-          </div>
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  els.forEach(el => io.observe(el));
 
-          <div class="publication">
-            <strong>Programmable memristors with two-dimensional nanofluidic channels</strong>
-            <br />
-            <span class="muted">Nature Communications, 2025</span>
-            <p>
-              Demonstrates programmable memristive behaviour in two-dimensional nanofluidic channels for
-              brain-inspired and iontronic computing concepts.
-            </p>
-          </div>
-
-          <div class="publication">
-            <strong>Electric field mediated unclogging of Ångström-scale channels</strong>
-            <br />
-            <span class="muted">Small Methods, Wiley, 2024</span>
-            <p>
-              Explores electric-field-assisted transport and unclogging phenomena in extremely confined
-              Ångström-scale channels.
-            </p>
-          </div>
-
-          <div class="publication">
-            <strong>A machine learning framework for predicting device performance in 2D metal halide perovskite photodetector</strong>
-            <br />
-            <span class="muted">Solar Energy, Elsevier, 2024</span>
-            <p>
-              Develops a machine-learning framework for analysing and predicting optoelectronic device performance
-              in two-dimensional halide perovskite photodetectors.
-            </p>
-          </div>
-
-          <div class="publication">
-            <strong>Predicting the state parameters of lithium-ion batteries: The race between filter-based and data-driven approaches</strong>
-            <br />
-            <span class="muted">Sustainable Energy & Fuels, Royal Society of Chemistry, 2023</span>
-            <p>
-              Compares filter-based and data-driven methods for predicting key lithium-ion battery state parameters.
-            </p>
-          </div>
-
-          <p class="muted">
-            Full publication list available on Google Scholar.
-          </p>
-
-          <div class="link-buttons">
-            <a class="link-btn" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank">View Google Scholar</a>
-            <a class="link-btn" href="https://orcid.org/0000-0002-1574-2846" target="_blank">View ORCID</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="container">
-        <h2 class="section-title">Selected Projects</h2>
-
-        <div class="grid">
-          <div class="card">
-            <h3>Ionic Memory for Next-Generation Computing</h3>
-            <p>
-              Doctoral research project focused on nanofluidic memristors, confined ion transport,
-              ionic memory and neuromorphic functionality.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Nanoscale Ionic Transport Analysis</h3>
-            <p>
-              Contributed to open-source measurement and analysis workflows for nanoscale ionic transport
-              and nanofluidic device characterization.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Machine Learning for Energy Devices</h3>
-            <p>
-              Developed ML-based approaches for perovskite device analysis, battery state prediction,
-              impedance interpretation and energy-material modelling.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Robotics and Intelligent Automation</h3>
-            <p>
-              Co-developed an automatic spray-painting robot for road-marking applications and contributed
-              to innovation initiatives around robotics-based infrastructure solutions.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="awards">
-      <div class="container">
-        <h2 class="section-title">Awards and Recognition</h2>
-
-        <div class="grid-3">
-          <div class="card">
-            <h3>Dean’s Doctoral Scholarship</h3>
-            <p>University of Manchester, United Kingdom.</p>
-          </div>
-
-          <div class="card">
-            <h3>PGR Research Conference Prize</h3>
-            <p>Third Prize, Department of Physics and Astronomy, University of Manchester.</p>
-          </div>
-
-          <div class="card">
-            <h3>Best Start-up Award 2021</h3>
-            <p>Innovate to Impact category, Gujarat Innovation Council.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="teaching">
-      <div class="container">
-        <h2 class="section-title">Teaching and Public Engagement</h2>
-
-        <div class="card">
-          <ul>
-            <li>Taught Machine Learning for Energy Devices to final-year M.Tech students.</li>
-            <li>Supervised an undergraduate summer research student at the University of Manchester.</li>
-            <li>Delivered public and technical talks on renewable energy, research opportunities and MATLAB applications.</li>
-            <li>Presented research at Faraday Discussion and departmental research conferences.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="entrepreneurship">
-      <div class="container">
-        <h2 class="section-title">Entrepreneurship and Innovation</h2>
-
-        <div class="grid">
-          <div class="card">
-            <h3>PaintRobs</h3>
-            <p>
-              Founder of a robotics-based automated road-marking platform for intelligent spray-painting
-              applications including lane markings, zebra crossings, directional symbols and divider kerbs.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Lutions Group</h3>
-            <p>
-              Founder of a deep-technology and intelligent automation initiative focused on AI-assisted
-              software systems, scalable digital infrastructure, no-code machine-learning workflows and
-              integrated professional networking platforms.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <h2 class="section-title">Contact</h2>
-
-        <div class="card">
-          <p class="contact-line">
-            <span class="contact-icon">✉</span>
-            <strong>Email:</strong>
-            <a href="mailto:siddhivinayak.pandey@postgrad.manchester.ac.uk">
-              siddhivinayak.pandey@postgrad.manchester.ac.uk
-            </a>
-          </p>
-
-          <p class="contact-line">
-            <span class="contact-icon">🏛</span>
-            <strong>Affiliation:</strong>
-            Department of Physics and Astronomy, University of Manchester, United Kingdom
-          </p>
-
-          <p class="contact-line">
-            <span class="contact-icon">📍</span>
-            <strong>Office Address:</strong>
-            C3 - Annex, Schuster Building (3rd Floor), Department of Physics &amp; Astronomy,
-            The University of Manchester, Manchester M13 9PL, England, United Kingdom
-          </p>
-
-          <p>
-            <strong>Professional Links:</strong>
-          </p>
-
-          <div class="link-buttons">
-            <a class="link-btn" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank">Google Scholar</a>
-            <a class="link-btn" href="https://www.linkedin.com/in/siddhi-vinayak-pandey-17a295162" target="_blank">LinkedIn</a>
-            <a class="link-btn" href="https://orcid.org/0000-0002-1574-2846" target="_blank">ORCID</a>
-            <a class="link-btn" href="https://github.com/siddhivinayak-l" target="_blank">GitHub</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>© 2026 Siddhi Vinayak Pandey</p>
-    <p>Nanofluidic Memory | Neuromorphic Computing | Iontronic Systems | AI for Energy</p>
-  </footer>
+  // Active nav highlighting
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a');
+  const navIo = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const link = document.querySelector(`nav a[href="#${e.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(s => navIo.observe(s));
+</script>
 
 </body>
 </html>
