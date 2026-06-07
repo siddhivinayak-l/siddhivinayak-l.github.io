@@ -369,20 +369,40 @@
 
     .compact-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 16px;
-      align-items: start;
+      grid-template-columns: 1.15fr 0.95fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .compact-grid .card {
+      height: 100%;
+    }
+
+    .tag-heading {
+      margin: 22px 0 10px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .tag {
-      display: inline-block;
-      background: var(--soft);
+      display: inline-flex;
+      align-items: center;
+      background: linear-gradient(135deg, #eef8fb, #f7fbfd);
       color: var(--primary);
-      padding: 7px 11px;
-      margin: 5px 5px 5px 0;
+      padding: 8px 13px;
       border-radius: 999px;
       font-size: 14px;
       font-weight: 700;
+      border: 1px solid rgba(31, 122, 140, 0.12);
     }
 
     .card h3 {
@@ -512,6 +532,19 @@
       background:
         radial-gradient(circle at 90% 10%, rgba(6, 182, 212, 0.16), transparent 25%),
         linear-gradient(135deg, #ffffff, #f2fbfd);
+    }
+
+    .snapshot-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .snapshot-list {
+      margin-bottom: 20px;
+    }
+
+    .snapshot-buttons {
+      margin-top: auto;
     }
 
     footer {
@@ -681,7 +714,11 @@
 
       .tag {
         font-size: 13px;
-        padding: 6px 9px;
+        padding: 7px 10px;
+      }
+
+      .tag-heading {
+        font-size: 12px;
       }
     }
   </style>
@@ -752,26 +789,27 @@
               Engineering. My previous research includes machine-learning-assisted analysis of halide perovskites,
               battery state estimation, electrochemical impedance spectroscopy and energy-device modelling.
             </p>
-            <div>
-              <span class="tag">Nanofluidics</span>
+            <p class="tag-heading">Core research areas</p>
+            <div class="tag-list">
+              <span class="tag">Nanofluidic Memory</span>
               <span class="tag">Neuromorphic Computing</span>
               <span class="tag">Iontronic Systems</span>
               <span class="tag">Memristive Devices</span>
-              <span class="tag">Electrochemistry</span>
-              <span class="tag">Machine Learning</span>
-              <span class="tag">Energy Devices</span>
+              <span class="tag">Electrochemical Device Physics</span>
+              <span class="tag">AI for Science</span>
             </div>
           </div>
 
-          <div class="card cta-card">
+          <div class="card cta-card snapshot-card">
             <h2 class="section-title">Profile Snapshot</h2>
-            <ul>
+            <ul class="snapshot-list">
               <li>PhD Research Scholar and Dean’s Doctoral Fellow at the University of Manchester.</li>
-              <li>Research focus on ionic memory, nanofluidic memristors and iontronic computing.</li>
+              <li>Research focused on ionic memory, nanofluidic memristors and iontronic computing.</li>
               <li>Experience across electrochemical device physics, AI for materials and energy systems.</li>
+              <li>Author of research across nanofluidics, memristive systems, perovskites and battery modelling.</li>
               <li>Founder of PaintRobs and Lutions Group.</li>
             </ul>
-            <div class="link-buttons">
+            <div class="link-buttons snapshot-buttons">
               <a class="link-btn" href="#research" data-page="research"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2h4v7.4l5.6 8.9A2.4 2.4 0 0 1 17.6 22H6.4a2.4 2.4 0 0 1-2-3.7L10 9.4V2Zm2 2v6a1 1 0 0 1-.16.53L8.9 15.2h6.2l-2.94-4.67A1 1 0 0 1 12 10V4Zm-4.35 13.2-1.55 2.46a.4.4 0 0 0 .34.61h11.12a.4.4 0 0 0 .34-.61l-1.55-2.46h-8.7Z"/></svg> View Research</a>
               <a class="link-btn" href="#publications" data-page="publications"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h11.5L21 7.5V21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm10.5 2H5v14h14V8.5h-3.5V5ZM7 11h10v1.8H7V11Zm0 4h10v1.8H7V15Zm0-8h6v1.8H7V7Z"/></svg> View Publications</a>
             </div>
