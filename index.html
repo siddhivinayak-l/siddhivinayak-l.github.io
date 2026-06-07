@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Siddhi Vinayak Pandey | PhD Researcher</title>
 
   <style>
@@ -13,7 +12,9 @@
       --text: #1f2937;
       --muted: #5f6b7a;
       --primary: #123c69;
+      --primary-dark: #0f2f4f;
       --accent: #1f7a8c;
+      --cyan: #06b6d4;
       --line: #e5e7eb;
       --soft: #eef6f8;
       --shadow: rgba(15, 47, 79, 0.08);
@@ -24,7 +25,8 @@
       scroll-behavior: smooth;
     }
 
-    html {
+    html,
+    body {
       overflow-x: hidden;
     }
 
@@ -34,7 +36,6 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      overflow-x: hidden;
     }
 
     a {
@@ -46,6 +47,15 @@
       text-decoration: underline;
     }
 
+    .container {
+      width: min(94%, 1480px);
+      margin: auto;
+      padding: 0 22px;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
     header {
       position: relative;
       overflow: hidden;
@@ -79,12 +89,6 @@
       background: radial-gradient(circle, rgba(0, 210, 255, 0.28), transparent 60%);
       filter: blur(18px);
       pointer-events: none;
-    }
-
-    .container {
-      width: min(94%, 1480px);
-      margin: auto;
-      padding: 0 22px;
     }
 
     .hero {
@@ -131,7 +135,7 @@
     }
 
     .hero h2 {
-      font-size: 21px;
+      font-size: clamp(18px, 1.45vw, 23px);
       font-weight: 700;
       margin: 0 0 26px;
       color: #67e8f9;
@@ -151,6 +155,7 @@
       justify-content: center;
       align-items: center;
       position: relative;
+      min-height: 340px;
     }
 
     .profile-photo-wrap::before {
@@ -166,7 +171,7 @@
 
     .profile-photo {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       width: 265px;
       height: 265px;
       object-fit: cover;
@@ -178,25 +183,36 @@
       background: white;
     }
 
-    @keyframes pulse-ring {
-      0%, 100% {
-        transform: scale(1);
-        opacity: 0.85;
-      }
-      50% {
-        transform: scale(1.08);
-        opacity: 0.45;
-      }
+    .profile-fallback {
+      position: absolute;
+      z-index: 1;
+      width: 265px;
+      height: 265px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 58px;
+      font-weight: 800;
+      color: white;
+      background: linear-gradient(135deg, #123c69, #1f7a8c);
+      border: 6px solid rgba(255, 255, 255, 0.96);
     }
 
-    .buttons {
+    @keyframes pulse-ring {
+      0%, 100% { transform: scale(1); opacity: 0.85; }
+      50% { transform: scale(1.08); opacity: 0.45; }
+    }
+
+    .buttons,
+    .link-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
       margin-top: 18px;
     }
 
-    .btn {
+    .btn,
+    .link-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -204,18 +220,20 @@
       padding: 12px 18px;
       border-radius: 10px;
       font-weight: 700;
+      transition: 0.22s ease;
+    }
+
+    .btn {
       border: 1px solid rgba(148, 220, 255, 0.34);
       color: #ffffff;
       background: rgba(255, 255, 255, 0.055);
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      transition: 0.22s ease;
     }
 
     .btn:hover {
       transform: translateY(-2px);
       background: rgba(255, 255, 255, 0.12);
       border-color: rgba(0, 229, 255, 0.65);
-      color: white;
       text-decoration: none;
     }
 
@@ -231,38 +249,70 @@
       color: white;
     }
 
+    /* =========================
+       NAVIGATION
+    ========================== */
     nav {
-      background: white;
+      background: rgba(255, 255, 255, 0.96);
       border-bottom: 1px solid var(--line);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
     nav .container {
       display: flex;
       flex-wrap: wrap;
-      gap: 18px;
-      padding-top: 13px;
-      padding-bottom: 13px;
-      font-size: 15px;
-      font-weight: 600;
+      gap: 10px;
+      align-items: center;
+      padding-top: 12px;
+      padding-bottom: 12px;
     }
 
-    nav a {
+    .nav-link {
+      appearance: none;
+      border: 1px solid transparent;
+      background: transparent;
       color: var(--primary);
+      cursor: pointer;
+      font: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 9px 13px;
+      border-radius: 999px;
+      transition: 0.2s ease;
     }
 
-    section {
-      padding: 22px 0;
+    .nav-link:hover,
+    .nav-link.active {
+      background: var(--soft);
+      border-color: rgba(31, 122, 140, 0.22);
+      color: var(--accent);
+      text-decoration: none;
     }
 
-    section:first-of-type {
-      padding-top: 32px;
+    /* =========================
+       PAGE SECTIONS
+    ========================== */
+    main {
+      min-height: 68vh;
     }
 
-    section:last-of-type {
-      padding-bottom: 34px;
+    .page {
+      display: none;
+      padding: 34px 0 42px;
+      animation: fade-in 0.25s ease;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h2.section-title {
@@ -272,22 +322,24 @@
       letter-spacing: -0.3px;
     }
 
+    .page-intro {
+      max-width: 960px;
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
     .card {
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: 16px;
       padding: 24px;
       box-shadow: 0 8px 24px var(--shadow);
-      margin-bottom: 10px;
+      margin-bottom: 16px;
     }
 
-    .card p:first-child {
-      margin-top: 0;
-    }
-
-    .card p:last-child {
-      margin-bottom: 0;
-    }
+    .card p:first-child { margin-top: 0; }
+    .card p:last-child { margin-bottom: 0; }
 
     .grid {
       display: grid;
@@ -301,6 +353,13 @@
       gap: 16px;
     }
 
+    .compact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 16px;
+      align-items: start;
+    }
+
     .tag {
       display: inline-block;
       background: var(--soft);
@@ -309,7 +368,7 @@
       margin: 5px 5px 5px 0;
       border-radius: 999px;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .card h3 {
@@ -342,23 +401,17 @@
 
     .education-item {
       display: grid;
-      grid-template-columns: 125px 1fr;
+      grid-template-columns: 135px 1fr;
       gap: 22px;
       padding: 18px 0;
       border-bottom: 1px solid var(--line);
     }
 
-    .education-item:first-child {
-      padding-top: 0;
-    }
-
-    .education-item:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
+    .education-item:first-child { padding-top: 0; }
+    .education-item:last-child { border-bottom: none; padding-bottom: 0; }
 
     .education-year {
-      font-weight: 700;
+      font-weight: 800;
       color: var(--accent);
       font-size: 15px;
       padding-top: 4px;
@@ -381,7 +434,7 @@
       padding: 5px 10px;
       border-radius: 999px;
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 800;
       margin-bottom: 8px;
     }
 
@@ -406,22 +459,10 @@
       margin: 7px 0 0;
     }
 
-    .link-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 14px;
-    }
-
     .link-btn {
-      display: inline-block;
-      padding: 10px 15px;
-      border-radius: 8px;
       background: var(--primary);
       color: white;
-      font-weight: 600;
       border: 1px solid var(--primary);
-      transition: 0.2s ease;
     }
 
     .link-btn:hover {
@@ -439,8 +480,14 @@
     .contact-icon {
       display: inline-block;
       width: 24px;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--primary);
+    }
+
+    .cta-card {
+      background:
+        radial-gradient(circle at 90% 10%, rgba(6, 182, 212, 0.16), transparent 25%),
+        linear-gradient(135deg, #ffffff, #f2fbfd);
     }
 
     footer {
@@ -456,11 +503,10 @@
       color: #d8e8ed;
     }
 
-    @media (max-width: 850px) {
-      body {
-        overflow-x: hidden;
-      }
-
+    /* =========================
+       RESPONSIVE
+    ========================== */
+    @media (max-width: 950px) {
       header {
         padding: 46px 16px 44px;
       }
@@ -476,10 +522,12 @@
         text-align: center;
         padding: 34px 24px;
         border-radius: 22px;
+        min-height: auto;
       }
 
       .profile-photo-wrap {
         order: -1;
+        min-height: 230px;
       }
 
       .profile-photo-wrap::before {
@@ -487,16 +535,19 @@
         height: 230px;
       }
 
-      .profile-photo {
+      .profile-photo,
+      .profile-fallback {
         width: 175px;
         height: 175px;
         border-width: 5px;
       }
 
+      .profile-fallback {
+        font-size: 42px;
+      }
+
       .hero h1 {
         font-size: 34px;
-        line-height: 1.15;
-        margin-bottom: 12px;
       }
 
       .hero h1::after {
@@ -506,19 +557,14 @@
 
       .hero h2 {
         font-size: 17px;
-        line-height: 1.45;
-        margin-bottom: 18px;
       }
 
       .hero p {
         font-size: 15.5px;
-        line-height: 1.6;
-        margin-bottom: 22px;
       }
 
       .buttons {
         justify-content: center;
-        gap: 10px;
       }
 
       .btn {
@@ -527,101 +573,42 @@
       }
 
       nav {
-        position: sticky;
-        top: 0;
         overflow-x: auto;
         white-space: nowrap;
       }
 
       nav .container {
         flex-wrap: nowrap;
-        gap: 16px;
         overflow-x: auto;
-        padding: 12px 16px;
-        font-size: 14px;
         -webkit-overflow-scrolling: touch;
       }
 
-      nav a {
+      .nav-link {
         flex: 0 0 auto;
       }
 
-      section {
-        padding: 20px 0;
+      .grid,
+      .grid-3,
+      .compact-grid {
+        grid-template-columns: 1fr;
       }
 
-      section:first-of-type {
-        padding-top: 26px;
-      }
-
-      section:last-of-type {
-        padding-bottom: 28px;
+      .page {
+        padding: 26px 0 32px;
       }
 
       h2.section-title {
         font-size: 25px;
-        margin-bottom: 12px;
       }
 
       .card {
         padding: 20px;
-        border-radius: 14px;
-        margin-bottom: 10px;
-      }
-
-      .grid,
-      .grid-3 {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .card h3 {
-        font-size: 18px;
-        line-height: 1.35;
       }
 
       .education-item {
         grid-template-columns: 1fr;
         gap: 8px;
         padding: 16px 0;
-      }
-
-      .education-year {
-        font-size: 14px;
-        padding-top: 0;
-      }
-
-      .education-content h3 {
-        font-size: 18px;
-        line-height: 1.35;
-      }
-
-      .publication strong {
-        font-size: 16px;
-        line-height: 1.45;
-        display: block;
-      }
-
-      .publication p {
-        font-size: 15px;
-        line-height: 1.55;
-      }
-
-      .link-buttons {
-        gap: 10px;
-      }
-
-      .link-btn {
-        padding: 9px 13px;
-        font-size: 14px;
-      }
-
-      footer {
-        padding: 24px 16px;
-      }
-
-      footer p {
-        font-size: 14px;
       }
     }
 
@@ -646,11 +633,19 @@
         font-size: 16px;
       }
 
-      .hero p {
-        font-size: 15px;
+      .buttons,
+      .link-buttons {
+        flex-direction: column;
+        align-items: stretch;
       }
 
-      .profile-photo {
+      .btn,
+      .link-btn {
+        width: 100%;
+      }
+
+      .profile-photo,
+      .profile-fallback {
         width: 155px;
         height: 155px;
       }
@@ -658,50 +653,6 @@
       .profile-photo-wrap::before {
         width: 205px;
         height: 205px;
-      }
-
-      .buttons {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn {
-        width: 100%;
-        text-align: center;
-      }
-
-      section {
-        padding: 18px 0;
-      }
-
-      section:first-of-type {
-        padding-top: 24px;
-      }
-
-      section:last-of-type {
-        padding-bottom: 26px;
-      }
-
-      h2.section-title {
-        font-size: 23px;
-        margin-bottom: 10px;
-      }
-
-      .card {
-        padding: 18px;
-      }
-
-      .link-buttons {
-        flex-direction: column;
-      }
-
-      .link-btn {
-        width: 100%;
-        text-align: center;
-      }
-
-      nav .container {
-        font-size: 13.5px;
       }
 
       .tag {
@@ -714,10 +665,9 @@
 
 <body>
 
-  <header>
+  <header id="top">
     <div class="container hero">
       <div class="hero-layout">
-
         <div>
           <h1>Siddhi Vinayak Pandey</h1>
 
@@ -733,75 +683,269 @@
           </p>
 
           <div class="buttons">
-            <a class="btn btn-filled" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank">🎓 Google Scholar</a>
-            <a class="btn" href="https://www.linkedin.com/in/siddhi-vinayak-pandey-17a295162" target="_blank">LinkedIn</a>
-            <a class="btn" href="https://orcid.org/0000-0002-1574-2846" target="_blank">ORCID</a>
-            <a class="btn" href="https://github.com/siddhivinayak-l" target="_blank">GitHub</a>
-            <a class="btn" href="#contact">✉ Contact</a>
+            <a class="btn btn-filled" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank" rel="noopener">🎓 Google Scholar</a>
+            <a class="btn" href="https://www.linkedin.com/in/siddhi-vinayak-pandey-17a295162" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="https://orcid.org/0000-0002-1574-2846" target="_blank" rel="noopener">ORCID</a>
+            <a class="btn" href="https://github.com/siddhivinayak-l" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="#contact" data-page="contact">✉ Contact</a>
           </div>
         </div>
 
         <div class="profile-photo-wrap">
-          <img class="profile-photo" src="profile.jpg" alt="Siddhi Vinayak Pandey profile photo">
+          <div class="profile-fallback">SVP</div>
+          <img class="profile-photo" src="profile.jpg" alt="Siddhi Vinayak Pandey profile photo" onerror="this.style.display='none'">
         </div>
-
       </div>
     </div>
   </header>
 
-  <nav>
+  <nav aria-label="Main navigation">
     <div class="container">
-      <a href="#about">About</a>
-      <a href="#education">Education</a>
-      <a href="#research">Research</a>
-      <a href="#publications">Publications</a>
-      <a href="#projects">Projects</a>
-      <a href="#awards">Awards</a>
-      <a href="#entrepreneurship">Entrepreneurship</a>
-      <a href="#contact">Contact</a>
+      <button class="nav-link active" type="button" data-page="home">Home</button>
+      <button class="nav-link" type="button" data-page="research">Research</button>
+      <button class="nav-link" type="button" data-page="publications">Publications</button>
+      <button class="nav-link" type="button" data-page="experience">Experience</button>
+      <button class="nav-link" type="button" data-page="contact">Contact</button>
     </div>
   </nav>
 
   <main>
-
-    <section id="about">
+    <!-- HOME -->
+    <section id="home" class="page active">
       <div class="container">
-        <h2 class="section-title">About</h2>
+        <div class="compact-grid">
+          <div class="card">
+            <h2 class="section-title">About</h2>
+            <p>
+              I work at the interface of neuromorphic computing, nanofluidics, electrochemical devices,
+              advanced materials and machine learning. My doctoral research explores how confined ionic systems
+              can exhibit memory, adaptive transport and memristive behaviour, with the long-term aim of developing
+              energy-efficient computing concepts inspired by biological information processing.
+            </p>
+            <p>
+              Before joining the University of Manchester, I completed an M.Tech in Energy Systems at Pandit
+              Deendayal Energy University and a B.Tech in Electrical Engineering at Adani Institute of Infrastructure
+              Engineering. My previous research includes machine-learning-assisted analysis of halide perovskites,
+              battery state estimation, electrochemical impedance spectroscopy and energy-device modelling.
+            </p>
+            <div>
+              <span class="tag">Nanofluidics</span>
+              <span class="tag">Neuromorphic Computing</span>
+              <span class="tag">Iontronic Systems</span>
+              <span class="tag">Memristive Devices</span>
+              <span class="tag">Electrochemistry</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Energy Devices</span>
+            </div>
+          </div>
 
-        <div class="card">
-          <p>
-            I work at the interface of neuromorphic computing, nanofluidics, electrochemical devices,
-            advanced materials and machine learning. My doctoral research explores how confined ionic systems
-            can exhibit memory, adaptive transport and memristive behaviour, with the long-term aim of developing
-            energy-efficient computing concepts inspired by biological information processing.
-          </p>
+          <div class="card cta-card">
+            <h2 class="section-title">Profile Snapshot</h2>
+            <ul>
+              <li>PhD Research Scholar and Dean’s Doctoral Fellow at the University of Manchester.</li>
+              <li>Research focus on ionic memory, nanofluidic memristors and iontronic computing.</li>
+              <li>Experience across electrochemical device physics, AI for materials and energy systems.</li>
+              <li>Founder of PaintRobs and Lutions Group.</li>
+            </ul>
+            <div class="link-buttons">
+              <a class="link-btn" href="#research" data-page="research">View Research</a>
+              <a class="link-btn" href="#publications" data-page="publications">View Publications</a>
+            </div>
+          </div>
+        </div>
 
-          <p>
-            Before joining the University of Manchester, I completed an M.Tech in Energy Systems at Pandit
-            Deendayal Energy University and a B.Tech in Electrical Engineering at Adani Institute of Infrastructure
-            Engineering. My previous research includes machine-learning-assisted analysis of halide perovskites,
-            battery state estimation, electrochemical impedance spectroscopy and energy-device modelling.
-          </p>
+        <h2 class="section-title">Research Highlights</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Nanofluidic Memory</h3>
+            <p>Exploring memory, adaptive ionic transport and memristive behaviour in confined nanoscale channels.</p>
+          </div>
+          <div class="card">
+            <h3>Neuromorphic Iontronics</h3>
+            <p>Developing ion-based concepts for potentiation, depression, retention and brain-inspired computation.</p>
+          </div>
+          <div class="card">
+            <h3>AI for Energy Systems</h3>
+            <p>Applying machine learning to perovskites, batteries, impedance analysis and energy-device modelling.</p>
+          </div>
+        </div>
 
-          <div>
-            <span class="tag">Nanofluidics</span>
-            <span class="tag">Neuromorphic Computing</span>
-            <span class="tag">Iontronic Systems</span>
-            <span class="tag">Memristive Devices</span>
-            <span class="tag">Electrochemistry</span>
-            <span class="tag">Machine Learning</span>
-            <span class="tag">Energy Devices</span>
+        <h2 class="section-title">Selected Publications</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Programmable Memristors</h3>
+            <p class="muted">Nature Communications, 2025</p>
+            <p>Programmable memristive behaviour in two-dimensional nanofluidic channels.</p>
+          </div>
+          <div class="card">
+            <h3>Ångström-Scale Channels</h3>
+            <p class="muted">Small Methods, 2024</p>
+            <p>Electric-field-mediated unclogging and transport in extremely confined channels.</p>
+          </div>
+          <div class="card">
+            <h3>Nanofluidic Memristors</h3>
+            <p class="muted">Faraday Discussions, 2026</p>
+            <p>Systematic assessment of ionic memory and electrode artefacts in nanofluidic memristors.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="education">
+    <!-- RESEARCH -->
+    <section id="research" class="page">
+      <div class="container">
+        <h2 class="section-title">Research</h2>
+        <p class="page-intro">
+          My research combines nanoscale ion transport, electrochemical device physics, advanced materials and
+          machine learning to study ionic memory and energy-efficient computing concepts.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Nanofluidic Memory and Iontronic Systems</h3>
+            <p>
+              Investigating ionic transport, memory effects and adaptive conduction in confined nanofluidic
+              systems for brain-inspired and energy-efficient computing.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Neuromorphic and Memristive Devices</h3>
+            <p>
+              Studying potentiation, depression, retention, endurance, EPSC, IPSC, STDP and SRDP protocols
+              in ionic and electrochemical memory devices.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Electrochemical Impedance and Device Physics</h3>
+            <p>
+              Analysing resistive, capacitive and interfacial processes in electrochemical systems, halide
+              perovskites and nanoscale transport devices.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>AI for Materials and Energy Systems</h3>
+            <p>
+              Developing machine-learning workflows for device-performance prediction, impedance interpretation,
+              battery SOC/SOH/RUL estimation and structure-property correlation.
+            </p>
+          </div>
+        </div>
+
+        <h2 class="section-title">Selected Projects</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Ionic Memory for Next-Generation Computing</h3>
+            <p>
+              Doctoral research project focused on nanofluidic memristors, confined ion transport,
+              ionic memory and neuromorphic functionality.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Nanoscale Ionic Transport Analysis</h3>
+            <p>
+              Contributed to open-source measurement and analysis workflows for nanoscale ionic transport
+              and nanofluidic device characterization.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Machine Learning for Energy Devices</h3>
+            <p>
+              Developed ML-based approaches for perovskite device analysis, battery state prediction,
+              impedance interpretation and energy-material modelling.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Robotics and Intelligent Automation</h3>
+            <p>
+              Co-developed an automatic spray-painting robot for road-marking applications and contributed
+              to innovation initiatives around robotics-based infrastructure solutions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="page">
+      <div class="container">
+        <h2 class="section-title">Selected Publications</h2>
+        <p class="page-intro">
+          Selected research outputs across nanofluidics, ionic memory, electrochemical devices, machine learning
+          and energy systems.
+        </p>
+
+        <div class="card">
+          <div class="publication">
+            <strong>Ionic memory or electrode artefacts? A systematic assessment of nanofluidic memristors</strong>
+            <br />
+            <span class="muted">Faraday Discussions, Royal Society of Chemistry, 2026</span>
+            <p>
+              A systematic investigation of ionic memory, electrochemical artefacts and nanoscale ion-transport
+              behaviour in nanofluidic memristor systems.
+            </p>
+          </div>
+
+          <div class="publication">
+            <strong>Programmable memristors with two-dimensional nanofluidic channels</strong>
+            <br />
+            <span class="muted">Nature Communications, 2025</span>
+            <p>
+              Demonstrates programmable memristive behaviour in two-dimensional nanofluidic channels for
+              brain-inspired and iontronic computing concepts.
+            </p>
+          </div>
+
+          <div class="publication">
+            <strong>Electric field mediated unclogging of Ångström-scale channels</strong>
+            <br />
+            <span class="muted">Small Methods, Wiley, 2024</span>
+            <p>
+              Explores electric-field-assisted transport and unclogging phenomena in extremely confined
+              Ångström-scale channels.
+            </p>
+          </div>
+
+          <div class="publication">
+            <strong>A machine learning framework for predicting device performance in 2D metal halide perovskite photodetector</strong>
+            <br />
+            <span class="muted">Solar Energy, Elsevier, 2024</span>
+            <p>
+              Develops a machine-learning framework for analysing and predicting optoelectronic device performance
+              in two-dimensional halide perovskite photodetectors.
+            </p>
+          </div>
+
+          <div class="publication">
+            <strong>Predicting the state parameters of lithium-ion batteries: The race between filter-based and data-driven approaches</strong>
+            <br />
+            <span class="muted">Sustainable Energy &amp; Fuels, Royal Society of Chemistry, 2023</span>
+            <p>
+              Compares filter-based and data-driven methods for predicting key lithium-ion battery state parameters.
+            </p>
+          </div>
+
+          <p class="muted">Full publication list available on Google Scholar.</p>
+
+          <div class="link-buttons">
+            <a class="link-btn" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank" rel="noopener">View Google Scholar</a>
+            <a class="link-btn" href="https://orcid.org/0000-0002-1574-2846" target="_blank" rel="noopener">View ORCID</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="page">
       <div class="container">
         <h2 class="section-title">Academic Background</h2>
 
         <div class="card education-timeline">
-
           <div class="education-item">
             <div class="education-year">2023 – Present</div>
             <div class="education-content">
@@ -848,190 +992,14 @@
               <p><strong>CGPA:</strong> 8.99/10</p>
             </div>
           </div>
-
         </div>
-      </div>
-    </section>
 
-    <section id="research">
-      <div class="container">
-        <h2 class="section-title">Research Interests</h2>
-
-        <div class="grid">
-          <div class="card">
-            <h3>Nanofluidic Memory and Iontronic Systems</h3>
-            <p>
-              Investigating ionic transport, memory effects and adaptive conduction in confined nanofluidic
-              systems for brain-inspired and energy-efficient computing.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Neuromorphic and Memristive Devices</h3>
-            <p>
-              Studying potentiation, depression, retention, endurance, EPSC, IPSC, STDP and SRDP protocols
-              in ionic and electrochemical memory devices.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Electrochemical Impedance and Device Physics</h3>
-            <p>
-              Analysing resistive, capacitive and interfacial processes in electrochemical systems, halide
-              perovskites and nanoscale transport devices.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>AI for Materials and Energy Systems</h3>
-            <p>
-              Developing machine-learning workflows for device-performance prediction, impedance interpretation,
-              battery SOC/SOH/RUL estimation and structure-property correlation.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="publications">
-      <div class="container">
-        <h2 class="section-title">Selected Publications</h2>
-
-        <div class="card">
-          <div class="publication">
-            <strong>Ionic memory or electrode artefacts? A systematic assessment of nanofluidic memristors</strong>
-            <br />
-            <span class="muted">Faraday Discussions, Royal Society of Chemistry, 2026</span>
-            <p>
-              A systematic investigation of ionic memory, electrochemical artefacts and nanoscale ion-transport
-              behaviour in nanofluidic memristor systems.
-            </p>
-          </div>
-
-          <div class="publication">
-            <strong>Programmable memristors with two-dimensional nanofluidic channels</strong>
-            <br />
-            <span class="muted">Nature Communications, 2025</span>
-            <p>
-              Demonstrates programmable memristive behaviour in two-dimensional nanofluidic channels for
-              brain-inspired and iontronic computing concepts.
-            </p>
-          </div>
-
-          <div class="publication">
-            <strong>Electric field mediated unclogging of Ångström-scale channels</strong>
-            <br />
-            <span class="muted">Small Methods, Wiley, 2024</span>
-            <p>
-              Explores electric-field-assisted transport and unclogging phenomena in extremely confined
-              Ångström-scale channels.
-            </p>
-          </div>
-
-          <div class="publication">
-            <strong>A machine learning framework for predicting device performance in 2D metal halide perovskite photodetector</strong>
-            <br />
-            <span class="muted">Solar Energy, Elsevier, 2024</span>
-            <p>
-              Develops a machine-learning framework for analysing and predicting optoelectronic device performance
-              in two-dimensional halide perovskite photodetectors.
-            </p>
-          </div>
-
-          <div class="publication">
-            <strong>Predicting the state parameters of lithium-ion batteries: The race between filter-based and data-driven approaches</strong>
-            <br />
-            <span class="muted">Sustainable Energy & Fuels, Royal Society of Chemistry, 2023</span>
-            <p>
-              Compares filter-based and data-driven methods for predicting key lithium-ion battery state parameters.
-            </p>
-          </div>
-
-          <p class="muted">
-            Full publication list available on Google Scholar.
-          </p>
-
-          <div class="link-buttons">
-            <a class="link-btn" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank">View Google Scholar</a>
-            <a class="link-btn" href="https://orcid.org/0000-0002-1574-2846" target="_blank">View ORCID</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="container">
-        <h2 class="section-title">Selected Projects</h2>
-
-        <div class="grid">
-          <div class="card">
-            <h3>Ionic Memory for Next-Generation Computing</h3>
-            <p>
-              Doctoral research project focused on nanofluidic memristors, confined ion transport,
-              ionic memory and neuromorphic functionality.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Nanoscale Ionic Transport Analysis</h3>
-            <p>
-              Contributed to open-source measurement and analysis workflows for nanoscale ionic transport
-              and nanofluidic device characterization.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Machine Learning for Energy Devices</h3>
-            <p>
-              Developed ML-based approaches for perovskite device analysis, battery state prediction,
-              impedance interpretation and energy-material modelling.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Robotics and Intelligent Automation</h3>
-            <p>
-              Co-developed an automatic spray-painting robot for road-marking applications and contributed
-              to innovation initiatives around robotics-based infrastructure solutions.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="awards">
-      <div class="container">
-        <h2 class="section-title">Awards and Recognition</h2>
-
-        <div class="grid-3">
-          <div class="card">
-            <h3>Dean’s Doctoral Scholarship</h3>
-            <p>University of Manchester, United Kingdom.</p>
-          </div>
-
-          <div class="card">
-            <h3>PGR Research Conference Prize</h3>
-            <p>Third Prize, Department of Physics and Astronomy, University of Manchester.</p>
-          </div>
-
-          <div class="card">
-            <h3>Best Start-up Award 2021</h3>
-            <p>Innovate to Impact category, Gujarat Innovation Council.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="teaching">
-      <div class="container">
         <h2 class="section-title">Teaching and Public Engagement</h2>
-
         <div class="card">
           <ul>
             <li>
               Delivered a talk at the Faraday Discussion
-              <em>Molecular and Ion Flows Through Ångström-Scale Channels</em>,
-              Manchester, on
+              <em>Molecular and Ion Flows Through Ångström-Scale Channels</em>, Manchester, on
               <strong>“Ionic memory or electrode artefacts? A systematic assessment of nanofluidic memristors”</strong>
               (2026).
             </li>
@@ -1060,13 +1028,26 @@
             </li>
           </ul>
         </div>
-      </div>
-    </section>
 
-    <section id="entrepreneurship">
-      <div class="container">
+        <h2 class="section-title">Awards and Recognition</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Dean’s Doctoral Scholarship</h3>
+            <p>University of Manchester, United Kingdom.</p>
+          </div>
+
+          <div class="card">
+            <h3>PGR Research Conference Prize</h3>
+            <p>Third Prize, Department of Physics and Astronomy, University of Manchester.</p>
+          </div>
+
+          <div class="card">
+            <h3>Best Start-up Award 2021</h3>
+            <p>Innovate to Impact category, Gujarat Innovation Council.</p>
+          </div>
+        </div>
+
         <h2 class="section-title">Entrepreneurship and Innovation</h2>
-
         <div class="grid">
           <div class="card">
             <h3>PaintRobs</h3>
@@ -1088,9 +1069,14 @@
       </div>
     </section>
 
-    <section id="contact">
+    <!-- CONTACT -->
+    <section id="contact" class="page">
       <div class="container">
         <h2 class="section-title">Contact</h2>
+        <p class="page-intro">
+          For research discussions, collaborations, academic opportunities or professional enquiries, please use
+          the contact details and professional links below.
+        </p>
 
         <div class="card">
           <p class="contact-line">
@@ -1114,26 +1100,66 @@
             The University of Manchester, Manchester M13 9PL, England, United Kingdom
           </p>
 
-          <p>
-            <strong>Professional Links:</strong>
-          </p>
+          <p><strong>Professional Links:</strong></p>
 
           <div class="link-buttons">
-            <a class="link-btn" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank">Google Scholar</a>
-            <a class="link-btn" href="https://www.linkedin.com/in/siddhi-vinayak-pandey-17a295162" target="_blank">LinkedIn</a>
-            <a class="link-btn" href="https://orcid.org/0000-0002-1574-2846" target="_blank">ORCID</a>
-            <a class="link-btn" href="https://github.com/siddhivinayak-l" target="_blank">GitHub</a>
+            <a class="link-btn" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+            <a class="link-btn" href="https://www.linkedin.com/in/siddhi-vinayak-pandey-17a295162" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="link-btn" href="https://orcid.org/0000-0002-1574-2846" target="_blank" rel="noopener">ORCID</a>
+            <a class="link-btn" href="https://github.com/siddhivinayak-l" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
       </div>
     </section>
-
   </main>
 
   <footer>
     <p>© 2026 Siddhi Vinayak Pandey</p>
     <p>Nanofluidic Memory | Neuromorphic Computing | Iontronic Systems | AI for Energy</p>
   </footer>
+
+  <script>
+    const pageButtons = document.querySelectorAll('[data-page]');
+    const pages = document.querySelectorAll('.page');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function showPage(pageId, updateHash = true) {
+      pages.forEach(page => {
+        page.classList.toggle('active', page.id === pageId);
+      });
+
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.dataset.page === pageId);
+      });
+
+      if (updateHash) {
+        history.pushState(null, '', '#' + pageId);
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    pageButtons.forEach(button => {
+      button.addEventListener('click', event => {
+        const pageId = button.dataset.page;
+        if (!pageId) return;
+        event.preventDefault();
+        showPage(pageId);
+      });
+    });
+
+    window.addEventListener('popstate', () => {
+      const pageId = location.hash.replace('#', '') || 'home';
+      const target = document.getElementById(pageId) ? pageId : 'home';
+      showPage(target, false);
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const pageId = location.hash.replace('#', '') || 'home';
+      const target = document.getElementById(pageId) ? pageId : 'home';
+      showPage(target, false);
+    });
+  </script>
 
 </body>
 </html>
