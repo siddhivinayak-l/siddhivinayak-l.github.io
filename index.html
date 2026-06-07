@@ -249,6 +249,20 @@
       color: white;
     }
 
+    .icon {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      flex: 0 0 auto;
+      display: inline-block;
+    }
+
+    .icon-lg {
+      width: 20px;
+      height: 20px;
+    }
+
+
     /* =========================
        NAVIGATION
     ========================== */
@@ -478,10 +492,20 @@
     }
 
     .contact-icon {
-      display: inline-block;
-      width: 24px;
+      display: inline-flex;
+      width: 26px;
+      min-width: 26px;
+      align-items: center;
+      justify-content: center;
       font-weight: 800;
       color: var(--primary);
+      vertical-align: middle;
+    }
+
+    .contact-line {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
     }
 
     .cta-card {
@@ -683,11 +707,11 @@
           </p>
 
           <div class="buttons">
-            <a class="btn btn-filled" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank" rel="noopener">🎓 Google Scholar</a>
-            <a class="btn" href="https://www.linkedin.com/in/siddhi-vinayak-pandey-17a295162" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn" href="https://orcid.org/0000-0002-1574-2846" target="_blank" rel="noopener">ORCID</a>
-            <a class="btn" href="https://github.com/siddhivinayak-l" target="_blank" rel="noopener">GitHub</a>
-            <a class="btn" href="#contact" data-page="contact">✉ Contact</a>
+            <a class="btn btn-filled" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1.8 8.3 12 13.6 22.2 8.3 12 3Zm-6.1 8.2v4.1c0 2.2 3.1 4 6.1 4s6.1-1.8 6.1-4v-4.1L12 14.4 5.9 11.2Zm14.4-.4v5.7h1.5V10l-1.5.8Z"/></svg> Google Scholar</a>
+            <a class="btn" href="https://www.linkedin.com/in/siddhi-vinayak-pandey-17a295162" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.4 8.2h4.2V23H.4V8.2Zm7.1 0h4v2h.1c.6-1.1 2-2.3 4.1-2.3 4.4 0 5.2 2.9 5.2 6.7V23h-4.2v-7.5c0-1.8 0-4.1-2.5-4.1s-2.9 2-2.9 4V23H7.5V8.2Z" transform="translate(1.5 0) scale(.92)"/></svg> LinkedIn</a>
+            <a class="btn" href="https://orcid.org/0000-0002-1574-2846" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#A6CE39"/><path d="M8.1 7.3c0 .7-.5 1.2-1.2 1.2S5.7 8 5.7 7.3s.5-1.2 1.2-1.2 1.2.5 1.2 1.2ZM6 9.8h1.8v7.9H6V9.8Zm4.1-3h4.6c3.1 0 5.4 2.2 5.4 5.4s-2.3 5.5-5.4 5.5h-4.6V6.8Zm1.9 9.2h2.4c2.2 0 3.7-1.6 3.7-3.8s-1.5-3.7-3.7-3.7H12V16Z" fill="#fff"/></svg> ORCID</a>
+            <a class="btn" href="https://github.com/siddhivinayak-l" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49v-1.72c-2.78.62-3.37-1.38-3.37-1.38-.46-1.19-1.12-1.51-1.12-1.51-.91-.64.07-.63.07-.63 1.01.07 1.54 1.07 1.54 1.07.9 1.58 2.36 1.12 2.94.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05A9.28 9.28 0 0 1 12 6.96c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.05.36.32.68.95.68 1.92v2.78c0 .27.18.59.69.49A10.05 10.05 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"/></svg> GitHub</a>
+            <a class="btn" href="#contact" data-page="contact"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 5h17A2.5 2.5 0 0 1 23 7.5v9A2.5 2.5 0 0 1 20.5 19h-17A2.5 2.5 0 0 1 1 16.5v-9A2.5 2.5 0 0 1 3.5 5Zm0 2 .2.1L12 12.9l8.3-5.8.2-.1h-17Zm17 10a.5.5 0 0 0 .5-.5V9.1l-8.4 5.8a1 1 0 0 1-1.2 0L3 9.1v7.4a.5.5 0 0 0 .5.5h17Z"/></svg> Contact</a>
           </div>
         </div>
 
@@ -748,8 +772,8 @@
               <li>Founder of PaintRobs and Lutions Group.</li>
             </ul>
             <div class="link-buttons">
-              <a class="link-btn" href="#research" data-page="research">View Research</a>
-              <a class="link-btn" href="#publications" data-page="publications">View Publications</a>
+              <a class="link-btn" href="#research" data-page="research"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2h4v7.4l5.6 8.9A2.4 2.4 0 0 1 17.6 22H6.4a2.4 2.4 0 0 1-2-3.7L10 9.4V2Zm2 2v6a1 1 0 0 1-.16.53L8.9 15.2h6.2l-2.94-4.67A1 1 0 0 1 12 10V4Zm-4.35 13.2-1.55 2.46a.4.4 0 0 0 .34.61h11.12a.4.4 0 0 0 .34-.61l-1.55-2.46h-8.7Z"/></svg> View Research</a>
+              <a class="link-btn" href="#publications" data-page="publications"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h11.5L21 7.5V21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm10.5 2H5v14h14V8.5h-3.5V5ZM7 11h10v1.8H7V11Zm0 4h10v1.8H7V15Zm0-8h6v1.8H7V7Z"/></svg> View Publications</a>
             </div>
           </div>
         </div>
@@ -933,8 +957,8 @@
           <p class="muted">Full publication list available on Google Scholar.</p>
 
           <div class="link-buttons">
-            <a class="link-btn" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank" rel="noopener">View Google Scholar</a>
-            <a class="link-btn" href="https://orcid.org/0000-0002-1574-2846" target="_blank" rel="noopener">View ORCID</a>
+            <a class="link-btn" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1.8 8.3 12 13.6 22.2 8.3 12 3Zm-6.1 8.2v4.1c0 2.2 3.1 4 6.1 4s6.1-1.8 6.1-4v-4.1L12 14.4 5.9 11.2Zm14.4-.4v5.7h1.5V10l-1.5.8Z"/></svg> View Google Scholar</a>
+            <a class="link-btn" href="https://orcid.org/0000-0002-1574-2846" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#A6CE39"/><path d="M8.1 7.3c0 .7-.5 1.2-1.2 1.2S5.7 8 5.7 7.3s.5-1.2 1.2-1.2 1.2.5 1.2 1.2ZM6 9.8h1.8v7.9H6V9.8Zm4.1-3h4.6c3.1 0 5.4 2.2 5.4 5.4s-2.3 5.5-5.4 5.5h-4.6V6.8Zm1.9 9.2h2.4c2.2 0 3.7-1.6 3.7-3.8s-1.5-3.7-3.7-3.7H12V16Z" fill="#fff"/></svg> View ORCID</a>
           </div>
         </div>
       </div>
@@ -1080,7 +1104,7 @@
 
         <div class="card">
           <p class="contact-line">
-            <span class="contact-icon">✉</span>
+            <span class="contact-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 5h17A2.5 2.5 0 0 1 23 7.5v9A2.5 2.5 0 0 1 20.5 19h-17A2.5 2.5 0 0 1 1 16.5v-9A2.5 2.5 0 0 1 3.5 5Zm0 2 .2.1L12 12.9l8.3-5.8.2-.1h-17Zm17 10a.5.5 0 0 0 .5-.5V9.1l-8.4 5.8a1 1 0 0 1-1.2 0L3 9.1v7.4a.5.5 0 0 0 .5.5h17Z"/></svg></span>
             <strong>Email:</strong>
             <a href="mailto:siddhivinayak.pandey@postgrad.manchester.ac.uk">
               siddhivinayak.pandey@postgrad.manchester.ac.uk
@@ -1088,13 +1112,13 @@
           </p>
 
           <p class="contact-line">
-            <span class="contact-icon">🏛</span>
+            <span class="contact-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 2 7v2h20V7L12 2ZM4 11h3v7H4v-7Zm5 0h3v7H9v-7Zm5 0h3v7h-3v-7Zm5 0h1v7h-1v-7ZM2 20h20v2H2v-2Z"/></svg></span>
             <strong>Affiliation:</strong>
             Department of Physics and Astronomy, University of Manchester, United Kingdom
           </p>
 
           <p class="contact-line">
-            <span class="contact-icon">📍</span>
+            <span class="contact-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.7A2.7 2.7 0 1 1 12 6.3a2.7 2.7 0 0 1 0 5.4Z"/></svg></span>
             <strong>Office Address:</strong>
             C3 - Annex, Schuster Building (3rd Floor), Department of Physics &amp; Astronomy,
             The University of Manchester, Manchester M13 9PL, England, United Kingdom
@@ -1103,10 +1127,10 @@
           <p><strong>Professional Links:</strong></p>
 
           <div class="link-buttons">
-            <a class="link-btn" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
-            <a class="link-btn" href="https://www.linkedin.com/in/siddhi-vinayak-pandey-17a295162" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="link-btn" href="https://orcid.org/0000-0002-1574-2846" target="_blank" rel="noopener">ORCID</a>
-            <a class="link-btn" href="https://github.com/siddhivinayak-l" target="_blank" rel="noopener">GitHub</a>
+            <a class="link-btn" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1.8 8.3 12 13.6 22.2 8.3 12 3Zm-6.1 8.2v4.1c0 2.2 3.1 4 6.1 4s6.1-1.8 6.1-4v-4.1L12 14.4 5.9 11.2Zm14.4-.4v5.7h1.5V10l-1.5.8Z"/></svg> Google Scholar</a>
+            <a class="link-btn" href="https://www.linkedin.com/in/siddhi-vinayak-pandey-17a295162" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.4 8.2h4.2V23H.4V8.2Zm7.1 0h4v2h.1c.6-1.1 2-2.3 4.1-2.3 4.4 0 5.2 2.9 5.2 6.7V23h-4.2v-7.5c0-1.8 0-4.1-2.5-4.1s-2.9 2-2.9 4V23H7.5V8.2Z" transform="translate(1.5 0) scale(.92)"/></svg> LinkedIn</a>
+            <a class="link-btn" href="https://orcid.org/0000-0002-1574-2846" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#A6CE39"/><path d="M8.1 7.3c0 .7-.5 1.2-1.2 1.2S5.7 8 5.7 7.3s.5-1.2 1.2-1.2 1.2.5 1.2 1.2ZM6 9.8h1.8v7.9H6V9.8Zm4.1-3h4.6c3.1 0 5.4 2.2 5.4 5.4s-2.3 5.5-5.4 5.5h-4.6V6.8Zm1.9 9.2h2.4c2.2 0 3.7-1.6 3.7-3.8s-1.5-3.7-3.7-3.7H12V16Z" fill="#fff"/></svg> ORCID</a>
+            <a class="link-btn" href="https://github.com/siddhivinayak-l" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49v-1.72c-2.78.62-3.37-1.38-3.37-1.38-.46-1.19-1.12-1.51-1.12-1.51-.91-.64.07-.63.07-.63 1.01.07 1.54 1.07 1.54 1.07.9 1.58 2.36 1.12 2.94.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05A9.28 9.28 0 0 1 12 6.96c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.05.36.32.68.95.68 1.92v2.78c0 .27.18.59.69.49A10.05 10.05 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"/></svg> GitHub</a>
           </div>
         </div>
       </div>
