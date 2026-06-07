@@ -54,45 +54,41 @@
     }
 
     /* =========================
-       HERO — Split Showcase Option 6
+       HERO
     ========================== */
     header {
       position: relative;
       overflow: hidden;
       color: white;
-      padding: 34px 24px 40px;
+      padding: 78px 24px 72px;
       background:
-        radial-gradient(circle at 78% 18%, rgba(6, 182, 212, 0.30), transparent 28%),
-        radial-gradient(circle at 18% 80%, rgba(14, 116, 144, 0.20), transparent 32%),
-        linear-gradient(135deg, #020814 0%, #031827 48%, #062f3d 100%);
-      border-bottom: 1px solid rgba(103, 232, 249, 0.14);
+        radial-gradient(circle at 85% 25%, rgba(31, 122, 140, 0.48), transparent 32%),
+        radial-gradient(circle at 10% 80%, rgba(0, 180, 216, 0.20), transparent 30%),
+        linear-gradient(135deg, #031426 0%, #082747 48%, #0f6170 100%);
     }
 
     header::before {
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-        radial-gradient(circle at 93% 30%, rgba(103, 232, 249, 0.20) 0 2px, transparent 3px),
-        radial-gradient(circle at 75% 52%, rgba(103, 232, 249, 0.13) 0 1px, transparent 3px);
-      background-size: 54px 54px, 54px 54px, 86px 86px, 110px 110px;
-      opacity: 0.7;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: 0.35;
       pointer-events: none;
     }
 
     header::after {
       content: "";
       position: absolute;
-      right: -180px;
-      bottom: -210px;
-      width: 720px;
-      height: 520px;
-      background: radial-gradient(circle, rgba(0, 229, 255, 0.30), transparent 62%);
-      filter: blur(24px);
+      right: -120px;
+      bottom: -150px;
+      width: 620px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(0, 210, 255, 0.28), transparent 60%);
+      filter: blur(18px);
       pointer-events: none;
-      animation: glow-drift 8s ease-in-out infinite alternate;
     }
 
     .hero {
@@ -100,262 +96,111 @@
       z-index: 1;
     }
 
-    .hero-shell {
-      position: relative;
+    .hero-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.65fr);
+      gap: 64px;
+      align-items: center;
       width: 100%;
-      min-height: 640px;
-      overflow: hidden;
-      border: 1px solid rgba(103, 232, 249, 0.26);
+      min-height: 430px;
+      margin: auto;
+      padding: 50px 64px;
+      border: 1px solid rgba(120, 220, 255, 0.25);
       border-radius: 28px;
-      background:
-        linear-gradient(112deg, rgba(3, 12, 24, 0.94) 0%, rgba(5, 22, 36, 0.94) 50%, rgba(5, 34, 48, 0.76) 100%);
+      background: rgba(3, 20, 38, 0.58);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       box-shadow:
-        0 30px 90px rgba(0, 0, 0, 0.34),
-        inset 0 1px 0 rgba(255, 255, 255, 0.10);
-    }
-
-    .hero-shell::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 79% 34%, rgba(0, 229, 255, 0.18), transparent 24%),
-        radial-gradient(circle at 69% 70%, rgba(245, 158, 11, 0.10), transparent 22%),
-        linear-gradient(115deg, transparent 0 53%, rgba(0, 229, 255, 0.70) 53.1%, rgba(0, 229, 255, 0.16) 53.25%, transparent 53.55%);
-      pointer-events: none;
-    }
-
-    .hero-shell::after {
-      content: "";
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 45%;
-      height: 100%;
-      background:
-        radial-gradient(circle at 36% 28%, rgba(6, 182, 212, 0.26), transparent 28%),
-        linear-gradient(135deg, rgba(6, 182, 212, 0.10), rgba(2, 8, 20, 0.12));
-      clip-path: polygon(24% 0, 100% 0, 100% 100%, 0 100%);
-      pointer-events: none;
-    }
-
-    .hero-topbar {
-      position: relative;
-      z-index: 4;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 22px;
-      padding: 28px 34px 0;
-    }
-
-    .brand-mark {
-      width: 56px;
-      height: 56px;
-      display: grid;
-      place-items: center;
-      border-radius: 18px;
-      color: #67e8f9;
-      border: 1px solid rgba(103, 232, 249, 0.45);
-      background: rgba(0, 229, 255, 0.08);
-      box-shadow: 0 0 28px rgba(0, 229, 255, 0.16);
-    }
-
-    .hero-nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(2, 8, 20, 0.24);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-
-    .nav-link {
-      position: relative;
-      appearance: none;
-      border: 0;
-      background: transparent;
-      color: rgba(255, 255, 255, 0.86);
-      cursor: pointer;
-      font: inherit;
-      font-size: 15px;
-      font-weight: 800;
-      padding: 10px 5px;
-      transition: 0.2s ease;
-    }
-
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      border-radius: 999px;
-      background: #00e5ff;
-      box-shadow: 0 0 16px rgba(0, 229, 255, 0.85);
-      transform: translateX(-50%);
-      transition: width 0.22s ease;
-    }
-
-    .nav-link:hover,
-    .nav-link.active {
-      color: #67e8f9;
-      text-decoration: none;
-    }
-
-    .nav-link:hover::after,
-    .nav-link.active::after {
-      width: 100%;
-    }
-
-    .download-cv {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 11px 15px;
-      border-radius: 10px;
-      color: white;
-      border: 1px solid rgba(103, 232, 249, 0.32);
-      background: rgba(255, 255, 255, 0.055);
-      font-weight: 800;
-      transition: 0.22s ease;
-    }
-
-    .download-cv:hover {
-      transform: translateY(-2px);
-      border-color: rgba(0, 229, 255, 0.70);
-      background: rgba(0, 229, 255, 0.10);
-      text-decoration: none;
-    }
-
-    .hero-showcase {
-      position: relative;
-      z-index: 3;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(430px, 0.78fr);
-      align-items: center;
-      gap: 44px;
-      min-height: 555px;
-      padding: 42px 56px 52px;
-    }
-
-    .hero-content {
-      max-width: 760px;
+        0 24px 70px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
     }
 
     .hero h1 {
-      font-size: clamp(48px, 4.9vw, 78px);
-      margin: 0 0 18px;
-      line-height: 1.05;
-      letter-spacing: -1.7px;
+      font-size: clamp(44px, 4vw, 62px);
+      margin: 0 0 14px;
+      line-height: 1.08;
+      letter-spacing: -1px;
       color: #ffffff;
-      text-shadow: 0 12px 34px rgba(0, 0, 0, 0.35);
     }
 
     .hero h1::after {
       content: "";
       display: block;
-      width: 120px;
+      width: 92px;
       height: 3px;
-      margin-top: 28px;
+      margin-top: 20px;
       border-radius: 999px;
       background: linear-gradient(90deg, #00e5ff, rgba(0, 229, 255, 0));
-      box-shadow: 0 0 18px rgba(0, 229, 255, 0.82);
-      animation: line-glow 2.7s ease-in-out infinite;
+      box-shadow: 0 0 14px rgba(0, 229, 255, 0.7);
     }
 
     .hero h2 {
-      font-size: clamp(20px, 1.55vw, 28px);
-      font-weight: 800;
-      margin: 0 0 28px;
+      font-size: clamp(18px, 1.45vw, 23px);
+      font-weight: 700;
+      margin: 0 0 26px;
       color: #67e8f9;
-      line-height: 1.42;
-      max-width: 860px;
+      line-height: 1.5;
     }
 
     .hero p {
-      max-width: 780px;
-      font-size: clamp(17px, 1.06vw, 20px);
-      line-height: 1.78;
-      color: #dcecf3;
-      margin: 0 0 34px;
+      max-width: 900px;
+      font-size: 17px;
+      line-height: 1.75;
+      color: #e6f4f8;
+      margin: 0 0 30px;
     }
 
     .profile-photo-wrap {
       display: flex;
       justify-content: center;
-      align-items: flex-end;
+      align-items: center;
       position: relative;
-      min-height: 510px;
-      isolation: isolate;
+      min-height: 340px;
     }
 
     .profile-photo-wrap::before {
       content: "";
       position: absolute;
-      width: 420px;
-      height: 420px;
+      width: 335px;
+      height: 335px;
       border-radius: 50%;
-      top: 54px;
-      right: 44px;
-      background:
-        radial-gradient(circle, rgba(0, 229, 255, 0.13), transparent 64%),
-        conic-gradient(from 120deg, rgba(0, 229, 255, 0.0), rgba(0, 229, 255, 0.55), rgba(245, 158, 11, 0.30), rgba(0, 229, 255, 0.0));
-      opacity: 0.75;
-      filter: blur(0.2px);
-      animation: slow-spin 18s linear infinite;
-      z-index: -2;
-    }
-
-    .profile-photo-wrap::after {
-      content: "";
-      position: absolute;
-      inset: 40px 0 34px auto;
-      width: min(520px, 100%);
-      background:
-        radial-gradient(circle at 28% 26%, rgba(0, 229, 255, 0.38) 0 3px, transparent 4px),
-        radial-gradient(circle at 50% 18%, rgba(0, 229, 255, 0.25) 0 2px, transparent 3px),
-        radial-gradient(circle at 62% 42%, rgba(245, 158, 11, 0.28) 0 2px, transparent 4px),
-        linear-gradient(160deg, rgba(0, 229, 255, 0.12), transparent 46%);
-      background-size: 98px 98px, 130px 130px, 110px 110px, auto;
-      opacity: 0.65;
-      z-index: -3;
-      clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
+      border: 1px solid rgba(0, 229, 255, 0.35);
+      box-shadow: 0 0 38px rgba(0, 229, 255, 0.25);
+      animation: pulse-ring 3s ease-in-out infinite;
     }
 
     .profile-photo {
       position: relative;
       z-index: 2;
-      width: min(430px, 90%);
-      height: 500px;
+      width: 265px;
+      height: 265px;
       object-fit: cover;
-      object-position: center top;
-      border-radius: 30px 30px 24px 24px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 50%;
+      border: 6px solid rgba(255, 255, 255, 0.96);
       box-shadow:
-        0 34px 85px rgba(0, 0, 0, 0.45),
-        0 0 0 10px rgba(0, 229, 255, 0.05);
-      background: rgba(255, 255, 255, 0.06);
-      transform: translateY(28px);
+        0 22px 55px rgba(0, 0, 0, 0.36),
+        0 0 0 10px rgba(0, 229, 255, 0.12);
+      background: white;
     }
 
     .profile-fallback {
       position: absolute;
       z-index: 1;
-      width: min(430px, 90%);
-      height: 500px;
-      border-radius: 30px 30px 24px 24px;
+      width: 265px;
+      height: 265px;
+      border-radius: 50%;
       display: grid;
       place-items: center;
-      font-size: 64px;
-      font-weight: 900;
+      font-size: 58px;
+      font-weight: 800;
       color: white;
       background: linear-gradient(135deg, #123c69, #1f7a8c);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      transform: translateY(28px);
+      border: 6px solid rgba(255, 255, 255, 0.96);
+    }
+
+    @keyframes pulse-ring {
+      0%, 100% { transform: scale(1); opacity: 0.85; }
+      50% { transform: scale(1.08); opacity: 0.45; }
     }
 
     .buttons,
@@ -374,7 +219,7 @@
       gap: 8px;
       padding: 12px 18px;
       border-radius: 10px;
-      font-weight: 800;
+      font-weight: 700;
       transition: 0.22s ease;
     }
 
@@ -393,29 +238,15 @@
     }
 
     .btn-filled {
-      background: linear-gradient(135deg, #0ea5e9, #06b6d4);
-      border-color: rgba(103, 232, 249, 0.78);
+      background: linear-gradient(135deg, #2563eb, #06b6d4);
+      border-color: transparent;
       color: white;
-      box-shadow: 0 14px 34px rgba(6, 182, 212, 0.28);
+      box-shadow: 0 12px 28px rgba(6, 182, 212, 0.28);
     }
 
     .btn-filled:hover {
-      background: linear-gradient(135deg, #0284c7, #0891b2);
+      background: linear-gradient(135deg, #1d4ed8, #0891b2);
       color: white;
-    }
-
-    .hero-scroll-cue {
-      position: absolute;
-      left: 50%;
-      bottom: 26px;
-      z-index: 5;
-      width: 24px;
-      height: 24px;
-      border-right: 3px solid #67e8f9;
-      border-bottom: 3px solid #67e8f9;
-      transform: translateX(-50%) rotate(45deg);
-      filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.75));
-      animation: bounce-cue 1.8s ease-in-out infinite;
     }
 
     .icon {
@@ -431,40 +262,51 @@
       height: 20px;
     }
 
-    @keyframes glow-drift {
-      from { transform: translate3d(0, 0, 0) scale(1); }
-      to { transform: translate3d(-40px, -20px, 0) scale(1.07); }
-    }
 
-    @keyframes line-glow {
-      0%, 100% { opacity: 0.75; width: 110px; }
-      50% { opacity: 1; width: 150px; }
-    }
-
-    @keyframes slow-spin {
-      to { transform: rotate(360deg); }
-    }
-
-    @keyframes bounce-cue {
-      0%, 100% { transform: translate(-50%, 0) rotate(45deg); opacity: 0.75; }
-      50% { transform: translate(-50%, 10px) rotate(45deg); opacity: 1; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      header::after,
-      .hero h1::after,
-      .profile-photo-wrap::before,
-      .hero-scroll-cue,
-      .page {
-        animation: none !important;
-      }
-    }
     /* =========================
        NAVIGATION
     ========================== */
     nav {
-      display: none;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
+
+    nav .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    .nav-link {
+      appearance: none;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--primary);
+      cursor: pointer;
+      font: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 9px 13px;
+      border-radius: 999px;
+      transition: 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background: var(--soft);
+      border-color: rgba(31, 122, 140, 0.22);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
     /* =========================
        PAGE SECTIONS
     ========================== */
@@ -879,155 +721,6 @@
         font-size: 12px;
       }
     }
-
-
-    /* Option 6 responsive refinements */
-    @media (max-width: 1100px) {
-      .hero-shell {
-        min-height: auto;
-      }
-
-      .hero-topbar {
-        align-items: flex-start;
-        flex-wrap: wrap;
-      }
-
-      .hero-nav {
-        order: 3;
-        width: 100%;
-        justify-content: center;
-        overflow-x: auto;
-      }
-
-      .hero-showcase {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        padding: 38px 42px 58px;
-        text-align: center;
-      }
-
-      .hero-content {
-        margin: auto;
-      }
-
-      .hero h1::after {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .buttons {
-        justify-content: center;
-      }
-
-      .profile-photo-wrap {
-        order: -1;
-        min-height: 300px;
-        align-items: center;
-      }
-
-      .profile-photo,
-      .profile-fallback {
-        width: 220px;
-        height: 220px;
-        border-radius: 50%;
-        transform: none;
-        border: 6px solid rgba(255, 255, 255, 0.94);
-      }
-
-      .profile-photo-wrap::before {
-        width: 285px;
-        height: 285px;
-        top: auto;
-        right: auto;
-      }
-
-      .profile-photo-wrap::after {
-        display: none;
-      }
-    }
-
-    @media (max-width: 650px) {
-      header {
-        padding: 18px 10px 28px;
-      }
-
-      .container {
-        width: 100%;
-        padding: 0 12px;
-      }
-
-      .hero-shell {
-        border-radius: 20px;
-      }
-
-      .hero-topbar {
-        padding: 20px 18px 0;
-        justify-content: center;
-      }
-
-      .brand-mark {
-        width: 48px;
-        height: 48px;
-        border-radius: 15px;
-      }
-
-      .download-cv {
-        display: none;
-      }
-
-      .hero-nav {
-        gap: 14px;
-        justify-content: flex-start;
-        padding: 8px 10px;
-      }
-
-      .nav-link {
-        flex: 0 0 auto;
-        font-size: 14px;
-      }
-
-      .hero-showcase {
-        padding: 26px 20px 54px;
-      }
-
-      .hero h1 {
-        font-size: 34px;
-      }
-
-      .hero h2 {
-        font-size: 17px;
-      }
-
-      .hero p {
-        font-size: 15px;
-        line-height: 1.65;
-      }
-
-      .buttons {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .profile-photo-wrap {
-        min-height: 230px;
-      }
-
-      .profile-photo,
-      .profile-fallback {
-        width: 165px;
-        height: 165px;
-      }
-
-      .profile-photo-wrap::before {
-        width: 215px;
-        height: 215px;
-      }
-    }
-
   </style>
 </head>
 
@@ -1035,63 +728,47 @@
 
   <header id="top">
     <div class="container hero">
-      <div class="hero-shell">
+      <div class="hero-layout">
+        <div>
+          <h1>Siddhi Vinayak Pandey</h1>
 
-        <div class="hero-topbar">
-          <div class="brand-mark" aria-hidden="true">
-            <svg class="icon-lg" viewBox="0 0 24 24"><path d="M12 2 21 7v10l-9 5-9-5V7l9-5Zm0 2.3L5 8.1v7.8l7 3.9 7-3.9V8.1l-7-3.8Zm0 3.1 4 2.2v4.8l-4 2.2-4-2.2V9.6l4-2.2Zm0 2.3-2 1.1v2.4l2 1.1 2-1.1v-2.4l-2-1.1Z"/></svg>
-          </div>
+          <h2>
+            PhD Researcher | Neuromorphic Computing | Iontronic Systems | AI for Science | Energy &amp; Automation
+          </h2>
 
-          <div class="hero-nav" aria-label="Main navigation">
-            <button class="nav-link active" type="button" data-page="home">Home</button>
-            <button class="nav-link" type="button" data-page="research">Research</button>
-            <button class="nav-link" type="button" data-page="publications">Publications</button>
-            <button class="nav-link" type="button" data-page="experience">Experience</button>
-            <button class="nav-link" type="button" data-page="contact">Contact</button>
-          </div>
+          <p>
+            I am a PhD Researcher and Dean’s Doctoral Fellow in the Department of Physics and Astronomy
+            at the University of Manchester. My research focuses on ionic memory, nanofluidic memristors,
+            electrochemical device physics and next-generation energy-efficient computing systems inspired by
+            biological neural networks.
+          </p>
 
-          <a class="download-cv" href="Siddhi_Vinayak_Pandey_CV.pdf" target="_blank" rel="noopener">
-            Download CV
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3h2v10.2l3.6-3.6L18 11l-6 6-6-6 1.4-1.4 3.6 3.6V3ZM5 19h14v2H5v-2Z"/></svg>
-          </a>
-        </div>
-
-        <div class="hero-showcase">
-          <div class="hero-content">
-            <h1>Siddhi Vinayak Pandey</h1>
-
-            <h2>
-              PhD Researcher | Neuromorphic Computing | Iontronic Systems | AI for Science | Energy &amp; Automation
-            </h2>
-
-            <p>
-              I am a PhD Researcher and Dean’s Doctoral Fellow in the Department of Physics and Astronomy
-              at the University of Manchester. My research focuses on ionic memory, nanofluidic memristors,
-              electrochemical device physics and next-generation energy-efficient computing systems inspired by
-              biological neural networks.
-            </p>
-
-            <div class="buttons">
-              <a class="btn btn-filled" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1.8 8.3 12 13.6 22.2 8.3 12 3Zm-6.1 8.2v4.1c0 2.2 3.1 4 6.1 4s6.1-1.8 6.1-4v-4.1L12 14.4 5.9 11.2Zm14.4-.4v5.7h1.5V10l-1.5.8Z"/></svg> Google Scholar</a>
-              <a class="btn" href="https://www.linkedin.com/in/siddhi-vinayak-pandey-17a295162" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.4 8.2h4.2V23H.4V8.2Zm7.1 0h4v2h.1c.6-1.1 2-2.3 4.1-2.3 4.4 0 5.2 2.9 5.2 6.7V23h-4.2v-7.5c0-1.8 0-4.1-2.5-4.1s-2.9 2-2.9 4V23H7.5V8.2Z" transform="translate(1.5 0) scale(.92)"/></svg> LinkedIn</a>
-              <a class="btn" href="https://orcid.org/0000-0002-1574-2846" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#A6CE39"/><path d="M8.1 7.3c0 .7-.5 1.2-1.2 1.2S5.7 8 5.7 7.3s.5-1.2 1.2-1.2 1.2.5 1.2 1.2ZM6 9.8h1.8v7.9H6V9.8Zm4.1-3h4.6c3.1 0 5.4 2.2 5.4 5.4s-2.3 5.5-5.4 5.5h-4.6V6.8Zm1.9 9.2h2.4c2.2 0 3.7-1.6 3.7-3.8s-1.5-3.7-3.7-3.7H12V16Z" fill="#fff"/></svg> ORCID</a>
-              <a class="btn" href="https://github.com/siddhivinayak-l" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49v-1.72c-2.78.62-3.37-1.38-3.37-1.38-.46-1.19-1.12-1.51-1.12-1.51-.91-.64.07-.63.07-.63 1.01.07 1.54 1.07 1.54 1.07.9 1.58 2.36 1.12 2.94.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05A9.28 9.28 0 0 1 12 6.96c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.05.36.32.68.95.68 1.92v2.78c0 .27.18.59.69.49A10.05 10.05 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"/></svg> GitHub</a>
-              <a class="btn" href="#contact" data-page="contact"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 5h17A2.5 2.5 0 0 1 23 7.5v9A2.5 2.5 0 0 1 20.5 19h-17A2.5 2.5 0 0 1 1 16.5v-9A2.5 2.5 0 0 1 3.5 5Zm0 2 .2.1L12 12.9l8.3-5.8.2-.1h-17Zm17 10a.5.5 0 0 0 .5-.5V9.1l-8.4 5.8a1 1 0 0 1-1.2 0L3 9.1v7.4a.5.5 0 0 0 .5.5h17Z"/></svg> Contact</a>
-            </div>
-          </div>
-
-          <div class="profile-photo-wrap">
-            <div class="profile-fallback">SVP</div>
-            <img class="profile-photo" src="profile.jpg" alt="Siddhi Vinayak Pandey profile photo" onerror="this.style.display='none'">
+          <div class="buttons">
+            <a class="btn btn-filled" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&hl=en" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1.8 8.3 12 13.6 22.2 8.3 12 3Zm-6.1 8.2v4.1c0 2.2 3.1 4 6.1 4s6.1-1.8 6.1-4v-4.1L12 14.4 5.9 11.2Zm14.4-.4v5.7h1.5V10l-1.5.8Z"/></svg> Google Scholar</a>
+            <a class="btn" href="https://www.linkedin.com/in/siddhi-vinayak-pandey-17a295162" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.4 8.2h4.2V23H.4V8.2Zm7.1 0h4v2h.1c.6-1.1 2-2.3 4.1-2.3 4.4 0 5.2 2.9 5.2 6.7V23h-4.2v-7.5c0-1.8 0-4.1-2.5-4.1s-2.9 2-2.9 4V23H7.5V8.2Z" transform="translate(1.5 0) scale(.92)"/></svg> LinkedIn</a>
+            <a class="btn" href="https://orcid.org/0000-0002-1574-2846" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#A6CE39"/><path d="M8.1 7.3c0 .7-.5 1.2-1.2 1.2S5.7 8 5.7 7.3s.5-1.2 1.2-1.2 1.2.5 1.2 1.2ZM6 9.8h1.8v7.9H6V9.8Zm4.1-3h4.6c3.1 0 5.4 2.2 5.4 5.4s-2.3 5.5-5.4 5.5h-4.6V6.8Zm1.9 9.2h2.4c2.2 0 3.7-1.6 3.7-3.8s-1.5-3.7-3.7-3.7H12V16Z" fill="#fff"/></svg> ORCID</a>
+            <a class="btn" href="https://github.com/siddhivinayak-l" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49v-1.72c-2.78.62-3.37-1.38-3.37-1.38-.46-1.19-1.12-1.51-1.12-1.51-.91-.64.07-.63.07-.63 1.01.07 1.54 1.07 1.54 1.07.9 1.58 2.36 1.12 2.94.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05A9.28 9.28 0 0 1 12 6.96c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.05.36.32.68.95.68 1.92v2.78c0 .27.18.59.69.49A10.05 10.05 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"/></svg> GitHub</a>
+            <a class="btn" href="#contact" data-page="contact"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 5h17A2.5 2.5 0 0 1 23 7.5v9A2.5 2.5 0 0 1 20.5 19h-17A2.5 2.5 0 0 1 1 16.5v-9A2.5 2.5 0 0 1 3.5 5Zm0 2 .2.1L12 12.9l8.3-5.8.2-.1h-17Zm17 10a.5.5 0 0 0 .5-.5V9.1l-8.4 5.8a1 1 0 0 1-1.2 0L3 9.1v7.4a.5.5 0 0 0 .5.5h17Z"/></svg> Contact</a>
           </div>
         </div>
 
-        <a class="hero-scroll-cue" href="#home" data-page="home" aria-label="Go to home content"></a>
+        <div class="profile-photo-wrap">
+          <div class="profile-fallback">SVP</div>
+          <img class="profile-photo" src="profile.jpg" alt="Siddhi Vinayak Pandey profile photo" onerror="this.style.display='none'">
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- Main navigation is integrated into the hero header. -->
+  <nav aria-label="Main navigation">
+    <div class="container">
+      <button class="nav-link active" type="button" data-page="home">Home</button>
+      <button class="nav-link" type="button" data-page="research">Research</button>
+      <button class="nav-link" type="button" data-page="publications">Publications</button>
+      <button class="nav-link" type="button" data-page="experience">Experience</button>
+      <button class="nav-link" type="button" data-page="contact">Contact</button>
+    </div>
+  </nav>
 
   <main>
     <!-- HOME -->
