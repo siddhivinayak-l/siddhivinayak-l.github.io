@@ -189,11 +189,12 @@
 
     .section-title {
       margin: 0;
-      max-width: 760px;
+      max-width: 820px;
       font-family: "Manrope", sans-serif;
       font-size: clamp(34px, 4.6vw, 58px);
       line-height: 1.08;
       letter-spacing: -.045em;
+      text-wrap: balance;
     }
 
     .section-lead {
@@ -833,17 +834,36 @@
     .research-card::after {
       content: attr(data-number);
       position: absolute;
-      right: 18px;
-      bottom: -28px;
-      color: rgba(10, 68, 81, .06);
+      z-index: 2;
+      top: 28px;
+      right: 28px;
+      display: grid;
+      place-items: center;
+      width: 50px;
+      height: 50px;
+      border: 1px solid var(--line-strong);
+      border-radius: 15px;
+      color: var(--teal);
+      background: var(--surface-2);
+      box-shadow: 0 10px 24px rgba(7, 26, 47, .08);
       font-family: "Manrope", sans-serif;
-      font-size: 150px;
+      font-size: 13px;
       font-weight: 900;
       line-height: 1;
-      letter-spacing: -.08em;
+      letter-spacing: .08em;
     }
 
-    html[data-theme="dark"] .research-card::after { color: rgba(140, 235, 231, .05); }
+    html[data-theme="dark"] .research-card::after {
+      box-shadow: 0 10px 24px rgba(0, 0, 0, .18);
+    }
+
+    /* The research section uses a dark outer background, but its cards follow
+       the active theme. Explicit text colours keep every element readable in
+       both light and dark modes. */
+    #research .research-card,
+    #research .method {
+      color: var(--text);
+    }
 
     .research-icon {
       display: grid;
@@ -1051,6 +1071,26 @@
       font-family: "Manrope", sans-serif;
       font-size: 19px;
       line-height: 1.38;
+    }
+
+    .publication-copy h3 a {
+      color: var(--text);
+      text-decoration: none;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+
+    .publication-copy h3 a:hover {
+      color: var(--teal);
+      text-decoration: underline;
+    }
+
+    .publication-item.featured-publication {
+      border-color: rgba(11, 130, 148, .28);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(32, 197, 217, .10), transparent 18rem),
+        var(--surface);
+      box-shadow: var(--shadow-md);
     }
 
     .journal-line {
@@ -1491,10 +1531,6 @@
           <div class="orbit one" aria-hidden="true"></div>
           <div class="orbit two" aria-hidden="true"></div>
 
-          <div class="floating-note top" aria-hidden="true">
-            <span class="note-icon">Å</span>
-            <span><strong>Confined ion transport</strong><span>Memory at the nanoscale</span></span>
-          </div>
 
           <div class="portrait-card">
             <div class="portrait-frame">
@@ -1507,10 +1543,6 @@
             </div>
           </div>
 
-          <div class="floating-note bottom" aria-hidden="true">
-            <span class="note-icon">μ</span>
-            <span><strong>Neuromorphic systems</strong><span>Ion-based adaptive computing</span></span>
-          </div>
         </div>
       </div>
 
@@ -1578,10 +1610,10 @@
         <div class="section-heading reveal">
           <div>
             <span class="section-kicker">Research</span>
-            <h2 class="section-title">Four connected pillars—from ion transport to intelligent systems.</h2>
+            <h2 class="section-title">Four connected research pillars.</h2>
           </div>
           <p class="section-lead">
-            I combine device experiments, physical interpretation and computational analysis to understand and control memory in electrochemical and nanofluidic systems.
+            From ion transport to intelligent systems, I combine device experiments, physical interpretation and computational analysis to understand and control memory in electrochemical and nanofluidic devices.
           </p>
         </div>
 
@@ -1701,7 +1733,7 @@
             <h2 class="section-title">Selected research outputs.</h2>
           </div>
           <p class="section-lead">
-            Publications across nanofluidics, ionic memory, electrochemical devices, machine learning and energy systems.
+            Five representative papers from a broader publication record spanning nanofluidics, ionic memory, electrochemical devices, machine learning and energy systems.
           </p>
         </div>
 
@@ -1715,6 +1747,20 @@
         </div>
 
         <div class="publication-list">
+          <article class="card publication-item featured-publication reveal" data-category="iontronics">
+            <div class="publication-year">2026</div>
+            <div class="publication-copy">
+              <h3>
+                <a href="https://www.nature.com/articles/s41578-026-00919-1" target="_blank" rel="noopener" aria-label="Open Nanofluidic ionic memory for next-generation computing in Nature Reviews Materials">
+                  Nanofluidic ionic memory for next-generation computing
+                </a>
+              </h3>
+              <p class="journal-line">Pandey, Siddhi Vinayak, et al. · Nature Reviews Materials (2026), 1–20</p>
+              <p>A broad Perspective on the materials, physical mechanisms, characterisation protocols and emerging computing applications of nanofluidic ionic memory.</p>
+            </div>
+            <span class="publication-type">Perspective</span>
+          </article>
+
           <article class="card publication-item reveal" data-category="iontronics">
             <div class="publication-year">2026</div>
             <div class="publication-copy">
@@ -1754,16 +1800,6 @@
             </div>
             <span class="publication-type">Article</span>
           </article>
-
-          <article class="card publication-item reveal" data-category="energy-ai">
-            <div class="publication-year">2023</div>
-            <div class="publication-copy">
-              <h3>Predicting the state parameters of lithium-ion batteries: The race between filter-based and data-driven approaches</h3>
-              <p class="journal-line">Sustainable Energy &amp; Fuels · Royal Society of Chemistry</p>
-              <p>Compares filter-based and data-driven methods for predicting key lithium-ion battery state parameters.</p>
-            </div>
-            <span class="publication-type">Article</span>
-          </article>
         </div>
 
         <div class="publication-footer reveal">
@@ -1778,10 +1814,10 @@
         <div class="section-heading reveal">
           <div>
             <span class="section-kicker">Academic journey</span>
-            <h2 class="section-title">An interdisciplinary path through physics, energy and electrical engineering.</h2>
+            <h2 class="section-title">My journey so far.</h2>
           </div>
           <p class="section-lead">
-            My training combines experimental physics, electrical engineering, energy systems, machine learning and scientific entrepreneurship.
+            From electrical engineering and energy systems in India to doctoral research in physics at Manchester, each stage has shaped how I approach complex scientific and engineering problems.
           </p>
         </div>
 
