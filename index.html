@@ -471,13 +471,73 @@
       background-clip: text;
     }
 
-    .hero-role {
-      margin: 0 0 22px;
-      color: #86e5ed;
+    .research-signature {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      width: fit-content;
+      max-width: 780px;
+      margin: 0 0 24px;
+      padding: 11px;
+      border: 1px solid rgba(126, 229, 237, .18);
+      border-radius: 19px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, .085), rgba(255, 255, 255, .035));
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .09),
+        0 16px 38px rgba(1, 13, 26, .18);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .research-domain {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 38px;
+      padding: 8px 13px;
+      border: 1px solid rgba(147, 235, 241, .14);
+      border-radius: 999px;
+      color: #e8fbfe;
+      background: rgba(3, 24, 43, .42);
       font-family: "Manrope", sans-serif;
-      font-size: clamp(18px, 2vw, 24px);
+      font-size: clamp(13px, 1.15vw, 15px);
       font-weight: 700;
-      line-height: 1.42;
+      line-height: 1.25;
+      white-space: nowrap;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05);
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .research-domain::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      flex: 0 0 7px;
+      border-radius: 50%;
+      background: #7af0df;
+      box-shadow: 0 0 0 4px rgba(122, 240, 223, .09), 0 0 14px rgba(122, 240, 223, .48);
+    }
+
+    .research-domain:nth-child(2)::before {
+      background: #67dff0;
+      box-shadow: 0 0 0 4px rgba(103, 223, 240, .09), 0 0 14px rgba(103, 223, 240, .48);
+    }
+
+    .research-domain:nth-child(3)::before {
+      background: #91b8ff;
+      box-shadow: 0 0 0 4px rgba(145, 184, 255, .09), 0 0 14px rgba(145, 184, 255, .48);
+    }
+
+    .research-domain:nth-child(4)::before {
+      background: #b3f0d2;
+      box-shadow: 0 0 0 4px rgba(179, 240, 210, .09), 0 0 14px rgba(179, 240, 210, .44);
+    }
+
+    .research-domain:hover {
+      transform: translateY(-2px);
+      border-color: rgba(147, 235, 241, .30);
+      background: rgba(11, 53, 74, .62);
     }
 
     .hero-description {
@@ -1395,6 +1455,7 @@
       .hero-copy { text-align: center; }
       .hero h1, .hero-description { margin-inline: auto; }
       .hero-actions, .hero-socials { justify-content: center; }
+      .research-signature { justify-content: center; margin-inline: auto; }
       .portrait-stage { min-height: 500px; }
       .hero-metrics { grid-template-columns: repeat(2, 1fr); }
       .about-grid, .contact-shell { grid-template-columns: 1fr; }
@@ -1415,7 +1476,8 @@
       .section-title { font-size: 36px; }
       .hero { padding-top: 118px; }
       .hero h1 { font-size: 48px; }
-      .hero-role { font-size: 18px; }
+      .research-signature { width: 100%; gap: 8px; padding: 9px; }
+      .research-domain { flex: 1 1 calc(50% - 8px); justify-content: center; white-space: normal; }
       .hero-description { font-size: 16px; }
       .portrait-stage { min-height: 430px; }
       .portrait-card { width: min(100%, 315px); }
@@ -1446,6 +1508,7 @@
       .hero-actions .btn { width: 100%; }
       .hero-metrics { grid-template-columns: 1fr; }
       .hero-socials { gap: 14px; }
+      .research-domain { flex-basis: 100%; justify-content: flex-start; }
       .portrait-card { width: 278px; }
       .portrait-frame, .portrait-frame img { min-height: 290px; height: 290px; }
       .orbit.one { width: 314px; height: 314px; }
@@ -1503,7 +1566,12 @@
         <div class="hero-copy reveal">
           <div class="eyebrow"><span class="eyebrow-dot"></span> Dean’s Doctoral Fellow · Manchester, UK</div>
           <h1><span>Siddhi Vinayak Pandey</span></h1>
-          <p class="hero-role">Nanofluidic memory · Neuromorphic iontronics · Electrochemical device physics · AI for science</p>
+          <div class="research-signature" aria-label="Research areas">
+            <span class="research-domain">Nanofluidic memory</span>
+            <span class="research-domain">Neuromorphic iontronics</span>
+            <span class="research-domain">Electrochemical device physics</span>
+            <span class="research-domain">AI for science</span>
+          </div>
           <p class="hero-description">
             I study how confined ionic systems can remember, adapt and compute. My work connects nanoscale ion transport, memristive device physics and machine learning to develop energy-efficient computing concepts inspired by biological neural systems.
           </p>
@@ -1755,7 +1823,7 @@
                   Nanofluidic ionic memory for next-generation computing
                 </a>
               </h3>
-              <p class="journal-line">Pandey, Siddhi Vinayak, et al. · Nature Reviews Materials (2026), 1–20</p>
+              <p class="journal-line">Nature Reviews Materials — Nature</p>
               <p>A broad Perspective on the materials, physical mechanisms, characterisation protocols and emerging computing applications of nanofluidic ionic memory.</p>
             </div>
             <span class="publication-type">Perspective</span>
@@ -1769,7 +1837,7 @@
                   Ionic memory or electrode artefacts? A systematic assessment of nanofluidic memristors
                 </a>
               </h3>
-              <p class="journal-line">Faraday Discussions · Royal Society of Chemistry</p>
+              <p class="journal-line">Faraday Discussions — Royal Society of Chemistry</p>
               <p>A systematic investigation of ionic memory, electrochemical artefacts and nanoscale ion-transport behaviour in nanofluidic memristor systems.</p>
             </div>
             <span class="publication-type">Article</span>
@@ -1783,7 +1851,7 @@
                   Programmable memristors with two-dimensional nanofluidic channels
                 </a>
               </h3>
-              <p class="journal-line">Nature Communications</p>
+              <p class="journal-line">Nature Communications — Nature</p>
               <p>Demonstrates programmable memristive behaviour in two-dimensional nanofluidic channels for brain-inspired and iontronic computing concepts.</p>
             </div>
             <span class="publication-type">Article</span>
@@ -1797,7 +1865,7 @@
                   Electric field mediated unclogging of Ångström-scale channels
                 </a>
               </h3>
-              <p class="journal-line">Small Methods · Wiley</p>
+              <p class="journal-line">Small Methods — Wiley</p>
               <p>Explores electric-field-assisted transport and unclogging phenomena in extremely confined Ångström-scale channels.</p>
             </div>
             <span class="publication-type">Article</span>
@@ -1811,7 +1879,7 @@
                   A machine learning framework for predicting device performance in 2D metal halide perovskite photodetector
                 </a>
               </h3>
-              <p class="journal-line">Solar Energy · Elsevier</p>
+              <p class="journal-line">Solar Energy — Elsevier</p>
               <p>Develops a machine-learning framework for analysing and predicting optoelectronic device performance in two-dimensional halide perovskite photodetectors.</p>
             </div>
             <span class="publication-type">Article</span>
