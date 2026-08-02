@@ -1101,29 +1101,97 @@
       background: var(--surface-2);
     }
 
-    .publication-list { display: grid; gap: 14px; }
+    .publication-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
 
     .publication-item {
-      display: grid;
-      grid-template-columns: 88px minmax(0, 1fr) auto;
-      gap: 24px;
-      align-items: start;
-      padding: 28px;
+      display: flex;
+      min-width: 0;
+      overflow: hidden;
+      flex-direction: column;
+      padding: 0;
     }
 
     .publication-item[hidden] { display: none; }
 
     .publication-year {
-      display: grid;
-      place-items: center;
-      width: 70px;
-      height: 70px;
-      border-radius: 18px;
+      display: inline-flex;
+      align-items: center;
+      width: auto;
+      height: auto;
+      padding: 7px 10px;
+      border-radius: 999px;
       color: var(--teal);
       background: var(--surface-2);
       font-family: "Manrope", sans-serif;
-      font-size: 16px;
+      font-size: 12px;
       font-weight: 900;
+    }
+
+    .publication-visual {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(11, 130, 148, .12), rgba(32, 197, 217, .035)),
+        var(--surface-2);
+    }
+
+    .publication-visual img {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .publication-placeholder {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-content: center;
+      gap: 8px;
+      padding: 24px;
+      color: var(--text-soft);
+      text-align: center;
+    }
+
+    .publication-placeholder svg {
+      width: 42px;
+      height: 42px;
+      margin: 0 auto;
+      color: var(--teal);
+      opacity: .75;
+    }
+
+    .publication-placeholder strong {
+      color: var(--text);
+      font-family: "Manrope", sans-serif;
+      font-size: 14px;
+    }
+
+    .publication-placeholder span { font-size: 12px; }
+    .publication-visual.has-image .publication-placeholder { display: none; }
+
+    .publication-content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 24px;
+    }
+
+    .publication-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 15px;
     }
 
     .publication-copy h3 {
@@ -1132,6 +1200,8 @@
       font-size: 19px;
       line-height: 1.38;
     }
+
+    .publication-copy { display: flex; flex: 1; flex-direction: column; }
 
     .publication-copy h3 a {
       color: var(--text);
@@ -1160,7 +1230,7 @@
       font-weight: 800;
     }
 
-    .publication-copy p:last-child { margin: 0; color: var(--text-soft); font-size: 14px; }
+    .publication-copy p:last-of-type { margin: 0; color: var(--text-soft); font-size: 14px; }
 
     .publication-type {
       padding: 7px 10px;
@@ -1171,6 +1241,34 @@
       font-weight: 800;
       text-transform: uppercase;
       white-space: nowrap;
+    }
+
+    .publication-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 20px;
+    }
+
+    .publication-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 11px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--text);
+      background: var(--surface-2);
+      font-size: 12px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: color .2s ease, border-color .2s ease, transform .2s ease;
+    }
+
+    .publication-link:hover {
+      color: var(--teal);
+      border-color: rgba(11, 130, 148, .35);
+      transform: translateY(-1px);
     }
 
     .publication-footer {
@@ -1461,8 +1559,7 @@
       .about-grid, .contact-shell { grid-template-columns: 1fr; }
       .research-grid, .recognition-grid { grid-template-columns: 1fr 1fr; }
       .project-card:nth-child(n) { grid-column: span 12; }
-      .publication-item { grid-template-columns: 72px minmax(0, 1fr); }
-      .publication-type { display: none; }
+      .publication-list { grid-template-columns: 1fr; }
       .timeline::before { left: 15px; }
       .timeline-item { grid-template-columns: 32px minmax(0, 1fr); }
       .timeline-date { grid-column: 2; padding: 0 0 8px; }
@@ -1493,8 +1590,7 @@
       .research-grid, .recognition-grid, .engagement-grid { grid-template-columns: 1fr; }
       .methods-strip { grid-template-columns: 1fr; }
       .method:nth-child(n+2) { border-top: 1px solid var(--line); }
-      .publication-item { grid-template-columns: 1fr; gap: 14px; padding: 23px; }
-      .publication-year { width: auto; height: auto; justify-content: start; padding: 7px 10px; border-radius: 999px; font-size: 12px; }
+      .publication-content { padding: 21px; }
       .detail-grid { grid-template-columns: 1fr; }
       .contact-shell { padding: 31px 24px; }
       .contact-shell h2 { font-size: 40px; }
@@ -1815,74 +1911,88 @@
         </div>
 
         <div class="publication-list">
+          <!-- Replace each image file below with its final graphical abstract. Keep all images at 1200 × 675 px (16:9). -->
           <article class="card publication-item featured-publication reveal" data-category="iontronics">
-            <div class="publication-year">2026</div>
-            <div class="publication-copy">
-              <h3>
-                <a href="https://www.nature.com/articles/s41578-026-00919-1" target="_blank" rel="noopener noreferrer" aria-label="Open Nanofluidic ionic memory for next-generation computing in Nature Reviews Materials">
-                  Nanofluidic ionic memory for next-generation computing
-                </a>
-              </h3>
-              <p class="journal-line">Nature Reviews Materials — Nature</p>
-              <p>A broad Perspective on the materials, physical mechanisms, characterisation protocols and emerging computing applications of nanofluidic ionic memory.</p>
+            <div class="publication-visual">
+              <img src="assets/images/publications/nanofluidic-ionic-memory.webp" alt="Graphical abstract for Nanofluidic ionic memory for next-generation computing" loading="lazy" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()">
+              <div class="publication-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m4 18 5-5 3 3 3-3 5 5"/></svg>
+                <strong>Graphical abstract coming soon</strong><span>1200 × 675 px · 16:9</span>
+              </div>
             </div>
-            <span class="publication-type">Perspective</span>
+            <div class="publication-content">
+              <div class="publication-meta"><span class="publication-year">2026</span><span class="publication-type">Perspective</span></div>
+              <div class="publication-copy">
+                <p class="journal-line">Nature Reviews Materials — Nature</p>
+                <h3><a href="https://www.nature.com/articles/s41578-026-00919-1" target="_blank" rel="noopener noreferrer">Nanofluidic ionic memory for next-generation computing</a></h3>
+                <p>A broad Perspective on the materials, physical mechanisms, characterisation protocols and emerging computing applications of nanofluidic ionic memory.</p>
+                <div class="publication-links"><a class="publication-link" href="https://www.nature.com/articles/s41578-026-00919-1" target="_blank" rel="noopener noreferrer">View article ↗</a></div>
+              </div>
+            </div>
           </article>
 
           <article class="card publication-item reveal" data-category="iontronics">
-            <div class="publication-year">2026</div>
-            <div class="publication-copy">
-              <h3>
-                <a href="https://pubs.rsc.org/en/content/articlelanding/2026/fd/d5fd00135h" target="_blank" rel="noopener noreferrer" aria-label="Open Ionic memory or electrode artefacts? A systematic assessment of nanofluidic memristors in Faraday Discussions">
-                  Ionic memory or electrode artefacts? A systematic assessment of nanofluidic memristors
-                </a>
-              </h3>
-              <p class="journal-line">Faraday Discussions — Royal Society of Chemistry</p>
-              <p>A systematic investigation of ionic memory, electrochemical artefacts and nanoscale ion-transport behaviour in nanofluidic memristor systems.</p>
+            <div class="publication-visual">
+              <img src="assets/images/publications/ionic-memory-electrode-artefacts.webp" alt="Graphical abstract for Ionic memory or electrode artefacts" loading="lazy" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()">
+              <div class="publication-placeholder" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m4 18 5-5 3 3 3-3 5 5"/></svg><strong>Graphical abstract coming soon</strong><span>1200 × 675 px · 16:9</span></div>
             </div>
-            <span class="publication-type">Article</span>
+            <div class="publication-content">
+              <div class="publication-meta"><span class="publication-year">2026</span><span class="publication-type">Article</span></div>
+              <div class="publication-copy">
+                <p class="journal-line">Faraday Discussions — Royal Society of Chemistry</p>
+                <h3><a href="https://pubs.rsc.org/en/content/articlelanding/2026/fd/d5fd00135h" target="_blank" rel="noopener noreferrer">Ionic memory or electrode artefacts? A systematic assessment of nanofluidic memristors</a></h3>
+                <p>A systematic investigation of ionic memory, electrochemical artefacts and nanoscale ion-transport behaviour in nanofluidic memristor systems.</p>
+                <div class="publication-links"><a class="publication-link" href="https://pubs.rsc.org/en/content/articlelanding/2026/fd/d5fd00135h" target="_blank" rel="noopener noreferrer">View article ↗</a></div>
+              </div>
+            </div>
           </article>
 
           <article class="card publication-item reveal" data-category="iontronics">
-            <div class="publication-year">2025</div>
-            <div class="publication-copy">
-              <h3>
-                <a href="https://www.nature.com/articles/s41467-025-61649-6" target="_blank" rel="noopener noreferrer" aria-label="Open Programmable memristors with two-dimensional nanofluidic channels in Nature Communications">
-                  Programmable memristors with two-dimensional nanofluidic channels
-                </a>
-              </h3>
-              <p class="journal-line">Nature Communications — Nature</p>
-              <p>Demonstrates programmable memristive behaviour in two-dimensional nanofluidic channels for brain-inspired and iontronic computing concepts.</p>
+            <div class="publication-visual">
+              <img src="assets/images/publications/programmable-memristors.webp" alt="Graphical abstract for Programmable memristors with two-dimensional nanofluidic channels" loading="lazy" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()">
+              <div class="publication-placeholder" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m4 18 5-5 3 3 3-3 5 5"/></svg><strong>Graphical abstract coming soon</strong><span>1200 × 675 px · 16:9</span></div>
             </div>
-            <span class="publication-type">Article</span>
+            <div class="publication-content">
+              <div class="publication-meta"><span class="publication-year">2025</span><span class="publication-type">Article</span></div>
+              <div class="publication-copy">
+                <p class="journal-line">Nature Communications — Nature</p>
+                <h3><a href="https://www.nature.com/articles/s41467-025-61649-6" target="_blank" rel="noopener noreferrer">Programmable memristors with two-dimensional nanofluidic channels</a></h3>
+                <p>Demonstrates programmable memristive behaviour in two-dimensional nanofluidic channels for brain-inspired and iontronic computing concepts.</p>
+                <div class="publication-links"><a class="publication-link" href="https://www.nature.com/articles/s41467-025-61649-6" target="_blank" rel="noopener noreferrer">View article ↗</a></div>
+              </div>
+            </div>
           </article>
 
           <article class="card publication-item reveal" data-category="iontronics">
-            <div class="publication-year">2025</div>
-            <div class="publication-copy">
-              <h3>
-                <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/smtd.202400961" target="_blank" rel="noopener noreferrer" aria-label="Open Electric field mediated unclogging of Ångström-scale channels in Small Methods">
-                  Electric field mediated unclogging of Ångström-scale channels
-                </a>
-              </h3>
-              <p class="journal-line">Small Methods — Wiley</p>
-              <p>Explores electric-field-assisted transport and unclogging phenomena in extremely confined Ångström-scale channels.</p>
+            <div class="publication-visual">
+              <img src="assets/images/publications/electric-field-unclogging.webp" alt="Graphical abstract for Electric field mediated unclogging of Angstrom-scale channels" loading="lazy" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()">
+              <div class="publication-placeholder" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m4 18 5-5 3 3 3-3 5 5"/></svg><strong>Graphical abstract coming soon</strong><span>1200 × 675 px · 16:9</span></div>
             </div>
-            <span class="publication-type">Article</span>
+            <div class="publication-content">
+              <div class="publication-meta"><span class="publication-year">2025</span><span class="publication-type">Article</span></div>
+              <div class="publication-copy">
+                <p class="journal-line">Small Methods — Wiley</p>
+                <h3><a href="https://onlinelibrary.wiley.com/doi/full/10.1002/smtd.202400961" target="_blank" rel="noopener noreferrer">Electric field mediated unclogging of Ångström-scale channels</a></h3>
+                <p>Explores electric-field-assisted transport and unclogging phenomena in extremely confined Ångström-scale channels.</p>
+                <div class="publication-links"><a class="publication-link" href="https://onlinelibrary.wiley.com/doi/full/10.1002/smtd.202400961" target="_blank" rel="noopener noreferrer">View article ↗</a></div>
+              </div>
+            </div>
           </article>
 
           <article class="card publication-item reveal" data-category="energy-ai">
-            <div class="publication-year">2024</div>
-            <div class="publication-copy">
-              <h3>
-                <a href="https://www.sciencedirect.com/science/article/pii/S0038092X24000938" target="_blank" rel="noopener noreferrer" aria-label="Open A machine learning framework for predicting device performance in 2D metal halide perovskite photodetector in Solar Energy">
-                  A machine learning framework for predicting device performance in 2D metal halide perovskite photodetector
-                </a>
-              </h3>
-              <p class="journal-line">Solar Energy — Elsevier</p>
-              <p>Develops a machine-learning framework for analysing and predicting optoelectronic device performance in two-dimensional halide perovskite photodetectors.</p>
+            <div class="publication-visual">
+              <img src="assets/images/publications/ml-perovskite-photodetector.webp" alt="Graphical abstract for the machine learning perovskite photodetector study" loading="lazy" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()">
+              <div class="publication-placeholder" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m4 18 5-5 3 3 3-3 5 5"/></svg><strong>Graphical abstract coming soon</strong><span>1200 × 675 px · 16:9</span></div>
             </div>
-            <span class="publication-type">Article</span>
+            <div class="publication-content">
+              <div class="publication-meta"><span class="publication-year">2024</span><span class="publication-type">Article</span></div>
+              <div class="publication-copy">
+                <p class="journal-line">Solar Energy — Elsevier</p>
+                <h3><a href="https://www.sciencedirect.com/science/article/pii/S0038092X24000938" target="_blank" rel="noopener noreferrer">A machine learning framework for predicting device performance in 2D metal halide perovskite photodetector</a></h3>
+                <p>Develops a machine-learning framework for analysing and predicting optoelectronic device performance in two-dimensional halide perovskite photodetectors.</p>
+                <div class="publication-links"><a class="publication-link" href="https://www.sciencedirect.com/science/article/pii/S0038092X24000938" target="_blank" rel="noopener noreferrer">View article ↗</a></div>
+              </div>
+            </div>
           </article>
         </div>
 
