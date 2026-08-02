@@ -2426,6 +2426,18 @@
   <a class="back-to-top" id="backToTop" href="#top" aria-label="Back to top">↑</a>
 
   <script>
+    // Always request the current version of local images. This lets an image be
+    // replaced on the server without changing its filename or editing this HTML.
+    const imageRefreshKey = Date.now().toString(36);
+    document.querySelectorAll('img[src]').forEach(image => {
+      const imageUrl = new URL(image.getAttribute('src'), window.location.href);
+
+      if (imageUrl.origin === window.location.origin) {
+        imageUrl.searchParams.set('refresh', imageRefreshKey);
+        image.src = imageUrl.href;
+      }
+    });
+
     const root = document.documentElement;
     const siteNav = document.getElementById('siteNav');
     const themeToggle = document.getElementById('themeToggle');
