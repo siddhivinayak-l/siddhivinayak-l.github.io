@@ -51,7 +51,19 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #95
 .hero-action,.text-link{display:inline-flex;align-items:center;gap:12px;min-height:44px;font-weight:600;font-size:.9375rem}
 .hero-action:first-child{background:var(--night);color:#fff;padding:10px 18px;border-radius:6px}
 .hero-action:first-child:hover{background:var(--accent)}
-.hero-media{min-height:520px;border:1px solid var(--line);background:#efedf2;border-radius:10px}
+.hero-media{min-height:520px;border:1px solid #43364e;background:#171222;border-radius:18px;position:relative;isolation:isolate;overflow:hidden;box-shadow:0 24px 70px -34px #33214688}
+.hero-media canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.motion-toggle{position:absolute;right:18px;bottom:18px;z-index:2;background:#ffffffed;color:#332440;border:1px solid #ffffff70;border-radius:30px;padding:10px 17px;font-size:.8125rem;font-weight:600;min-height:44px;cursor:pointer;box-shadow:0 3px 18px #0002}
+.motion-toggle:hover{background:#fff}
+.direction-image{position:relative;overflow:hidden;isolation:isolate}
+.direction-image canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.directions{perspective:1200px}
+.direction-image{transform:perspective(1000px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));transition:transform .45s ease,box-shadow .45s ease;box-shadow:0 14px 40px -30px #39265070}
+.direction:hover .direction-image{box-shadow:0 24px 42px -26px #39265065}
+.profile-card,.work-card{transition:transform .25s ease,box-shadow .25s ease,background .25s ease,border-color .25s ease}
+@media(hover:hover) and (pointer:fine){.profile-card:hover,.work-card:hover{transform:translateY(-4px);box-shadow:0 14px 35px -24px #40245885}}
+.motion-paused .direction-image,.motion-paused .profile-card,.motion-paused .work-card{transform:none!important;transition:none!important}
+@media(prefers-reduced-motion:reduce){.direction-image,.profile-card,.work-card{transform:none!important}.motion-toggle{display:none}}
 .affiliation{display:flex;align-items:center;gap:24px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:22px 24px;margin-top:30px;max-width:580px}
 .affiliation-logo{flex:0 1 184px;display:block;padding:0 24px 0 0;border-right:1px solid var(--line)}
 .affiliation-logo img{display:block;width:160px;height:auto;max-width:100%}
@@ -130,7 +142,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #95
 .contact-email strong{display:block;overflow-wrap:anywhere;font-size:1rem;line-height:1.6;font-weight:550}
 .contact-email:hover strong{color:var(--accent)}
 .profile-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.profile-card{display:grid;grid-template-columns:1fr 20px;gap:12px;padding:22px 20px;min-height:112px;border:1px solid var(--line);border-radius:7px;background:#f8f7fa;transition:background .2s,border-color .2s}
+.profile-card{display:grid;grid-template-columns:1fr 20px;gap:12px;padding:22px 20px;min-height:112px;border:1px solid var(--line);border-radius:7px;background:#f8f7fa;transition:background .2s,border-color .2s,transform .25s ease,box-shadow .25s ease}
 .profile-card strong{display:block;font-size:1.0625rem;font-weight:600;margin-bottom:4px}
 .profile-card small{font-size:.875rem;line-height:1.5;color:var(--muted);display:block}
 .profile-arrow{align-self:start;color:var(--accent);font-size:1.2rem}
@@ -200,13 +212,17 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #95
 
   <header class="hero" id="top"><div class="wrap hero-grid">
     <div class="reveal"><div class="eyebrow mono">Siddhi Vinayak Pandey</div><h1><span>AI for</span><span>electrochemical</span><span class="accent">systems</span></h1><p class="hero-intro">I combine AI with electrochemical and nanofluidic systems to develop devices, measurement methods and computational tools for <strong>computing, energy and sensing.</strong></p><div class="affiliation"><a class="affiliation-logo" href="https://www.manchester.ac.uk/" target="_blank" rel="noopener noreferrer" aria-label="The University of Manchester"><img src="data:image/png;base64,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" width="206" height="86" alt="The University of Manchester"></a><div><strong>PhD Researcher</strong><span>Dean’s Doctoral Fellow</span></div></div><div class="hero-actions"><a class="hero-action" href="#directions">Explore the work <span>↘</span></a><a class="hero-action" href="mailto:siddhivinayak.pandey@postgrad.manchester.ac.uk">Contact <span>↗</span></a></div></div>
-    <div class="hero-media reveal" aria-label="Reserved space for a portrait or laboratory photograph"></div>
+    <div class="hero-media reveal" id="heroVisual">
+      <!-- Decorative 3D geometry, not a scientific simulation. Replace the canvas with a photograph when desired. -->
+      <canvas data-scene="torus" aria-hidden="true"></canvas>
+      <button class="motion-toggle" id="motionToggle" type="button" aria-pressed="false" hidden>Pause motion</button>
+    </div>
   </div></header>
 
   <main id="main">
     <section class="section" id="about"><div class="wrap"><div class="section-head reveal"><h2 class="section-label">About</h2><div><h3 class="section-title">Where AI meets ions, interfaces and devices.</h3><p class="section-copy">I work on electrochemical systems that change over time. Ionic motion, surface interactions and device history can create useful behaviour — if they are measured carefully and understood physically.</p></div></div></div></section>
 
-    <section class="section" id="directions"><div class="wrap"><div class="section-head reveal"><h2 class="section-label">Directions</h2><div><h3 class="section-title">Computing, energy, sensing &amp; automation.</h3><p class="section-copy"></p></div></div><div class="directions"><article class="direction reveal"><div class="direction-image image-computing" aria-label="Reserved image space for brain-inspired computing"></div><div class="direction-copy"><span class="direction-tag mono">Computing</span><h3>Brain-inspired computing</h3><p>Ionic memory, memristive devices and neuromorphic functions based on adaptive transport.</p></div></article><article class="direction reveal"><div class="direction-image image-energy" aria-label="Reserved image space for AI in energy systems"></div><div class="direction-copy"><span class="direction-tag mono">Energy</span><h3>AI for energy systems</h3><p>Machine learning and electrochemical analysis for batteries, perovskites and energy devices.</p></div></article><article class="direction reveal"><div class="direction-image image-sensing" aria-label="Reserved image space for nanofluidic and microfluidic sensing"></div><div class="direction-copy"><span class="direction-tag mono">Sensing</span><h3>Nanofluidic sensing</h3><p>Confined ion transport, surface interactions and streaming current in microfluidic and nanofluidic solution systems.</p></div></article><article class="direction reveal"><div class="direction-image image-robotics" aria-label="Reserved image space for automation and robotics"></div><div class="direction-copy"><span class="direction-tag mono">Automation</span><h3>Automation &amp; robotics</h3><p>From NanoIonBench to PaintRobs: building tools and physical systems that make technical work more repeatable and useful.</p></div></article></div></div></section>
+    <section class="section" id="directions"><div class="wrap"><div class="section-head reveal"><h2 class="section-label">Directions</h2><div><h3 class="section-title">Computing, energy, sensing &amp; automation.</h3><p class="section-copy"></p></div></div><div class="directions"><article class="direction reveal"><div class="direction-image image-computing"><canvas data-scene="sphere" aria-hidden="true"></canvas></div><div class="direction-copy"><span class="direction-tag mono">Computing</span><h3>Brain-inspired computing</h3><p>Ionic memory, memristive devices and neuromorphic functions based on adaptive transport.</p></div></article><article class="direction reveal"><div class="direction-image image-energy"><canvas data-scene="wave" aria-hidden="true"></canvas></div><div class="direction-copy"><span class="direction-tag mono">Energy</span><h3>AI for energy systems</h3><p>Machine learning and electrochemical analysis for batteries, perovskites and energy devices.</p></div></article><article class="direction reveal"><div class="direction-image image-sensing"><canvas data-scene="ripple" aria-hidden="true"></canvas></div><div class="direction-copy"><span class="direction-tag mono">Sensing</span><h3>Nanofluidic sensing</h3><p>Confined ion transport, surface interactions and streaming current in microfluidic and nanofluidic solution systems.</p></div></article><article class="direction reveal"><div class="direction-image image-robotics"><canvas data-scene="grid" aria-hidden="true"></canvas></div><div class="direction-copy"><span class="direction-tag mono">Automation</span><h3>Automation &amp; robotics</h3><p>From NanoIonBench to PaintRobs: building tools and physical systems that make technical work more repeatable and useful.</p></div></article></div></div></section>
 
     <section class="section section-dark" id="research"><div class="wrap"><div class="section-head reveal"><h2 class="section-label">Research</h2><div><h3 class="section-title">Ionic transport, memory &amp; device analysis.</h3><p class="section-copy">My approach combines direct device measurements, electrochemical analysis, automation and machine learning. The purpose is to expose mechanisms, improve measurement and develop better ways to use physical response.</p></div></div><div class="research-list"><div class="research-row reveal"><h3>Ionic transport under confinement</h3><p>Ion motion, surface interactions and history-dependent behaviour in nanofluidic and microfluidic solution systems.</p></div><div class="research-row reveal"><h3>Memory and adaptive devices</h3><p>Ionic and electrochemical devices for programmable conductance, retention and neuromorphic response.</p></div><div class="research-row reveal"><h3>AI-assisted device analysis</h3><p>Experimentally grounded workflows that connect measured data with physical meaning and more efficient studies.</p></div></div><div class="research-link reveal"><a class="text-link" href="mailto:siddhivinayak.pandey@postgrad.manchester.ac.uk">Discuss a research direction <span>↗</span></a></div></div></section>
 
@@ -348,6 +364,183 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #95
     document.addEventListener('keydown',event=>{if(event.key==='Escape'&&nav.classList.contains('open')){closeMenu();menu.focus();}});
     window.matchMedia('(min-width:951px)').addEventListener('change',event=>{if(event.matches)closeMenu();});
     document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
+  <script>
+  (() => {
+    'use strict';
+    // Lightweight perspective projection of abstract geometry. No research data is represented.
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const pointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const button = document.getElementById('motionToggle');
+    const scenes = [];
+    const reveals = new Set();
+    let paused = false, raf = 0, previous = 0, elapsed = 0;
+    const TAU = Math.PI * 2;
+    const canMove = () => !paused && !reduced.matches;
+
+    function geometry(mode) {
+      const points = [], edges = [];
+      const rows = mode === 'torus' ? 36 : 22;
+      const cols = mode === 'torus' ? 18 : 14;
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const u = r / rows * TAU, v = c / cols * TAU;
+          let x, y, z;
+          if (mode === 'torus') {
+            const radius = .69 + .235 * Math.cos(v);
+            x = radius * Math.cos(u); y = .235 * Math.sin(v); z = radius * Math.sin(u);
+          } else if (mode === 'sphere') {
+            const lat = (c + .5) / cols * Math.PI;
+            x = Math.sin(lat) * Math.cos(u) * .85;
+            y = Math.cos(lat) * .85; z = Math.sin(lat) * Math.sin(u) * .85;
+          } else {
+            x = (r / (rows - 1) - .5) * 1.7;
+            z = (c / (cols - 1) - .5) * 1.7;
+            y = mode === 'grid' ? ((r + c) % 3 - 1) * .17 : 0;
+          }
+          const i = points.length;
+          points.push({x,y,z,u,v,r,c});
+          if (c > 0) edges.push([i - 1,i]);
+          if (r > 0 && c % 2 === 0) edges.push([i - cols,i]);
+        }
+      }
+      return {points,edges};
+    }
+
+    document.querySelectorAll('canvas[data-scene]').forEach(canvas => {
+      let ctx;
+      try { ctx = canvas.getContext('2d', {alpha:true}); } catch (_) { return; }
+      if (!ctx) return;
+      const mode = canvas.dataset.scene;
+      const scene = {canvas,ctx,mode,...geometry(mode),width:0,height:0,visible:false,tx:0,ty:0,rx:0,ry:0};
+      scenes.push(scene);
+      const host = canvas.parentElement;
+      host.addEventListener('pointermove', event => {
+        if (!pointer.matches || !canMove()) return;
+        const rect = host.getBoundingClientRect();
+        scene.tx = Math.max(-1,Math.min(1,(event.clientX-rect.left)/rect.width*2-1));
+        scene.ty = Math.max(-1,Math.min(1,(event.clientY-rect.top)/rect.height*2-1));
+        if (mode !== 'torus') {
+          host.style.setProperty('--tilt-x',(-scene.ty*3).toFixed(2)+'deg');
+          host.style.setProperty('--tilt-y',(scene.tx*3).toFixed(2)+'deg');
+        }
+      },{passive:true});
+      host.addEventListener('pointerleave',() => {
+        scene.tx=scene.ty=0;
+        host.style.removeProperty('--tilt-x');host.style.removeProperty('--tilt-y');
+      });
+    });
+
+    function resize(scene) {
+      const rect = scene.canvas.parentElement.getBoundingClientRect();
+      scene.width = Math.max(1,rect.width); scene.height = Math.max(1,rect.height);
+      const dpr = Math.min(window.devicePixelRatio || 1,1.75);
+      scene.canvas.width = Math.round(scene.width*dpr);
+      scene.canvas.height = Math.round(scene.height*dpr);
+      scene.ctx.setTransform(dpr,0,0,dpr,0,0);
+      draw(scene);
+    }
+
+    function draw(scene) {
+      const {ctx,width:w,height:h,mode} = scene;
+      ctx.clearRect(0,0,w,h);
+      const dark = mode === 'torus';
+      const t = elapsed;
+      const angle = (dark ? .4+t*.085 : .2+t*.055)+scene.rx*.14;
+      const pitch = (dark ? .86 : mode==='sphere' ? .1 : .62)+scene.ry*.12;
+      const cy = Math.cos(angle), sy = Math.sin(angle), cx = Math.cos(pitch), sx = Math.sin(pitch);
+      const unit = Math.min(w,h)*(dark ? .44 : .41);
+      if (dark) {
+        const glow = ctx.createRadialGradient(w*.5,h*.43,5,w*.5,h*.43,w*.67);
+        glow.addColorStop(0,'rgba(144,88,194,.20)');glow.addColorStop(1,'rgba(80,50,120,0)');
+        ctx.fillStyle=glow;ctx.fillRect(0,0,w,h);
+      }
+      const projected = scene.points.map((p,index) => {
+        let y=p.y;
+        if (mode==='wave') y=Math.sin(p.x*3.5+t*.65+p.z*1.6)*.23;
+        if (mode==='ripple') y=Math.sin(Math.hypot(p.x,p.z)*6-t*.8)*.18;
+        if (mode==='grid') y+=Math.sin(t*.5+p.x*2)*.05;
+        const x=p.x*cy-p.z*sy, z0=p.x*sy+p.z*cy;
+        const yp=y*cx-z0*sx, z=y*sx+z0*cx;
+        const scale=3.8/(3.8+z);
+        return {index,x:w*.5+x*unit*scale,y:h*(dark?.48:.5)+yp*unit*scale,z,scale};
+      });
+      ctx.lineWidth=dark?.65:.65;
+      scene.edges.forEach(([a,b])=>{
+        const p=projected[a],q=projected[b];
+        const alpha=dark?.13+(1-p.z)*.055:.11+(1-p.z)*.035;
+        ctx.strokeStyle=dark?'rgba(181,153,215,'+alpha+')':'rgba(85,60,117,'+alpha+')';
+        ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();
+      });
+      projected.sort((a,b)=>b.z-a.z).forEach(p=>{
+        const highlight = p.index%19===0;
+        const alpha = Math.min(.95,(dark?.46:.43)+(1-p.z)*.16);
+        ctx.fillStyle=dark?(highlight?'rgba(238,211,147,.96)':'rgba(206,187,236,'+alpha+')'):(highlight?'rgba(128,72,158,.9)':'rgba(76,47,114,'+alpha+')');
+        ctx.beginPath();ctx.arc(p.x,p.y,(highlight?2.5:1.3)*p.scale,0,TAU);ctx.fill();
+      });
+    }
+
+    function frame(now) {
+      raf=0;
+      if (!canMove() || document.hidden || !scenes.some(scene=>scene.visible)) { previous=0;return; }
+      if (previous && now-previous<32) { raf=requestAnimationFrame(frame);return; }
+      const dt=previous ? Math.min((now-previous)/1000,.065) : 0;
+      previous=now;elapsed+=dt;
+      scenes.forEach(scene=>{
+        if (!scene.visible) return;
+        scene.rx+=(scene.tx-scene.rx)*.065;scene.ry+=(scene.ty-scene.ry)*.065;
+        draw(scene);
+      });
+      raf=requestAnimationFrame(frame);
+    }
+    function sync() {
+      const stopped=!canMove();
+      document.documentElement.classList.toggle('motion-paused',stopped);
+      button.hidden=!scenes.length || reduced.matches;
+      button.textContent=paused?'Play motion':'Pause motion';
+      button.setAttribute('aria-pressed',String(paused));
+      if (stopped) {
+        reveals.forEach(animation=>animation.cancel());reveals.clear();
+        scenes.forEach(scene=>{
+          scene.tx=scene.ty=scene.rx=scene.ry=0;
+          scene.canvas.parentElement.style.removeProperty('--tilt-x');
+          scene.canvas.parentElement.style.removeProperty('--tilt-y');
+          draw(scene);
+        });
+      }
+      if (!stopped && !document.hidden && scenes.some(scene=>scene.visible)) {
+        if (!raf) raf=requestAnimationFrame(frame);
+      } else { if(raf)cancelAnimationFrame(raf);raf=0;previous=0; }
+    }
+
+    button.addEventListener('click',()=>{paused=!paused;sync();});
+    reduced.addEventListener('change',sync);
+    document.addEventListener('visibilitychange',sync);
+    window.addEventListener('pagehide',()=>{if(raf)cancelAnimationFrame(raf);raf=0;previous=0;});
+    window.addEventListener('pageshow',sync);
+    scenes.forEach(resize);
+    if ('ResizeObserver' in window) {
+      const sizes=new ResizeObserver(entries=>{entries.forEach(entry=>{const scene=scenes.find(s=>s.canvas.parentElement===entry.target);if(scene)resize(scene);});});
+      scenes.forEach(scene=>sizes.observe(scene.canvas.parentElement));
+    } else { window.addEventListener('resize',()=>scenes.forEach(resize),{passive:true}); }
+    if ('IntersectionObserver' in window) {
+      const visibility=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{const scene=scenes.find(s=>s.canvas===entry.target);if(scene)scene.visible=entry.isIntersecting;});sync();
+      },{threshold:0});
+      scenes.forEach(scene=>visibility.observe(scene.canvas));
+      const entrances=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(!entry.isIntersecting)return;
+          entrances.unobserve(entry.target);
+          if (!canMove() || typeof entry.target.animate!=='function')return;
+          const animation=entry.target.animate([{opacity:.2,translate:'0 14px'},{opacity:1,translate:'0 0'}],{duration:650,easing:'cubic-bezier(.2,.7,.2,1)'});
+          reveals.add(animation);animation.onfinish=()=>reveals.delete(animation);
+        });
+      },{threshold:.08});
+      document.querySelectorAll('main .reveal').forEach(element=>entrances.observe(element));
+    } else { scenes.forEach(scene=>{scene.visible=true;}); }
+    sync();
+  })();
   </script>
 </body>
 </html>
