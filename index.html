@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Siddhi Vinayak Pandey — developing AI-enabled electrochemical and nanofluidic systems for computing, energy and sensing.">
+  <meta name="description" content="Siddhi Vinayak Pandey — neuromorphic iontronics in 2D nanochannels and machine learning for perovskite and battery electrochemical data.">
   <meta name="theme-color" content="#f3f3f0">
   <title>Siddhi Vinayak Pandey — AI × Electrochemical Systems</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,10 +39,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #95
 .nav-links a:hover,.text-link:hover,.hero-action:hover{color:var(--accent)}
 .menu{display:none;background:none;border:1px solid var(--line);border-radius:6px;min-width:44px;min-height:44px;cursor:pointer;font-size:1.4rem}
 .hero{padding:88px 0 100px}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.9fr);gap:7%;align-items:center}
+.hero-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:5%;align-items:center}
 .hero-grid>*{min-width:0}
 .eyebrow{font-size:.9375rem;color:var(--accent);margin-bottom:24px;letter-spacing:.07em}
-.hero h1{font-size:clamp(2rem,4.6vw,4rem);font-weight:600;line-height:1.13;letter-spacing:-.025em;margin:0 0 30px}
+.hero h1{font-size:clamp(2rem,3.7vw,3.35rem);font-weight:600;line-height:1.16;letter-spacing:-.035em;margin:0 0 28px;text-wrap:balance}
 .hero h1 span{display:block}
 .hero h1 .accent{color:var(--accent)}
 .hero-intro{font-size:clamp(1.125rem,1.45vw,1.375rem);line-height:1.65;letter-spacing:0;margin:0}
@@ -51,7 +51,17 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #95
 .hero-action,.text-link{display:inline-flex;align-items:center;gap:12px;min-height:44px;font-weight:600;font-size:.9375rem}
 .hero-action:first-child{background:var(--night);color:#fff;padding:10px 18px;border-radius:6px}
 .hero-action:first-child:hover{background:var(--accent)}
-.hero-media{min-height:520px;border:1px solid #43364e;background:#171222;border-radius:18px;position:relative;isolation:isolate;overflow:hidden;box-shadow:0 24px 70px -34px #33214688}
+.hero-media{aspect-ratio:640/650;min-height:0;border:1px solid #43364e;background:#171222;border-radius:20px;position:relative;isolation:isolate;overflow:hidden;box-shadow:0 24px 70px -34px #33214688}
+.hero-diagram-title{position:absolute;top:5%;left:5%;right:5%;text-align:center;color:#f5effc;font-size:clamp(1rem,1.6vw,1.25rem);font-weight:550;letter-spacing:-.015em;pointer-events:none}
+.hero-path{position:absolute;top:77%;width:44%;text-align:center;color:#f7f1fc;font-size:clamp(.875rem,1.15vw,1rem);font-weight:550;line-height:1.45;pointer-events:none}
+.hero-path.memory{left:3%}.hero-path.experiments{right:3%}
+.hero-path small{display:block;color:#c9bfd5;font-size:.8125rem;font-weight:400;margin-top:7px}
+.hero-legend{position:absolute;left:5%;bottom:25px;color:#c9bfd5;font-size:.8125rem;letter-spacing:.015em;pointer-events:none}
+.supporting-heading{font-size:1.375rem;font-weight:550;letter-spacing:-.015em;margin:52px 0 26px;padding-top:30px;border-top:1px solid var(--line)}
+.supporting-directions .direction-image{aspect-ratio:2/1}
+.application-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.application-tags span{font-size:.8125rem;color:#4d3d5b;border:1px solid #d7ccdf;border-radius:20px;padding:4px 11px;background:#f5f1f8}
+@media(max-width:380px){.hero-path small{font-size:.75rem}.hero-legend{bottom:20px;max-width:120px;font-size:.75rem}.hero-diagram-title{font-size:1rem}}
 .hero-media canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .motion-toggle{position:absolute;right:18px;bottom:18px;z-index:2;background:#ffffffed;color:#332440;border:1px solid #ffffff70;border-radius:30px;padding:10px 17px;font-size:.8125rem;font-weight:600;min-height:44px;cursor:pointer;box-shadow:0 3px 18px #0002}
 .motion-toggle:hover{background:#fff}
@@ -167,7 +177,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #95
   .menu{display:block}
   .hero-grid{grid-template-columns:minmax(0,1fr);gap:40px}
   .hero h1{font-size:clamp(1.8rem,6.6vw,3.6rem)}
-  .hero-media{min-height:340px}
+  .hero-media{min-height:0;max-width:700px;width:100%;margin-inline:auto}
   .hero{padding:54px 0 64px}
   .section{padding:68px 0}
   .section-head{grid-template-columns:minmax(0,1fr);gap:26px;margin-bottom:36px}
@@ -200,44 +210,138 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #95
 @media(max-width:380px){.profile-grid{grid-template-columns:1fr}.brand-detail{font-size:.75rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
+
+/* Revised research hierarchy */
+.hero-caption{position:absolute;top:75%;left:8%;right:8%;text-align:center;color:#f5effc;line-height:1.5;pointer-events:none}
+.hero-caption strong{display:block;font-size:clamp(1rem,1.6vw,1.3rem);font-weight:550}
+.hero-caption span{display:block;font-size:.875rem;color:#c9bfd5;margin-top:8px}
+.hero-portrait{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.directions-main{grid-template-columns:1fr;gap:60px}
+.directions-main .direction{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);align-items:center;gap:42px}
+.directions-main .direction-image{order:2;aspect-ratio:800/460;border-radius:14px}
+.directions-main .direction-copy{padding:0}
+.directions-main .direction h3{font-size:clamp(1.6rem,2.5vw,2rem)}
+.directions-main .direction p{max-width:440px}
+.projects-section .section-label{margin-bottom:42px}
+.tool-feature{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;padding:36px 40px;background:var(--night);border-radius:14px;color:#fff;margin-bottom:28px}
+.tool-feature .direction-tag{color:#d2b8e8}
+.tool-feature h3{font-size:2rem;line-height:1.3;letter-spacing:-.025em;margin:0}
+.tool-feature p{margin:0;color:#ede7f2;font-size:1.0625rem}
+.tool-capabilities{display:flex;flex-wrap:wrap;gap:8px 20px;list-style:none;padding:0;margin:20px 0 0;color:#d3c3e0;font-size:.875rem}
+.tool-capabilities li{border-bottom:1px solid #675375;padding-bottom:5px}
+.project-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.project-feature{min-width:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:white}
+.project-visual{position:relative;aspect-ratio:600/340;background:#f0edf4;border-bottom:1px solid var(--line)}
+.project-feature:nth-child(2) .project-visual{background:#edf2f2}
+.project-visual canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.project-copy{padding:30px}
+.project-copy h3{font-size:1.875rem;line-height:1.25;letter-spacing:-.02em;margin:0 0 16px}
+.project-copy p{margin:0;color:var(--muted)}
+.project-note{display:block;margin-top:20px;color:#60596a;font-size:.8125rem}
+.product-lines{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px;border-top:1px solid var(--line);padding-top:20px;font-size:.8125rem;color:var(--muted)}
+.product-lines strong{display:block;color:var(--ink);font-size:.875rem;margin-bottom:5px}
+/* Publication cards retain the complete bibliography */
+#writing{background:#f3f1f6}
+.publication-years{counter-reset:paper;gap:48px}
+.publication-year-group{grid-template-columns:155px minmax(0,1fr);gap:34px}
+.year-heading{font-size:2.9rem;line-height:1;letter-spacing:-.06em;margin:0;padding:26px 0 0;position:sticky;top:32px;align-self:start}
+.year-heading span{display:block;font-size:.8125rem;line-height:1.5;font-weight:500;letter-spacing:0;color:var(--muted);margin-top:14px}
+.year-publications{border-top:0;display:grid;gap:12px}
+.publication-entry{counter-increment:paper;display:grid;grid-template-columns:36px minmax(0,1fr);column-gap:20px;row-gap:11px;background:#fff;border:1px solid #ded8e5;border-radius:12px;padding:28px 30px;box-shadow:0 4px 16px -12px #33254524;transition:border-color .2s,box-shadow .2s}
+.publication-entry::before{content:counter(paper,decimal-leading-zero);grid-column:1;grid-row:1/4;font-size:.8125rem;font-weight:550;color:#6b567c;padding-top:2px}
+.publication-entry .publication-meta{grid-column:2;grid-row:1;font-size:.8125rem;color:#5f4374;gap:8px 14px}
+.publication-meta>span:first-child{font-weight:600}
+.publication-entry h4{grid-column:2;grid-row:2;font-size:clamp(1.0625rem,1.45vw,1.25rem);line-height:1.5;font-weight:550;margin:0}
+.publication-entry h4 a{display:block}
+.publication-entry h4 a>span{color:var(--accent);white-space:nowrap}
+.publication-entry details{grid-column:2;grid-row:3;margin:0}
+.publication-entry summary{font-size:.8125rem}
+.publication-entry details p{font-size:.9375rem;line-height:1.7}
+.publication-type{background:#f6f2f9;color:#5e4472;border-color:#dfd3e8;border-radius:20px}
+.publication-year-group:first-child .publication-entry:first-child{background:linear-gradient(125deg,#f1e9f9,#fff 75%);border-color:#bda6d1;box-shadow:inset 4px 0 0 #765090}
+.publication-entry:hover,.publication-entry:focus-within{border-color:#a58db9;box-shadow:0 10px 26px -20px #3f205666}
+.contact{grid-template-columns:.65fr 1.35fr;gap:50px;padding:48px;border-top:1px solid var(--line);background:#fff;box-shadow:0 20px 60px -44px #35284455}
+.contact .section-label{font-size:1.375rem;color:var(--accent);font-weight:550}
+.contact h3{font-size:clamp(2rem,3.3vw,3rem);margin-top:22px;line-height:1.15}
+.profile-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,215px),1fr))}
+.profile-card{display:flex;align-items:center;gap:14px;min-height:88px;padding:20px 18px;background:#faf9fc}
+.profile-card>span:nth-last-child(2){flex:1;min-width:0}
+.profile-card strong{font-size:1rem;margin:0}
+.profile-icon{display:grid;place-items:center;flex:0 0 38px;width:38px;height:38px;border-radius:9px;background:#eee7f5;color:#61427a}
+.profile-icon svg{width:23px;height:23px;display:block;fill:currentColor}
+.profile-card[data-platform="linkedin"] .profile-icon{background:#e8f1f9;color:#0a66c2}
+.profile-card[data-platform="scholar"] .profile-icon{background:#edf1fb;color:#4285f4}
+.profile-card[data-platform="orcid"] .profile-icon{background:#eef5df;color:#55721e}
+.profile-card[data-platform="github"] .profile-icon{background:#ededf1;color:#24292f}
+.profile-arrow{align-self:center;margin-left:auto}
+@media(max-width:950px){
+ .directions-main .direction{grid-template-columns:1fr;gap:26px}
+ .directions-main .direction-image{order:0}.directions-main .direction-copy{order:1}
+ .directions-main .direction p{max-width:700px}
+ .tool-feature{grid-template-columns:1fr;gap:20px}
+ .contact{grid-template-columns:1fr;gap:20px}
+ .publication-year-group{grid-template-columns:110px minmax(0,1fr)}
+}
+@media(max-width:600px){
+ .hero h1{font-size:clamp(2rem,8vw,3rem)}
+ .project-grid{grid-template-columns:1fr}.tool-feature{padding:28px 24px}.project-copy{padding:26px}
+ .publication-year-group{grid-template-columns:1fr;gap:20px}
+ .year-heading{position:static;display:flex;align-items:baseline;gap:18px;padding-top:0;font-size:2.5rem}
+ .year-heading span{margin:0}
+ .publication-entry{padding:22px 18px;grid-template-columns:24px minmax(0,1fr);column-gap:12px}
+ .contact{padding:28px 24px}.profile-card{padding:16px 12px}
+}
+@media(max-width:400px){.profile-grid{grid-template-columns:1fr}.hero-caption span{font-size:.8125rem}.product-lines{grid-template-columns:1fr}}
+
   </style>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <nav class="site-nav" aria-label="Primary navigation"><div class="wrap nav-inner">
     <a class="brand" href="#top"><span class="brand-mark">S</span><span><span class="brand-name">Siddhi Vinayak Pandey</span><span class="brand-detail">AI × electrochemical systems</span></span></a>
-    <div class="nav-links" id="navLinks"><a href="#about">About</a><a href="#directions">Directions</a><a href="#work">Work</a><a href="#background">Background</a><a href="#writing">Publications</a><a href="#contact">Contact</a></div>
+    <div class="nav-links" id="navLinks"><a href="#about">About</a><a href="#directions">Directions</a><a href="#work">Projects</a><a href="#background">Background</a><a href="#writing">Publications</a><a href="#contact">Contact</a></div>
     <button class="menu" id="menuButton" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
   </div></nav>
 
   <header class="hero" id="top"><div class="wrap hero-grid">
-    <div class="reveal"><div class="eyebrow mono">Siddhi Vinayak Pandey</div><h1><span>AI for</span><span>electrochemical</span><span class="accent">systems</span></h1><p class="hero-intro">I combine AI with electrochemical and nanofluidic systems to develop devices, measurement methods and computational tools for <strong>computing, energy and sensing.</strong></p><div class="affiliation"><a class="affiliation-logo" href="https://www.manchester.ac.uk/" target="_blank" rel="noopener noreferrer" aria-label="The University of Manchester"><img src="data:image/png;base64,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" width="206" height="86" alt="The University of Manchester"></a><div><strong>PhD Researcher</strong><span>Dean’s Doctoral Fellow</span></div></div><div class="hero-actions"><a class="hero-action" href="#directions">Explore the work <span>↘</span></a><a class="hero-action" href="mailto:siddhivinayak.pandey@postgrad.manchester.ac.uk">Contact <span>↗</span></a></div></div>
+    <div class="reveal"><div class="eyebrow mono">Siddhi Vinayak Pandey</div><h1><span>Ionic computing.</span><span class="accent">AI-guided experiments.</span></h1><p class="hero-intro">I study neuromorphic iontronic computing in two-dimensional nanochannels and apply machine learning to electrochemical data from perovskites and batteries.</p><div class="affiliation"><a class="affiliation-logo" href="https://www.manchester.ac.uk/" target="_blank" rel="noopener noreferrer" aria-label="The University of Manchester"><img src="data:image/png;base64,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" width="206" height="86" alt="The University of Manchester"></a><div><strong>PhD Researcher</strong><span>Dean’s Doctoral Fellow</span></div></div><div class="hero-actions"><a class="hero-action" href="#directions">Explore the work <span>↘</span></a><a class="hero-action" href="mailto:siddhivinayak.pandey@postgrad.manchester.ac.uk">Contact <span>↗</span></a></div></div>
     <div class="hero-media reveal" id="heroVisual">
-      <!-- Decorative 3D geometry, not a scientific simulation. Replace the canvas with a photograph when desired. -->
-      <canvas data-scene="torus" aria-hidden="true"></canvas>
+      <!-- Portrait option: replace this canvas and its two captions with
+      <img class="hero-portrait" src="portrait.jpg" alt="Siddhi Vinayak Pandey">.
+      Place your own portrait.jpg beside this file. -->
+      <canvas data-scene="electrochem" role="img" aria-label="Conceptual view of ions moving through a confined channel between two-dimensional material layers."></canvas>
+      <div class="hero-diagram-title" aria-hidden="true">Two-dimensional nanochannels</div>
+      <div class="hero-caption" aria-hidden="true"><strong>Neuromorphic iontronics</strong><span>Confined ions. Adaptive response.</span></div>
       <button class="motion-toggle" id="motionToggle" type="button" aria-pressed="false" hidden>Pause motion</button>
     </div>
   </div></header>
 
   <main id="main">
-    <section class="section" id="about"><div class="wrap"><div class="section-head reveal"><h2 class="section-label">About</h2><div><h3 class="section-title">Where AI meets ions, interfaces and devices.</h3><p class="section-copy">I work on electrochemical systems that change over time. Ionic motion, surface interactions and device history can create useful behaviour — if they are measured carefully and understood physically.</p></div></div></div></section>
+    <section class="section" id="about"><div class="wrap"><div class="section-head reveal"><h2 class="section-label">About</h2><div><h3 class="section-title">Iontronic devices &amp; electrochemical data.</h3><p class="section-copy">My doctoral research focuses on ionic memory in nanofluidic 2D nanochannels for brain-inspired computing. My machine-learning work uses electrochemical data from perovskites and batteries. I am interested in AI-guided experiments that inform material parameters, experimental recipes and device design.</p></div></div></div></section>
 
-    <section class="section" id="directions"><div class="wrap"><div class="section-head reveal"><h2 class="section-label">Directions</h2><div><h3 class="section-title">Computing, energy, sensing &amp; automation.</h3><p class="section-copy"></p></div></div><div class="directions"><article class="direction reveal"><div class="direction-image image-computing"><canvas data-scene="sphere" aria-hidden="true"></canvas></div><div class="direction-copy"><span class="direction-tag mono">Computing</span><h3>Brain-inspired computing</h3><p>Ionic memory, memristive devices and neuromorphic functions based on adaptive transport.</p></div></article><article class="direction reveal"><div class="direction-image image-energy"><canvas data-scene="wave" aria-hidden="true"></canvas></div><div class="direction-copy"><span class="direction-tag mono">Energy</span><h3>AI for energy systems</h3><p>Machine learning and electrochemical analysis for batteries, perovskites and energy devices.</p></div></article><article class="direction reveal"><div class="direction-image image-sensing"><canvas data-scene="ripple" aria-hidden="true"></canvas></div><div class="direction-copy"><span class="direction-tag mono">Sensing</span><h3>Nanofluidic sensing</h3><p>Confined ion transport, surface interactions and streaming current in microfluidic and nanofluidic solution systems.</p></div></article><article class="direction reveal"><div class="direction-image image-robotics"><canvas data-scene="grid" aria-hidden="true"></canvas></div><div class="direction-copy"><span class="direction-tag mono">Automation</span><h3>Automation &amp; robotics</h3><p>From NanoIonBench to PaintRobs: building tools and physical systems that make technical work more repeatable and useful.</p></div></article></div></div></section>
+    <section class="section" id="directions"><div class="wrap"><div class="section-head reveal"><h2 class="section-label">Directions</h2><div><h3 class="section-title">Neuromorphic computing.<br>AI-guided experiments.</h3><p class="section-copy"></p></div></div><div class="directions directions-main"><article class="direction reveal"><div class="direction-image image-computing"><canvas data-scene="brain" role="img" aria-label="Biological ion-mediated signalling compared with an artificial 2D nanochannel. Programming pulses and conductance states are schematic, not measured data."></canvas></div><div class="direction-copy"><span class="direction-tag mono">01 / Ionic devices</span><h3>Brain-inspired computing</h3><p>Neuromorphic iontronic computing in 2D nanochannels. Studying ionic memory, retention and synaptic responses under confinement.</p></div></article><article class="direction reveal"><div class="direction-image image-energy"><canvas data-scene="experiments" role="img" aria-label="An AI model connects material and measurement inputs with predictions for solar cells, photodetectors and batteries."></canvas></div><div class="direction-copy"><span class="direction-tag mono">02 / Machine learning</span><h3>AI-guided experiments</h3><p>Machine learning applied to perovskite and battery electrochemical data. Towards informed experimental choices and better device design.</p><div class="application-tags"><span>Solar cells</span><span>Batteries</span><span>Sensors</span></div></div></article></div><h3 class="supporting-heading">Sensing &amp; experimental automation</h3><div class="directions supporting-directions"><article class="direction reveal"><div class="direction-image image-sensing"><canvas data-scene="sensor" role="img" aria-label="Conceptual sensor: incoming particles interact with receptor sites and produce an electrical readout."></canvas></div><div class="direction-copy"><span class="direction-tag mono">Sensing</span><h3>Sensors</h3><p>Electrical and optical sensing through device characterisation and data analysis.</p></div></article><article class="direction reveal"><div class="direction-image image-robotics"><canvas data-scene="robot" role="img" aria-label="Conceptual automated spray-painting system: a nozzle traverses a surface and deposits a coating."></canvas></div><div class="direction-copy"><span class="direction-tag mono">Automation</span><h3>Automation &amp; robotics</h3><p>Automated measurements with NanoIonBench and spray-painting robotics through my undergraduate PaintRobs project.</p></div></article></div></div></section>
 
-    <section class="section section-dark" id="research"><div class="wrap"><div class="section-head reveal"><h2 class="section-label">Research</h2><div><h3 class="section-title">Ionic transport, memory &amp; device analysis.</h3><p class="section-copy">My approach combines direct device measurements, electrochemical analysis, automation and machine learning. The purpose is to expose mechanisms, improve measurement and develop better ways to use physical response.</p></div></div><div class="research-list"><div class="research-row reveal"><h3>Ionic transport under confinement</h3><p>Ion motion, surface interactions and history-dependent behaviour in nanofluidic and microfluidic solution systems.</p></div><div class="research-row reveal"><h3>Memory and adaptive devices</h3><p>Ionic and electrochemical devices for programmable conductance, retention and neuromorphic response.</p></div><div class="research-row reveal"><h3>AI-assisted device analysis</h3><p>Experimentally grounded workflows that connect measured data with physical meaning and more efficient studies.</p></div></div><div class="research-link reveal"><a class="text-link" href="mailto:siddhivinayak.pandey@postgrad.manchester.ac.uk">Discuss a research direction <span>↗</span></a></div></div></section>
+    <section class="section section-dark" id="research"><div class="wrap"><div class="section-head reveal"><h2 class="section-label">Research</h2><div><h3 class="section-title">From measurement to memory and prediction.</h3><p class="section-copy">I combine device experiments, electrochemical analysis and machine learning to understand physical behaviour and identify useful design choices.</p></div></div><div class="research-list"><div class="research-row reveal"><h3>Ion transport &amp; memory</h3><p>Confined ion motion, interfacial processes and device history. Linking these mechanisms to retention, programmable conductance and synaptic response.</p></div><div class="research-row reveal"><h3>Electrochemical data &amp; prediction</h3><p>Machine learning for perovskite and battery data, including material parameters, optical response and impedance.</p></div><div class="research-row reveal"><h3>Automated experimentation</h3><p>Instrument control, programmed voltage pulses and reproducible analysis. A foundation for AI-guided experiments.</p></div></div></div></section>
 
-    <section class="section" id="work"><div class="wrap"><div class="section-head reveal"><h2 class="section-label">Selected work</h2><div><h3 class="section-title">Devices, measurements &amp; research tools.</h3><p class="section-copy">Projects that connect physical devices, data and usable tools.</p></div></div><div class="work-grid"><article class="work-card reveal"><div><span class="work-tag mono">Doctoral research</span><h3>Ionic memory for next-generation computing</h3><p>Understanding nanofluidic memristors and confined ion transport as a route to energy-efficient, brain-inspired computing.</p></div><div class="work-bottom"><span class="work-meta mono">Iontronics · Devices</span><span class="work-arrow">↗</span></div></article><article class="work-card reveal"><div><span class="work-tag mono">Open tool</span><h3>NanoIonBench</h3><p>A Python workflow for instrument control, pulse programming, live monitoring and standardised analysis of ionic devices.</p></div><div class="work-bottom"><span class="work-meta mono">Automation · Python</span><span class="work-arrow">↗</span></div></article><article class="work-card reveal"><div><span class="work-tag mono">AI for energy</span><h3>Learning from electrochemical data</h3><p>Machine-learning workflows for perovskites, batteries and impedance responses, grounded in measured device behaviour.</p></div><div class="work-bottom"><span class="work-meta mono">ML · Energy devices</span><span class="work-arrow">↗</span></div></article></div></div></section>
+    <section class="section projects-section" id="work"><div class="wrap">
+      <h2 class="section-label">Tools &amp; initiatives</h2>
+      <article class="tool-feature reveal"><div><span class="direction-tag mono">Experimental software</span><h3>NanoIonBench</h3></div><div><p>Python-based instrument control and analysis for ionic devices.</p><ul class="tool-capabilities"><li>Voltage &amp; pulse protocols</li><li>Live measurement</li><li>Standardised analysis</li></ul></div></article>
+      <div class="project-grid">
+        <article class="project-feature reveal"><div class="project-visual"><canvas data-scene="paint-static" role="img" aria-label="Spray-painting schematic illustrating the PaintRobs concept, not its exact hardware."></canvas></div><div class="project-copy"><span class="direction-tag mono">Undergraduate project · SSIP funded</span><h3>PaintRobs</h3><p>A robot for automatic spray painting. An undergraduate project in motion control, spray delivery and automation.</p><span class="project-note">Spray-painting schematic</span></div></article>
+        <article class="project-feature reveal"><div class="project-visual"><canvas data-scene="lutions-static" role="img" aria-label="Lutions Predictor connects data with no-code machine learning. Lutions Connect supports profiles and communication."></canvas></div><div class="project-copy"><span class="direction-tag mono">Technology &amp; software</span><h3>Lutions Group</h3><p>No-code machine-learning tools and applications that simplify communication.</p><div class="product-lines"><span><strong>Lutions Predictor</strong>No-code machine learning</span><span><strong>Lutions Connect</strong>Communication &amp; opportunities</span></div></div></article>
+      </div>
+    </div></section>
 
-    <section class="section" id="background"><div class="wrap"><div class="section-head reveal"><h2 class="section-label">Background</h2><div><h3 class="section-title">Education &amp; achievements.</h3><p class="section-copy"></p></div></div><div class="background-grid"><div class="background-column reveal"><h3>Education</h3><div class="education-list"><article class="education-row"><span class="education-date mono">2023—now</span><div><h4>PhD Research Scholar · University of Manchester</h4><p>Department of Physics and Astronomy. Dean’s Doctoral Fellow. Thesis: <em>Ionic Memory for Next-Generation Computing</em>.</p></div></article><article class="education-row"><span class="education-date mono">2021—23</span><div><h4>Master of Technology (M.Tech.) · Energy Systems</h4><p>Pandit Deendayal Energy University. CPI 9.6 / 10. Machine learning, perovskites and electrochemical devices.</p></div></article><article class="education-row"><span class="education-date mono">2017—21</span><div><h4>Bachelor of Technology (B.Tech.) · Electrical Engineering</h4><p>Adani Institute of Infrastructure Engineering. CGPA 8.99 / 10. Batteries, automation and engineering systems.</p></div></article></div></div><div class="background-column reveal"><h3>Recognition</h3><div class="recognition-list"><article class="recognition-row"><span class="recognition-label mono">Scholarship</span><div><h4>Dean’s Doctoral Scholarship</h4><p>The University of Manchester.</p></div></article><article class="recognition-row"><span class="recognition-label mono">2025</span><div><h4>Third Prize · PGR Research Conference</h4><p>Department of Physics and Astronomy, University of Manchester.</p></div></article><article class="recognition-row"><span class="recognition-label mono">RSC</span><div><h4>Faraday Discussion</h4><p>Oral contribution on ion flows through Ångström-scale channels.</p></div></article><article class="recognition-row"><span class="recognition-label mono">2021</span><div><h4>Best Start-up Award</h4><p>Innovate to Impact category, Gujarat Innovation Council.</p></div></article></div></div></div><div class="initiatives reveal"><h3>Initiatives</h3><div class="initiative-row"><strong>PaintRobs</strong><span>SSIP-funded robotics platform for automated road-marking applications.</span></div><div class="initiative-row"><strong>Lutions Group</strong><span>Technology initiative behind Lutions Predictor and Lutions Connect.</span></div></div></div></section>
+    <section class="section" id="background"><div class="wrap"><div class="section-head reveal"><h2 class="section-label">Background</h2><div><h3 class="section-title">Education &amp; achievements.</h3><p class="section-copy"></p></div></div><div class="background-grid"><div class="background-column reveal"><h3>Education</h3><div class="education-list"><article class="education-row"><span class="education-date mono">2023—now</span><div><h4>PhD Research Scholar · University of Manchester</h4><p>Department of Physics and Astronomy. Dean’s Doctoral Fellow. Thesis: <em>Ionic Memory for Next-Generation Computing</em>.</p></div></article><article class="education-row"><span class="education-date mono">2021—23</span><div><h4>Master of Technology (M.Tech.) · Energy Systems</h4><p>Pandit Deendayal Energy University. CPI 9.6 / 10. Machine learning, perovskites and electrochemical devices.</p></div></article><article class="education-row"><span class="education-date mono">2017—21</span><div><h4>Bachelor of Technology (B.Tech.) · Electrical Engineering</h4><p>Adani Institute of Infrastructure Engineering. CGPA 8.99 / 10. Batteries, automation and engineering systems.</p></div></article></div></div><div class="background-column reveal"><h3>Recognition</h3><div class="recognition-list"><article class="recognition-row"><span class="recognition-label mono">Scholarship</span><div><h4>Dean’s Doctoral Scholarship</h4><p>The University of Manchester.</p></div></article><article class="recognition-row"><span class="recognition-label mono">2025</span><div><h4>Third Prize · PGR Research Conference</h4><p>Department of Physics and Astronomy, University of Manchester.</p></div></article><article class="recognition-row"><span class="recognition-label mono">RSC</span><div><h4>Faraday Discussion</h4><p>Oral contribution on ion flows through Ångström-scale channels.</p></div></article><article class="recognition-row"><span class="recognition-label mono">2021</span><div><h4>Best Start-up Award</h4><p>Innovate to Impact category, Gujarat Innovation Council.</p></div></article></div></div></div></div></section>
 
     <section class="section" id="writing">
   <div class="wrap">
     <div class="section-head">
       <h2 class="section-label">Publications</h2>
-      <div><h3 class="section-title">Articles, reviews &amp; preprints.</h3><p class="section-copy">Ionic memory, electrochemical devices, energy materials and machine learning. 18 research outputs, listed by year.</p></div>
+      <div><h3 class="section-title">Research publications.</h3><p class="section-copy">18 articles, perspectives and preprints.</p></div>
     </div>
     <div class="publication-years">
-    <section class="publication-year-group" aria-labelledby="year-2026"><h3 class="year-heading" id="year-2026">2026</h3><div class="year-publications">
+    <section class="publication-year-group" aria-labelledby="year-2026"><h3 class="year-heading" id="year-2026">2026<span>4 publications</span></h3><div class="year-publications">
       <article class="publication-entry">
         <h4><a href="https://www.nature.com/articles/s41578-026-00919-1" target="_blank" rel="noopener noreferrer">Nanofluidic ionic memory for next-generation computing <span aria-hidden="true">↗</span></a></h4>
         <div class="publication-meta"><span>Nature Reviews Materials</span><span class="publication-type">Perspective</span></div>
@@ -259,7 +363,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #95
         <details><summary>Overview</summary><p>Presents interoperable open-source tools for instrument control, live measurement and physics-based analysis of nanochannel, nanopore and memristor experiments.</p></details>
       </article>
     </div></section>
-<section class="publication-year-group" aria-labelledby="year-2025"><h3 class="year-heading" id="year-2025">2025</h3><div class="year-publications">
+<section class="publication-year-group" aria-labelledby="year-2025"><h3 class="year-heading" id="year-2025">2025<span>5 publications</span></h3><div class="year-publications">
       <article class="publication-entry">
         <h4><a href="https://www.nature.com/articles/s41467-025-61649-6" target="_blank" rel="noopener noreferrer">Programmable memristors with two-dimensional nanofluidic channels <span aria-hidden="true">↗</span></a></h4>
         <div class="publication-meta"><span>Nature Communications</span><span class="publication-type">Article</span></div>
@@ -286,7 +390,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #95
         <details><summary>Overview</summary><p>Explores electric-field-assisted transport and unclogging phenomena in extremely confined Ångström-scale channels.</p></details>
       </article>
     </div></section>
-<section class="publication-year-group" aria-labelledby="year-2024"><h3 class="year-heading" id="year-2024">2024</h3><div class="year-publications">
+<section class="publication-year-group" aria-labelledby="year-2024"><h3 class="year-heading" id="year-2024">2024<span>3 publications</span></h3><div class="year-publications">
       <article class="publication-entry">
         <h4><a href="https://www.sciencedirect.com/science/article/pii/S0038092X24000938" target="_blank" rel="noopener noreferrer">A machine learning framework for predicting device performance in 2D metal halide perovskite photodetector <span aria-hidden="true">↗</span></a></h4>
         <div class="publication-meta"><span>Solar Energy</span><span class="publication-type">Article</span></div>
@@ -303,7 +407,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #95
         <details><summary>Overview</summary><p>Reviews equivalent-circuit models and their physical interpretation for diagnosing dynamic processes in perovskite solar cells.</p></details>
       </article>
     </div></section>
-<section class="publication-year-group" aria-labelledby="year-2023"><h3 class="year-heading" id="year-2023">2023</h3><div class="year-publications">
+<section class="publication-year-group" aria-labelledby="year-2023"><h3 class="year-heading" id="year-2023">2023<span>4 publications</span></h3><div class="year-publications">
       <article class="publication-entry">
         <h4><a href="https://doi.org/10.1021/acs.jpcc.3c04192" target="_blank" rel="noopener noreferrer">Understanding the Origin and Evolution of Resistive Effects during Switching Action in MAPbBr<sub>3</sub> Single Crystals <span aria-hidden="true">↗</span></a></h4>
         <div class="publication-meta"><span>The Journal of Physical Chemistry C</span><span class="publication-type">Article</span></div>
@@ -325,14 +429,14 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #95
         <details><summary>Overview</summary><p>Compares filter-based and data-driven approaches for estimating lithium-ion battery state of charge, health and remaining useful life.</p></details>
       </article>
     </div></section>
-<section class="publication-year-group" aria-labelledby="year-2022"><h3 class="year-heading" id="year-2022">2022</h3><div class="year-publications">
+<section class="publication-year-group" aria-labelledby="year-2022"><h3 class="year-heading" id="year-2022">2022<span>1 publication</span></h3><div class="year-publications">
       <article class="publication-entry">
         <h4><a href="https://arxiv.org/abs/2008.09038" target="_blank" rel="noopener noreferrer">Battery State-of-Charge Modeling for Solar PV Array Using Polynomial Regression <span aria-hidden="true">↗</span></a></h4>
         <div class="publication-meta"><span>Springer</span><span class="publication-type">Book chapter</span></div>
         <details><summary>Overview</summary><p>Models battery state of charge under variable photovoltaic input and evaluates polynomial regression against Kalman-filter estimates.</p></details>
       </article>
     </div></section>
-<section class="publication-year-group" aria-labelledby="year-2020"><h3 class="year-heading" id="year-2020">2020</h3><div class="year-publications">
+<section class="publication-year-group" aria-labelledby="year-2020"><h3 class="year-heading" id="year-2020">2020<span>1 publication</span></h3><div class="year-publications">
       <article class="publication-entry">
         <h4><a href="https://arxiv.org/abs/2010.12934" target="_blank" rel="noopener noreferrer">Recurrent Neural Network Based Electricity Load Forecasting of G-20 Members <span aria-hidden="true">↗</span></a></h4>
         <div class="publication-meta"><span>arXiv</span><span class="publication-type">Preprint</span></div>
@@ -345,13 +449,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #95
 </section>
 
     <section class="section contact-section" id="contact"><div class="wrap"><div class="contact">
-  <div class="contact-intro"><h2 class="section-label">Contact</h2><h3>Research &amp; collaboration.</h3><p>For collaborations, postdoctoral opportunities, invited talks and technical projects, please get in touch.</p></div>
+  <div class="contact-intro"><h2 class="section-label">Contact</h2><h3>Get in touch.</h3></div>
   <div class="contact-detail">
     <a class="contact-email" href="mailto:siddhivinayak.pandey@postgrad.manchester.ac.uk"><span>Email</span><strong>siddhivinayak.pandey@postgrad.manchester.ac.uk</strong></a>
-    <div class="profile-grid" aria-label="Professional profiles"><a class="profile-card" href="https://www.linkedin.com/in/siddhi-vinayak-pandey-17a295162" target="_blank" rel="noopener noreferrer"><span><strong>LinkedIn</strong><small>Professional connections</small></span><span class="profile-arrow" aria-hidden="true">↗</span></a>
-<a class="profile-card" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer"><span><strong>Google Scholar</strong><small>Research publications</small></span><span class="profile-arrow" aria-hidden="true">↗</span></a>
-<a class="profile-card" href="https://orcid.org/0000-0002-1574-2846" target="_blank" rel="noopener noreferrer"><span><strong>ORCID</strong><small>Researcher record</small></span><span class="profile-arrow" aria-hidden="true">↗</span></a>
-<a class="profile-card" href="https://github.com/siddhivinayak-l" target="_blank" rel="noopener noreferrer"><span><strong>GitHub</strong><small>Code &amp; research tools</small></span><span class="profile-arrow" aria-hidden="true">↗</span></a></div>
+    <div class="profile-grid" aria-label="Professional profiles"><a class="profile-card" data-platform="linkedin" href="https://www.linkedin.com/in/siddhi-vinayak-pandey-17a295162" target="_blank" rel="noopener noreferrer"><span class="profile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zm1.782 13.019H3.555V9h3.564zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></svg></span><span><strong>LinkedIn</strong></span><span class="profile-arrow" aria-hidden="true">↗</span></a>
+<a class="profile-card" data-platform="scholar" href="https://scholar.google.co.uk/citations?user=lvNkJ7sAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer"><span class="profile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zM12 0 0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg></span><span><strong>Google Scholar</strong></span><span class="profile-arrow" aria-hidden="true">↗</span></a>
+<a class="profile-card" data-platform="orcid" href="https://orcid.org/0000-0002-1574-2846" target="_blank" rel="noopener noreferrer"><span class="profile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#a6ce39"/><circle cx="6.8" cy="6.5" r="1.1" fill="#fff"/><path fill="#fff" d="M5.9 9h1.8v9H5.9zm4.1-3h4c6.7 0 6.7 12 0 12h-4zm1.8 1.7v8.6H14c4.5 0 4.5-8.6 0-8.6z"/></svg></span><span><strong>ORCID</strong></span><span class="profile-arrow" aria-hidden="true">↗</span></a>
+<a class="profile-card" data-platform="github" href="https://github.com/siddhivinayak-l" target="_blank" rel="noopener noreferrer"><span class="profile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297C5.37.297 0 5.67 0 12.297c0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.043-1.61-4.043-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.838 1.237 1.838 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.3-5.466-1.334-5.466-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 0 1 3.003-.404c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.655 1.652.243 2.873.12 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.805 5.625-5.477 5.922.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12z"/></svg></span><span><strong>GitHub</strong></span><span class="profile-arrow" aria-hidden="true">↗</span></a></div>
   </div>
 </div></div></section>
   </main>
@@ -368,7 +472,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #95
   <script>
   (() => {
     'use strict';
-    // Lightweight perspective projection of abstract geometry. No research data is represented.
+    // Conceptual animated schematics; these are not measured data or physical simulations.
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
     const pointer = window.matchMedia('(hover: hover) and (pointer: fine)');
     const button = document.getElementById('motionToggle');
@@ -378,49 +482,21 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #95
     const TAU = Math.PI * 2;
     const canMove = () => !paused && !reduced.matches;
 
-    function geometry(mode) {
-      const points = [], edges = [];
-      const rows = mode === 'torus' ? 36 : 22;
-      const cols = mode === 'torus' ? 18 : 14;
-      for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols; c++) {
-          const u = r / rows * TAU, v = c / cols * TAU;
-          let x, y, z;
-          if (mode === 'torus') {
-            const radius = .69 + .235 * Math.cos(v);
-            x = radius * Math.cos(u); y = .235 * Math.sin(v); z = radius * Math.sin(u);
-          } else if (mode === 'sphere') {
-            const lat = (c + .5) / cols * Math.PI;
-            x = Math.sin(lat) * Math.cos(u) * .85;
-            y = Math.cos(lat) * .85; z = Math.sin(lat) * Math.sin(u) * .85;
-          } else {
-            x = (r / (rows - 1) - .5) * 1.7;
-            z = (c / (cols - 1) - .5) * 1.7;
-            y = mode === 'grid' ? ((r + c) % 3 - 1) * .17 : 0;
-          }
-          const i = points.length;
-          points.push({x,y,z,u,v,r,c});
-          if (c > 0) edges.push([i - 1,i]);
-          if (r > 0 && c % 2 === 0) edges.push([i - cols,i]);
-        }
-      }
-      return {points,edges};
-    }
 
     document.querySelectorAll('canvas[data-scene]').forEach(canvas => {
       let ctx;
       try { ctx = canvas.getContext('2d', {alpha:true}); } catch (_) { return; }
       if (!ctx) return;
       const mode = canvas.dataset.scene;
-      const scene = {canvas,ctx,mode,...geometry(mode),width:0,height:0,visible:false,tx:0,ty:0,rx:0,ry:0};
+      const scene = {canvas,ctx,mode,static:mode.endsWith('-static'),width:0,height:0,visible:false,tx:0,ty:0,rx:0,ry:0};
       scenes.push(scene);
       const host = canvas.parentElement;
       host.addEventListener('pointermove', event => {
-        if (!pointer.matches || !canMove()) return;
+        if (scene.static || !pointer.matches || !canMove()) return;
         const rect = host.getBoundingClientRect();
         scene.tx = Math.max(-1,Math.min(1,(event.clientX-rect.left)/rect.width*2-1));
         scene.ty = Math.max(-1,Math.min(1,(event.clientY-rect.top)/rect.height*2-1));
-        if (mode !== 'torus') {
+        if (mode !== 'electrochem') {
           host.style.setProperty('--tilt-x',(-scene.ty*3).toFixed(2)+'deg');
           host.style.setProperty('--tilt-y',(scene.tx*3).toFixed(2)+'deg');
         }
@@ -442,52 +518,221 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #95
     }
 
     function draw(scene) {
-      const {ctx,width:w,height:h,mode} = scene;
+      const {ctx,width:w,height:h,mode}=scene;
       ctx.clearRect(0,0,w,h);
-      const dark = mode === 'torus';
-      const t = elapsed;
-      const angle = (dark ? .4+t*.085 : .2+t*.055)+scene.rx*.14;
-      const pitch = (dark ? .86 : mode==='sphere' ? .1 : .62)+scene.ry*.12;
-      const cy = Math.cos(angle), sy = Math.sin(angle), cx = Math.cos(pitch), sx = Math.sin(pitch);
-      const unit = Math.min(w,h)*(dark ? .44 : .41);
-      if (dark) {
-        const glow = ctx.createRadialGradient(w*.5,h*.43,5,w*.5,h*.43,w*.67);
-        glow.addColorStop(0,'rgba(144,88,194,.20)');glow.addColorStop(1,'rgba(80,50,120,0)');
-        ctx.fillStyle=glow;ctx.fillRect(0,0,w,h);
+      if(mode==='electrochem') drawElectrochem(scene);
+      else if(mode==='brain') drawSynapse(scene);
+      else if(mode==='robot'||mode==='paint-static') drawSpray(scene,mode==='paint-static');
+      else if(mode==='lutions-static') drawLutions(scene);
+      else drawDomain(scene);
+    }
+
+
+    function layerDiagram(c,t,dark=false) {
+      const edge=dark?'#aa8ac7':'#795694',ion=dark?'#8cdad5':'#247b81';
+      const dot=(x,y,r,color)=>{c.beginPath();c.arc(x,y,r,0,TAU);c.fillStyle=color;c.fill();};
+      const line=(ps,color,width=1)=>{c.beginPath();ps.forEach(([x,y],i)=>i?c.lineTo(x,y):c.moveTo(x,y));c.strokeStyle=color;c.lineWidth=width;c.stroke();};
+      const poly=(ps,fill)=>{c.beginPath();ps.forEach(([x,y],i)=>i?c.lineTo(x,y):c.moveTo(x,y));c.closePath();c.fillStyle=fill;c.fill();c.strokeStyle=edge;c.lineWidth=1;c.stroke();};
+      const p=(x,y,z)=>[x*.94+z*.57,y+z*.33-x*.09];
+      const layer=(y,fill)=>{
+        const q=[p(-170,y,-65),p(170,y,-65),p(170,y,65),p(-170,y,65)];
+        poly(q,fill);poly([q[2],q[3],p(-170,y+6,65),p(170,y+6,65)],dark?'#473358':'#c6b3d5');
+        for(let x=-150;x<170;x+=26)line([p(x,y,-65),p(x,y,65)],dark?'#795a9655':'#ab96bc66');
+        for(let z=-50;z<65;z+=23)line([p(-170,y,z),p(170,y,z)],dark?'#795a9655':'#ab96bc66');
+      };
+      layer(38,dark?'#41334f':'#e6dceb');
+      [-57,57].forEach(z=>poly([p(-165,-32,z),p(165,-32,z),p(165,38,z),p(-165,38,z)],dark?'rgba(135,101,160,.08)':'rgba(123,87,149,.05)'));
+      for(let i=0;i<26;i++){
+        const x=(((t*.07+i*.618)%1+1)%1-.5)*295,y=Math.sin(i*2.5+t*.3)*15,z=Math.cos(i*1.8)*42;
+        const [px,py]=p(x,y,z);dot(px,py,8,dark?'#8cdad513':'#247b8112');dot(px,py,3.5,ion);
+        if(i%5===0){line([[px-1.7,py],[px+1.7,py]],dark?'#263d47':'#f4faf9');line([[px,py-1.7],[px,py+1.7]],dark?'#263d47':'#f4faf9');}
       }
-      const projected = scene.points.map((p,index) => {
-        let y=p.y;
-        if (mode==='wave') y=Math.sin(p.x*3.5+t*.65+p.z*1.6)*.23;
-        if (mode==='ripple') y=Math.sin(Math.hypot(p.x,p.z)*6-t*.8)*.18;
-        if (mode==='grid') y+=Math.sin(t*.5+p.x*2)*.05;
-        const x=p.x*cy-p.z*sy, z0=p.x*sy+p.z*cy;
-        const yp=y*cx-z0*sx, z=y*sx+z0*cx;
-        const scale=3.8/(3.8+z);
-        return {index,x:w*.5+x*unit*scale,y:h*(dark?.48:.5)+yp*unit*scale,z,scale};
+      layer(-38,dark?'rgba(94,66,118,.2)':'rgba(218,205,230,.34)');
+    }
+    function drawElectrochem(scene) {
+      const {ctx:c,width:w,height:h}=scene,s=Math.min(w/640,h/650);
+      c.save();c.translate((w-640*s)/2,(h-650*s)/2);c.scale(s,s);c.lineJoin='round';c.lineCap='round';
+      const g=c.createRadialGradient(320,296,20,320,296,260);g.addColorStop(0,'#7a4b9f35');g.addColorStop(1,'#17122200');
+      c.fillStyle=g;c.fillRect(0,70,640,470);c.translate(320+scene.rx*4,290+scene.ry*3);c.scale(1.23,1.23);
+      layerDiagram(c,elapsed,true);c.restore();
+    }
+    function drawSynapse(scene) {
+      const {ctx:c,width:w,height:h}=scene,s=Math.min(w/800,h/460),t=elapsed;
+      c.save();c.translate((w-800*s)/2,(h-460*s)/2);c.scale(s,s);c.lineCap='round';c.lineJoin='round';
+      const ink='#684487',teal='#267d84',soft='#cbbbd8';
+      const line=(ps,color=ink,width=2)=>{c.beginPath();ps.forEach(([x,y],i)=>i?c.lineTo(x,y):c.moveTo(x,y));c.strokeStyle=color;c.lineWidth=width;c.stroke();};
+      const dot=(x,y,r,col)=>{c.beginPath();c.arc(x,y,r,0,TAU);c.fillStyle=col;c.fill();};
+      const label=(txt,x,y,small=false)=>{c.fillStyle='#4e405b';c.font='500 '+Math.max(small?15:18,(small?12:13)/s)+'px Inter, Arial, sans-serif';c.textAlign='center';c.fillText(txt,x,y);};
+      label('Biological synapse',196,39);label('Artificial nanochannel',600,39);
+      c.beginPath();c.moveTo(165,60);c.lineTo(165,85);c.bezierCurveTo(85,102,83,164,131,178);
+      c.bezierCurveTo(163,186,239,186,268,177);c.bezierCurveTo(315,155,294,102,228,85);c.lineTo(228,60);
+      c.strokeStyle=ink;c.lineWidth=3;c.stroke();
+      [[151,126],[198,117],[246,137],[188,153]].forEach(([x,y])=>{
+        c.beginPath();c.arc(x,y,13,0,TAU);c.strokeStyle=soft;c.lineWidth=1.6;c.stroke();
+        for(let k=0;k<4;k++)dot(x+Math.cos(k*1.7)*5,y+Math.sin(k*1.7)*5,2.5,teal);
       });
-      ctx.lineWidth=dark?.65:.65;
-      scene.edges.forEach(([a,b])=>{
-        const p=projected[a],q=projected[b];
-        const alpha=dark?.13+(1-p.z)*.055:.11+(1-p.z)*.035;
-        ctx.strokeStyle=dark?'rgba(181,153,215,'+alpha+')':'rgba(85,60,117,'+alpha+')';
-        ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();
-      });
-      projected.sort((a,b)=>b.z-a.z).forEach(p=>{
-        const highlight = p.index%19===0;
-        const alpha = Math.min(.95,(dark?.46:.43)+(1-p.z)*.16);
-        ctx.fillStyle=dark?(highlight?'rgba(238,211,147,.96)':'rgba(206,187,236,'+alpha+')'):(highlight?'rgba(128,72,158,.9)':'rgba(76,47,114,'+alpha+')');
-        ctx.beginPath();ctx.arc(p.x,p.y,(highlight?2.5:1.3)*p.scale,0,TAU);ctx.fill();
-      });
+      line([[100,218],[294,218]],ink,3);
+      for(let i=0;i<7;i++){
+        const x=123+i*25;line([[x,218],[x,205],[x-5,199]],ink,2);line([[x,205],[x+5,199]],ink,2);
+        const phase=(t*.27+i*.173)%1;dot(134+i*20+Math.sin(i+t)*4,170+phase*29,3,teal);
+      }
+      c.save();c.translate(602,143);c.scale(.86,.86);layerDiagram(c,t,false);c.restore();
+      label('Ion-mediated signalling',195,256,true);label('Confined ion transport',600,256,true);
+      // Idealised programming pulses and conductance states; no measured values.
+      const x0=65,x1=330,y0=367,x2=465,x3=735,progress=(t/10)%1;
+      line([[x0,291],[x0,y0],[x1,y0]],soft,1);line([[x2,291],[x2,y0],[x3,y0]],soft,1);
+      const pulse=[],state=[];
+      for(let i=0;i<=160;i++){
+        const f=i/160,k=Math.floor(f*10),local=(f*10)%1,on=k<8&&local>.22&&local<.62;
+        pulse.push([x0+7+f*(x1-x0-14),y0-8-(on?48:0)]);
+        state.push([x2+7+f*(x3-x2-14),y0-8-Math.min(8,Math.floor(f*10+.35))*6]);
+      }
+      line(pulse,'#957daa',1.5);line(state,soft,1.5);
+      const ap=pulse.filter(([x])=>x<=x0+progress*(x1-x0)),as=state.filter(([x])=>x<=x2+progress*(x3-x2));
+      if(ap.length>1)line(ap,ink,2.5);if(as.length>1)line(as,teal,2.8);
+      const last=as[as.length-1];if(last)dot(last[0],last[1],4,teal);
+      line([[369,335],[421,335]],soft,2);line([[413,329],[421,335],[413,341]],soft,2);
+      label('Programming pulses',195,402);label('Conductance states',600,402);label('Schematic response',400,443,true);c.restore();
+    }
+    function drawSpray(scene,staticView=false) {
+      const {ctx:c,width:w,height:h}=scene,s=Math.min(w/600,h/340),t=staticView?4:elapsed;
+      c.save();c.translate((w-600*s)/2,(h-340*s)/2);c.scale(s,s);c.lineCap='round';c.lineJoin='round';
+      const ink='#654780',soft='#c8b8d5',teal='#397f83';
+      const line=(ps,col=ink,lw=2)=>{c.beginPath();ps.forEach(([x,y],i)=>i?c.lineTo(x,y):c.moveTo(x,y));c.strokeStyle=col;c.lineWidth=lw;c.stroke();};
+      const box=(x,y,bw,bh,fill,stroke=ink)=>{c.fillStyle=fill;c.fillRect(x,y,bw,bh);c.strokeStyle=stroke;c.lineWidth=1.5;c.strokeRect(x,y,bw,bh);};
+      const dot=(x,y,r,color)=>{c.beginPath();c.arc(x,y,r,0,TAU);c.fillStyle=color;c.fill();};
+      const phase=(t/12)%1,p=phase<.5?phase*2:2-phase*2,nozzleY=91+p*123;
+      box(403,62,102,181,'#fff',soft);c.fillStyle='#8aafb1';c.fillRect(411,70,86,Math.max(3,nozzleY-52));
+      [85,119,153,187].forEach(y=>line([[411,y],[497,y]],'#bfd4d5',1));
+      box(264,48,16,199,'#ded4e7');box(250,nozzleY-14,44,30,'#eae2f1');
+      line([[294,nozzleY],[326,nozzleY]],ink,10);box(324,nozzleY-7,17,14,teal);line([[341,nozzleY],[350,nozzleY]],ink,4);
+      box(222,247,111,15,'#ded4e7');box(96,174,73,75,'#fff',soft);box(112,162,42,12,ink);
+      c.beginPath();c.moveTo(169,204);c.bezierCurveTo(207,204,185,nozzleY+40,251,nozzleY);c.strokeStyle=ink;c.lineWidth=3;c.stroke();
+      for(let i=0;i<46;i++){const f=((t*.95+i*.618)%1+1)%1;dot(350+f*59,nozzleY+Math.sin(i*8.13)*f*26,1.25+f*.5,'rgba(57,127,131,'+(.15+.55*f)+')');}
+      line([[70,264],[538,264]],soft,1);
+      const label=(txt,x)=>{c.fillStyle='#4e405b';c.font='500 '+Math.max(17,13/s)+'px Inter, Arial, sans-serif';c.textAlign='center';c.fillText(txt,x,307);};
+      label('Paint supply',132);label('Spray nozzle',288);label('Coated surface',464);c.restore();
+    }
+    function drawLutions(scene) {
+      const {ctx:c,width:w,height:h}=scene,s=Math.min(w/600,h/340);
+      c.save();c.translate((w-600*s)/2,(h-340*s)/2);c.scale(s,s);c.lineCap='round';
+      const line=(ps)=>{c.beginPath();ps.forEach(([x,y],i)=>i?c.lineTo(x,y):c.moveTo(x,y));c.strokeStyle='#b4c7c9';c.lineWidth=2;c.stroke();};
+      const label=(txt,x,y,size=17)=>{c.fillStyle='#374b50';c.font='500 '+Math.max(size,13/s)+'px Inter, Arial, sans-serif';c.textAlign='center';c.fillText(txt,x,y);};
+      const block=(x,y,text)=>{c.fillStyle='#fff';c.fillRect(x,y,132,49);c.strokeStyle='#b9ccce';c.lineWidth=1;c.strokeRect(x,y,132,49);label(text,x+66,y+30);};
+      label('Lutions Predictor',300,56,21);line([[187,114],[234,114]]);line([[366,114],[413,114]]);
+      block(55,90,'Data');block(234,90,'No-code ML');block(413,90,'Prediction');
+      label('Lutions Connect',300,215,21);line([[187,273],[234,273]]);line([[366,273],[413,273]]);
+      block(55,249,'Profiles');block(234,249,'Messages');block(413,249,'Community');c.restore();
+    }
+
+    function drawDomain(scene) {
+      const {ctx:c,width:w,height:h,mode}=scene;
+      const s=Math.min(w/600,h/340),t=elapsed;
+      c.save();c.translate((w-600*s)/2,(h-340*s)/2);c.scale(s,s);
+      c.lineCap='round';c.lineJoin='round';
+      const ink='#613b87',soft='#cfc0df',teal='#187d86',gold='#b9772c',paper='#ffffff';
+      const line=(points,color=soft,width=2)=>{
+        c.beginPath();points.forEach(([x,y],i)=>i?c.lineTo(x,y):c.moveTo(x,y));
+        c.strokeStyle=color;c.lineWidth=width;c.stroke();
+      };
+      const dot=(x,y,r,color)=>{c.beginPath();c.arc(x,y,r,0,TAU);c.fillStyle=color;c.fill();};
+      const box=(x,y,bw,bh,fill=paper,stroke=soft)=>{
+        c.fillStyle=fill;c.fillRect(x,y,bw,bh);c.strokeStyle=stroke;c.lineWidth=2;c.strokeRect(x,y,bw,bh);
+      };
+      const label=(text,x,y)=>{
+        c.font='500 '+Math.max(17,13/s)+'px Inter, Arial, sans-serif';c.fillStyle='#484052';c.textAlign='center';c.fillText(text,x,y);
+      };
+      const travel=(points,phase,color=teal,r=4)=>{
+        const lengths=points.slice(1).map((p,i)=>Math.hypot(p[0]-points[i][0],p[1]-points[i][1]));
+        let d=((phase%1)+1)%1*lengths.reduce((a,b)=>a+b,0);
+        for(let i=0;i<lengths.length;i++){
+          if(d<=lengths[i]){const f=d/lengths[i];dot(points[i][0]+(points[i+1][0]-points[i][0])*f,points[i][1]+(points[i+1][1]-points[i][1])*f,r,color);break;}
+          d-=lengths[i];
+        }
+      };
+      const pulse=(x,y,width,height,phase,color=teal)=>{
+        const pts=[];
+        for(let i=0;i<=100;i++){
+          const q=((i/100-phase)%1+1)%1;
+          const v=Math.exp(-Math.pow((q-.35)/.033,2))-.30*Math.exp(-Math.pow((q-.41)/.05,2));
+          pts.push([x+i/100*width,y-v*height]);
+        }
+        line(pts,color,2.5);
+      };
+
+      if(mode==='experiments'){
+        // Material/measurement inputs feed a model with several device applications.
+        for(let i=0;i<3;i++){
+          const y=99+i*38;
+          line([[49,y],[154,y]],soft,4);
+          const x=79+i*17+Math.sin(t*.7+i)*11;
+          line([[49,y],[x,y]],teal,4);dot(x,y,6,ink);dot(x,y,2.5,paper);
+        }
+        const input=[[164,137],[199,137],[199,159],[223,159]];
+        line(input);travel(input,t*.35,teal);
+        box(223,102,111,111,'#fff',ink);
+        for(let i=0;i<4;i++){
+          line([[239+i*25,94],[239+i*25,102]],ink);
+          line([[239+i*25,213],[239+i*25,221]],ink);
+        }
+        const nodes=[[242,126],[242,185],[279,120],[279,157],[279,193],[315,126],[315,185]];
+        [[0,2],[0,3],[1,3],[1,4],[2,5],[3,5],[3,6],[4,6]].forEach(([a,b],i)=>{
+          line([nodes[a],nodes[b]],soft,1.6);travel([nodes[a],nodes[b]],t*.37+i*.13,teal,2.6);
+        });nodes.forEach(([x,y])=>dot(x,y,4,ink));
+        const routes=[[[334,157],[378,157],[378,54],[438,54]],[[334,157],[439,157]],[[334,157],[378,157],[378,250],[444,250]]];
+        routes.forEach((route,i)=>{line(route);travel(route,t*.24+i/3,teal);});
+        // Photovoltaic cell grid with incident light.
+        box(443,35,75,39,'#e1eded',teal);
+        for(let i=1;i<4;i++)line([[443+i*18.75,35],[443+i*18.75,74]],teal,1);
+        line([[443,54],[518,54]],teal,1);
+        [0,1,2].forEach(i=>{line([[454+i*24,13],[449+i*24,26]],gold,1.5);travel([[454+i*24,13],[449+i*24,26]],t*.6+i/3,gold,2);});
+        // Photodetector: incident light and an electrical junction.
+        line([[444,157],[465,157]],ink,2);
+        line([[465,142],[465,172],[489,157],[465,142]],ink,2);
+        line([[489,142],[489,172]],ink,2);line([[489,157],[519,157]],ink,2);
+        [0,1].forEach(i=>{const path=[[487+i*19,116],[476+i*19,135]];line(path,gold,1.5);travel(path,t*.55+i*.5,gold,2.5);});
+        // Battery icon with a changing state bar; conceptual, not a health estimate.
+        box(447,234,64,32,'#fff',ink);box(511,244,7,12,ink,ink);
+        for(let i=0;i<4;i++){c.fillStyle='rgba(24,125,134,'+(.25+.6*(1+Math.sin(t*.6-i*.5))/2)+')';c.fillRect(453+i*14,240,10,20);}
+        label('Solar cells',483,101);label('Photodetectors',483,201);label('Batteries',483,301);
+        const feedback=[[278,221],[278,251],[105,251],[105,195]];
+        line(feedback);travel(feedback,t*.21+.5,gold,3.5);
+        label('Materials & data',103,301);label('AI model',279,301);
+      }else if(mode==='sensor'){
+        // Input particles meet receptor sites and produce an electrical readout.
+        box(210,76,157,175,'rgba(255,255,255,.62)',soft);
+        c.fillStyle='rgba(24,125,134,.08)';c.fillRect(211,77,155,159);
+        box(210,236,157,15,ink,ink);
+        [237,288,339].forEach((x,i)=>{
+          line([[x,236],[x,206],[x-9,197]],ink,3);line([[x,206],[x+9,197]],ink,3);
+          const phase=(t*.22+i/3)%1;
+          const startX=75+i*27,startY=95+i*32;
+          const f=Math.min(phase/.75,1);
+          const ease=f*f*(3-2*f);
+          dot(startX+(x-startX)*ease,startY+(189-startY)*ease,6,teal);
+          if(phase>.75){dot(x,190,13,'rgba(24,125,134,.13)');dot(x,190,6,teal);}
+        });
+        [[72,184],[120,79],[155,222],[106,244]].forEach(([x,y],i)=>{
+          dot(x+Math.sin(t*.6+i)*4,y+Math.cos(t*.7+i)*6,4,soft);
+        });
+        const route=[[367,244],[391,244],[391,176],[412,176]];
+        line(route,soft,2);travel(route,t*.66,teal,4);
+        box(412,99,139,128,'#fff',soft);
+        line([[427,117],[427,206],[537,206]],soft,1);
+        pulse(432,176,103,37,t*.22);
+        label('Input',110,306);label('Sensor',288,306);label('Readout',481,306);
+      }
+      c.restore();
     }
 
     function frame(now) {
       raf=0;
-      if (!canMove() || document.hidden || !scenes.some(scene=>scene.visible)) { previous=0;return; }
+      if (!canMove() || document.hidden || !scenes.some(scene=>scene.visible&&!scene.static)) { previous=0;return; }
       if (previous && now-previous<32) { raf=requestAnimationFrame(frame);return; }
       const dt=previous ? Math.min((now-previous)/1000,.065) : 0;
       previous=now;elapsed+=dt;
       scenes.forEach(scene=>{
-        if (!scene.visible) return;
+        if (!scene.visible || scene.static) return;
         scene.rx+=(scene.tx-scene.rx)*.065;scene.ry+=(scene.ty-scene.ry)*.065;
         draw(scene);
       });
@@ -508,7 +753,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #95
           draw(scene);
         });
       }
-      if (!stopped && !document.hidden && scenes.some(scene=>scene.visible)) {
+      if (!stopped && !document.hidden && scenes.some(scene=>scene.visible&&!scene.static)) {
         if (!raf) raf=requestAnimationFrame(frame);
       } else { if(raf)cancelAnimationFrame(raf);raf=0;previous=0; }
     }
